@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Konnor Herbst">
+<meta name="description" content="Konnor’s Site">
+
+<title>Konnor’s Online Statistics Notes – Konnor Herbst</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../attachments/kh-favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Konnor’s Online Statistics Notes – Konnor Herbst">
+<meta property="og:description" content="Personal site">
+<meta property="og:image" content="https://kaherbst97.github.io/pages/attachments/dag_widget.png">
+<meta property="og:site_name" content="Konnor Herbst">
+<meta name="twitter:title" content="Konnor’s Online Statistics Notes – Konnor Herbst">
+<meta name="twitter:description" content="Personal site">
+<meta name="twitter:image" content="https://kaherbst97.github.io/pages/attachments/dag_widget.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Konnor Herbst</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../pages/research_overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li class="dropdown-header">Current Research Viz</li>
+        <li>
+    <a class="dropdown-item" href="../pages/research/copriority_win.html">
+ <span class="dropdown-text">Co-Priority Win Statistics</span></a>
+  </li>  
+        <li class="dropdown-header">Past Projects Viz</li>
+        <li>
+    <a class="dropdown-item" href="../pages/research/cf_TRIP.html">
+ <span class="dropdown-text">Triangle Permutation (TRIP) Maps</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Notes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
+        <li>
+    <a class="dropdown-item" href="../pages/notes_overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li class="dropdown-header">Foundations</li>
+        <li>
+    <a class="dropdown-item" href="../pages/notes/1setTheory.html">
+ <span class="dropdown-text">Set Theory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/notes/2counting.html">
+ <span class="dropdown-text">Combinatorics</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/KAHerbst97" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sources" id="toc-sources" class="nav-link active" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Konnor’s Online Statistics Notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="chapter-epigraph">
+<blockquote class="blockquote">
+<p>“It’s easy to lie with statistics, it’s hard to tell the truth without it.” — <strong>Andrejs Dunkels</strong></p>
+</blockquote>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="These Notes: Questions and Answers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+These Notes: Questions and Answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>What?</strong> A unified, rigorous, yet compact introduction to statistical science, from elementary set theory and probability and eventually to causal inference, empirical processes, and semiparametric models</li>
+<li><strong>Who?</strong> Primarily undergraduate and early graduate students in statistics, mathematics, and other quantitative disciplines who have some previous exposure to sets, basic proof logic and who are interested in understanding <em>what statistics looks like</em></li>
+<li><strong>Why?</strong> To help readers develop the reasoning needed to evaluate claims, learn from evidence, and be meaningfully <em>data-driven</em></li>
+<li><strong>Where?</strong> <a href="../pages/notes_overview.html">Here</a></li>
+<li><strong>When?</strong> Every day. Repetition is the mother of learning</li>
+<li><strong>How?</strong> By showing how a relatively small collection of ideas ties statistics together, without sacrificing mathematical rigor or the intuition that comes from exploring those ideas interactively</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Why I Wrote These Notes">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why I Wrote These Notes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Statistics is a rich and relatively young intellectual tradition still in the making, one that you, too, can be part of. These notes are my attempt to write the resource I wish I’d had as a young man searching for my own purpose.</p>
+<p>Even if I don’t convince you to become a statistician, I hope you’ll see how much light statistical thinking can shed on the questions we all face amid the deluge of data in this demon haunted world. Studying statistics has taught me how easily we can fool ourselves, especially when the data seem to tell a story we already believe. Wherever you come from and wherever you’re headed, I hope you’ll get in the habit of asking how much of that story the evidence actually supports, whether you welcome the conclusion or find it hard to accept.</p>
+</div>
+</div>
+</div>
+<p>I begin with two short introductions to the subject,</p>
+<ul>
+<li>Core Questions <a href="notes/attachments/0roadmap.pdf" download="0roadmap.pdf"><i class="bi bi-signpost-split" style="color: #635080;" title="Learning Roadmap PDF"></i></a></li>
+<li>A Short Overview <a href="notes/attachments/0Intro.pdf" download="0Intro.pdf"><i class="bi bi-file-earmark-pdf" style="color: #c0392b;" title="Introduction PDF"></i></a></li>
+</ul>
+<p>I then turn to the tried-and-true mathematical foundations,</p>
+<ul>
+<li><a href="../pages/notes/1setTheory.html">Set Theory</a></li>
+<li><a href="../pages/notes/2counting.html">Combinatorics</a></li>
+</ul>
+<p>I eventually want to include much more extensive interactive notes on,</p>
+<ul>
+<li>Calculus, Optimization and Real Analysis</li>
+<li>Set-Theoretic Probability</li>
+<li>Mathematical Statistics and Inference</li>
+<li>Causality and Causal Inference</li>
+<li>Experimental Design</li>
+<li>Statistical Models</li>
+<li>Measure-Theoretic Probability</li>
+<li>Stochastic Processes</li>
+<li>Advanced Mathematical Statistics</li>
+</ul>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<p>Much of this material draws on courses I took in statistics and biostatistics at <a href="https://www.williams.edu/"><em>Williams College</em></a>, the <a href="https://www.urmc.rochester.edu/biostat"><em>University of Rochester</em></a>, <a href="https://biostat.duke.edu/"><em>Duke University</em></a>, and the <a href="https://sph.unc.edu/bios/biostatistics/"><em>University of North Carolina at Chapel Hill</em></a>. I am especially grateful to <em>Tom Garrity</em> and <em>Richard De Veaux</em> at Williams; <em>Xing Qiu</em>, <em>Abdus Wahed</em>, <em>Ashkan Ertefaie</em>, and <em>Derick Peterson</em> at Rochester; <em>Hwanhee Hong</em>, <em>Ethan Xingyuan Fang</em>, <em>Kouros Owzar</em>, <em>Roland Matsouaka</em>, <em>Nikki Freeman</em>, <em>Simon Mak</em>, <em>Fan Li</em>, and <em>Peter Hoff</em> at Duke; and <em>Michael Kosorok</em> at UNC.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Site Bibliography">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Site Bibliography
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In rough order of complexity,</p>
+<ol type="1">
+<li><strong>Stewart, J. (2015).</strong> <a href="https://books.google.com/books?vid=ISBN9781285740621"><em>Calculus</em></a> (8th ed.). Cengage Learning.</li>
+<li><strong>Spivak, M. (2008).</strong> <a href="https://mathpop.com/products/calculus-4th-edition"><em>Calculus</em></a> (4th ed.). Publish or Perish.</li>
+<li><strong>Abelson, R. P. (1995).</strong> <a href="https://www.routledge.com/Statistics-As-Principled-Argument-1st-Edition/Abelson/p/book/9780805805284"><em>Statistics as Principled Argument</em></a>. Psychology Press.</li>
+<li><strong>Dekking, F. M., Kraaikamp, C., Lopuhaä, H. P., &amp; Meester, L. E. (2005).</strong> <a href="https://doi.org/10.1007/1-84628-168-7"><em>A Modern Introduction to Probability and Statistics: Understanding Why and How</em></a>. Springer.</li>
+<li><strong>Rozanov, Y. A. (1977).</strong> <a href="https://books.google.com/books?id=Ond2H8P_65gC"><em>Probability Theory: A Concise Course</em></a>. Dover Publications.</li>
+<li><strong>Wasserman, L. (2004).</strong> <a href="https://doi.org/10.1007/978-0-387-21736-9"><em>All of Statistics: A Concise Course in Statistical Inference</em></a>. Springer.</li>
+<li><strong>Wackerly, D. D., Mendenhall, W., &amp; Scheaffer, R. L. (2008).</strong> <a href="https://www.cengage.com/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811PF/"><em>Mathematical Statistics with Applications</em></a> (7th ed.). Thomson Brooks/Cole.</li>
+<li><strong>Casella, G., &amp; Berger, R. L. (2002).</strong> <a href="https://www.routledge.com/link/link/p/book/9781032593036"><em>Statistical Inference</em></a> (2nd ed.). Duxbury.</li>
+<li><strong>Aronow, P. M., &amp; Miller, B. T. (2019).</strong> <a href="https://doi.org/10.1017/9781316831762"><em>Foundations of Agnostic Statistics</em></a>. Cambridge University Press.</li>
+<li><strong>Ding, P. (2026).</strong> <a href="https://www.routledge.com/Linear-Model-and-Extensions/Ding/p/book/9781032824550"><em>Linear Model and Extensions</em></a>. Chapman &amp; Hall/CRC Press.</li>
+<li><strong>Seber, G. A. F., &amp; Lee, A. J. (2003).</strong> <a href="https://doi.org/10.1002/9780471722199"><em>Linear Regression Analysis</em></a> (2nd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Christensen, R. (2020).</strong> <a href="https://doi.org/10.1007/978-3-030-32097-3"><em>Plane Answers to Complex Questions: The Theory of Linear Models</em></a> (5th ed.). Springer.</li>
+<li><strong>Agresti, A. (2013).</strong> <a href="https://www.wiley.com/en-gb/Categorical%2BData%2BAnalysis%2C%2B3rd%2BEdition-p-9780470463635"><em>Categorical Data Analysis</em></a> (3rd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Hoff, P. D. (2009).</strong> <a href="https://doi.org/10.1007/978-0-387-92407-6"><em>A First Course in Bayesian Statistical Methods</em></a>. Springer.</li>
+<li><strong>Wu, C. F. J., &amp; Hamada, M. S. (2009).</strong> <a href="https://www.wiley.com/en-ca/experiments-planning-analysis-and-optimization-2nd-edition-p-9780471699460"><em>Experiments: Planning, Analysis, and Optimization</em></a> (2nd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Wang, D., &amp; Bakhai, A. (Eds.). (2006).</strong> <a href="https://books.google.com/books?id=zgx_YTHny5sC"><em>Clinical Trials: A Practical Guide to Design, Analysis, and Reporting</em></a>. Remedica.</li>
+<li><strong>Ding, P. (2024).</strong> <a href="https://doi.org/10.1201/9781003484080"><em>A First Course in Causal Inference</em></a>. Chapman &amp; Hall/CRC Press.</li>
+<li><strong>Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009).</strong> <a href="https://hastie.su.domains/ElemStatLearn/"><em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em></a> (2nd ed.). Springer.</li>
+<li><strong>DasGupta, A. (2008).</strong> <a href="https://doi.org/10.1007/978-0-387-75971-5"><em>Asymptotic Theory of Statistics and Probability</em></a>. Springer.</li>
+<li><strong>van der Vaart, A. W. (1998).</strong> <a href="https://doi.org/10.1017/CBO9780511802256"><em>Asymptotic Statistics</em></a>. Cambridge University Press.</li>
+<li><strong>Tsiatis, A. A. (2006).</strong> <a href="https://doi.org/10.1007/0-387-37345-4"><em>Semiparametric Theory and Missing Data</em></a>. Springer.</li>
+</ol>
+<p>The organization and framing of these notes are heavily influenced by the <em>causal roadmap</em> and, more generally, by <em>the distinction between what we want to learn from data (the estimand) and how we use data to estimate it (the estimator)</em>. The following articles have been particularly helpful in developing this perspective:</p>
+<ol type="1">
+<li><strong>Petersen, M. L., &amp; van der Laan, M. J. (2014).</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4077670/"><em>Causal Models and Learning from Data: Integrating Causal Modeling and Statistical Estimation</em></a>. <em>Epidemiology, 25</em>(3), 418–426.</li>
+<li><strong>Lundberg, I., Johnson, R., &amp; Stewart, B. M. (2021).</strong> <a href="https://journals.sagepub.com/doi/full/10.1177/00031224211004187"><em>What Is Your Estimand? Defining the Target Quantity Connects Statistical Evidence to Theory</em></a>. <em>American Sociological Review, 86</em>(3), 532–565.</li>
+<li><strong>Hernán, M. A., Hsu, J., &amp; Healy, B. (2019).</strong> <a href="https://content.sph.harvard.edu/wwwhsph/sites/1268/2019/04/hernan_chance19.pdf"><em>A Second Chance to Get Causal Inference Right: A Classification of Data Science Tasks</em></a>. <em>CHANCE, 32</em>(1), 42–49.</li>
+</ol>
+<p>I also used several blogs and online resources,</p>
+<ul>
+<li><p><strong>Statistics Education and Interactive Learning Resources</strong> There are already many excellent online resources for learning different parts of statistics, arguably better than my own in their respective areas, including:</p>
+<ul>
+<li><a href="https://seeing-theory.brown.edu/"><strong>Seeing Theory — Brown University</strong></a>. Really fun interactive visualizations of fundamental statistical concepts. I think this is a great starting point for complete beginners.</li>
+</ul></li>
+<li><p><a href="https://statquest.org/"><strong>StatQuest with Josh Starmer</strong></a>. Accessible and entertaining explanations through videos and songs.</p></li>
+<li><p><a href="https://stat110.hsites.harvard.edu/"><strong>Harvard Statistics 110 — Joseph Blitzstein</strong></a>. A wildly popular and wonderfully taught introduction to probability. I think my introductory <a href="notes/0Intro.pdf"><em>Thinking Statistically</em></a> handout falls somewhere between Starmer’s intuitive explanations and Blitzstein’s more trasitionally mathematical approach, with a greater emphasis on how statistical ideas fit into scientific reasoning.</p></li>
+<li><p><strong>Statistical Blogs and Academic Websites</strong></p>
+<ul>
+<li><a href="https://statmodeling.stat.columbia.edu/"><strong>Andrew Gelman</strong></a></li>
+<li><a href="https://www.fharrell.com/"><strong>Frank Harrell</strong></a></li>
+<li><a href="https://methodologymatters.substack.com/"><strong>Richard Hahn</strong></a></li>
+<li><a href="https://pbreheny.org/web/"><strong>Patrick Breheny</strong></a></li>
+<li><a href="https://jarad.me/"><strong>Jarad Niemi</strong></a></li>
+</ul></li>
+<li><p><strong>Industry Data Science and Causal/Experimentation Blogs</strong></p>
+<ul>
+<li><a href="https://engineering.atspotify.com/?c=data-science"><strong>Spotify Engineering — Data Science</strong></a>.</li>
+<li><a href="https://stripe.com/blog"><strong>Stripe — Engineering and Data Science</strong></a>.</li>
+<li><a href="https://quoradata.quora.com/The-Essential-Reading-Guide-to-industry-practice-of-Controlled-experiments-and-Causal-inferences"><strong>Tuan Doan Extensive Quora Post on Industry Practice of Controlled Experiments and Causal Inference</strong></a>.</li>
+</ul></li>
+</ul>
+<p>I have spent an embaressing amount time lurking in discussions in online statistics communities, particularly Cross Validated (Stack Exchange) and Reddit. There’s a lot of junk but a few posters/responders stand out as worthwhile reads instead of doom scrolling,</p>
+<ul>
+<li><a href="https://stats.stackexchange.com/users/919/whuber?utm_source=chatgpt.com"><strong>whuber</strong></a> on Cross Validated.</li>
+<li><a href="https://stats.stackexchange.com/users/11887/kjetil-b-halvorsen"><strong>kjetil b halvorsen</strong></a> on Cross Validated.</li>
+<li><a href="https://stats.stackexchange.com/users/7290/gung-reinstate-monica"><strong>gung</strong></a> on Cross Validated.</li>
+<li><a href="https://www.reddit.com/user/efrique"><strong>efrique</strong></a> on Reddit, particularly in <a href="https://www.reddit.com/r/statistics">r/statistics</a> and <a href="https://www.reddit.com/r/AskStatistics">r/AskStatistics</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Finally I include a list of all the books I read at least parts of during my education that inevitably helped build these notes,</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Full Library">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Full Library
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Mathematics, Statistical Thinking, and the History of Statistics</strong>
+<ol type="1">
+<li><strong>Lawrence, S. (2025).</strong> <a href="https://yalebooks.yale.edu/book/9780300273731/a-little-history-of-mathematics/"><em>A Little History of Mathematics</em></a>. Yale University Press.</li>
+<li><strong>Sawyer, W. W. (1962).</strong> <a href="https://www.cambridge.org/core/books/what-is-calculus-about/39F06C1E9DA7E5EF624B357BA0997AFE"><em>What Is Calculus About?</em></a>. Mathematical Association of America.</li>
+<li><strong>Stewart, J. (2015).</strong> <a href="https://books.google.com/books?vid=ISBN9781285740621"><em>Calculus</em></a> (8th ed.). Cengage Learning.</li>
+<li><strong>Spivak, M. (2008).</strong> <a href="https://mathpop.com/products/calculus-4th-edition"><em>Calculus</em></a> (4th ed.). Publish or Perish.</li>
+<li><strong>Huff, D. (1954).</strong> <a href="https://online225.psych.wisc.edu/wp-content/uploads/225-Master/225-UnitPages/Unit-07/Huff_StatisticsBook_1954.pdf"><em>How to Lie with Statistics</em></a>. W. W. Norton &amp; Company.</li>
+<li><strong>Stigler, S. M. (2016).</strong> <a href="https://books.google.com/books?id=LQUEDAAAQBAJ"><em>The Seven Pillars of Statistical Wisdom</em></a>. Harvard University Press.</li>
+<li><strong>Abelson, R. P. (1995).</strong> <a href="https://www.routledge.com/Statistics-As-Principled-Argument-1st-Edition/Abelson/p/book/9780805805284"><em>Statistics as Principled Argument</em></a>. Psychology Press.</li>
+<li><strong>Ziliak, S. T., &amp; McCloskey, D. N. (2008).</strong> <a href="https://doi.org/10.3998/mpub.186351"><em>The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives</em></a>. University of Michigan Press.</li>
+<li><strong>Tukey, J. W. (1977).</strong> <a href="https://books.google.com/books?vid=ISBN0201076160"><em>Exploratory Data Analysis</em></a>. Addison-Wesley.</li>
+<li><strong>Martin, D. W. (2007).</strong> <a href="https://books.google.com/books?id=ceQJzgEACAAJ"><em>Doing Psychology Experiments</em></a> (7th ed.). Thomson Wadsworth.</li>
+</ol></li>
+<li><strong>Probability Theory</strong>
+<ol type="1">
+<li><strong>Dekking, F. M., Kraaikamp, C., Lopuhaä, H. P., &amp; Meester, L. E. (2005).</strong> <a href="https://doi.org/10.1007/1-84628-168-7"><em>A Modern Introduction to Probability and Statistics: Understanding Why and How</em></a>. Springer.</li>
+<li><strong>Fernandez-Granda, C. (2025).</strong> <a href="https://doi.org/10.1017/9781009180108"><em>Probability and Statistics for Data Science</em></a>. Cambridge University Press.</li>
+<li><strong>Rozanov, Y. A. (1977).</strong> <a href="https://books.google.com/books?id=Ond2H8P_65gC"><em>Probability Theory: A Concise Course</em></a>. Dover Publications.</li>
+<li><strong>Resnick, S. I. (1999).</strong> <a href="https://link.springer.com/book/10.1007/978-0-8176-8409-9"><em>A Probability Path</em></a>. Birkhäuser.</li>
+<li><strong>Grimmett, G. R., &amp; Stirzaker, D. R. (2020).</strong> <a href="https://www.statslab.cam.ac.uk/~grg1000/books/prp4.html"><em>Probability and Random Processes</em></a> (4th ed.). Oxford University Press.</li>
+<li><strong>Durrett, R. (2019).</strong> <a href="https://doi.org/10.1017/9781108591034"><em>Probability: Theory and Examples</em></a> (5th ed.). Cambridge University Press.</li>
+</ol></li>
+<li><strong>Mathematical Statistics and Statistical Inference</strong>
+<ol type="1">
+<li><strong>Wasserman, L. (2004).</strong> <a href="https://doi.org/10.1007/978-0-387-21736-9"><em>All of Statistics: A Concise Course in Statistical Inference</em></a>. Springer.</li>
+<li><strong>Wackerly, D. D., Mendenhall, W., &amp; Scheaffer, R. L. (2008).</strong> <a href="https://www.cengage.com/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811PF/"><em>Mathematical Statistics with Applications</em></a> (7th ed.). Thomson Brooks/Cole.</li>
+<li><strong>Hogg, R. V., McKean, J. W., &amp; Craig, A. T. (2019).</strong> <a href="https://books.google.com/books?id=V1SzswEACAAJ"><em>Introduction to Mathematical Statistics</em></a> (8th ed.). Pearson.</li>
+<li><strong>Imai, K. (2017).</strong> <a href="https://books.google.com/books?id=KLwODgAAQBAJ"><em>Quantitative Social Science: An Introduction</em></a>. Princeton University Press.</li>
+<li><strong>Casella, G., &amp; Berger, R. L. (2002).</strong> <a href="https://www.routledge.com/link/link/p/book/9781032593036"><em>Statistical Inference</em></a> (2nd ed.). Duxbury.</li>
+<li><strong>Silvey, S. D. (1975).</strong> <a href="https://www.routledge.com/Statistical-Inference/Silvey/p/book/9780203738641"><em>Statistical Inference</em></a>. Chapman and Hall.</li>
+<li><strong>Pawitan, Y. (2001).</strong> <a href="https://doi.org/10.1093/oso/9780198507659.001.0001"><em>In All Likelihood: Statistical Modelling and Inference Using Likelihood</em></a>. Oxford University Press.</li>
+<li><strong>Lehmann, E. L., &amp; Casella, G. (1998).</strong> <a href="https://doi.org/10.1007/b98854"><em>Theory of Point Estimation</em></a> (2nd ed.). Springer.</li>
+<li><strong>Lehmann, E. L., &amp; Romano, J. P. (2022).</strong> <a href="https://doi.org/10.1007/978-3-030-70578-7"><em>Testing Statistical Hypotheses</em></a> (4th ed.). Springer.</li>
+<li><strong>Shao, J. (2003).</strong> <a href="https://doi.org/10.1007/b97553"><em>Mathematical Statistics</em></a> (2nd ed.). Springer.</li>
+<li><strong>Aronow, P. M., &amp; Miller, B. T. (2019).</strong> <a href="https://doi.org/10.1017/9781316831762"><em>Foundations of Agnostic Statistics</em></a>. Cambridge University Press.</li>
+</ol></li>
+<li><strong>Regression, Statistical Modeling, and Survival Analysis</strong>
+<ol type="1">
+<li><strong>Seber, G. A. F., &amp; Lee, A. J. (2003).</strong> <a href="https://doi.org/10.1002/9780471722199"><em>Linear Regression Analysis</em></a> (2nd ed.). John Wiley &amp; Sons.</li>
+<li><strong>McCullagh, P., &amp; Nelder, J. A. (1989).</strong> <a href="https://www.routledge.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606"><em>Generalized Linear Models</em></a> (2nd ed.). Chapman and Hall.</li>
+<li><strong>Agresti, A. (2013).</strong> <a href="https://www.wiley.com/en-gb/Categorical%2BData%2BAnalysis%2C%2B3rd%2BEdition-p-9780470463635"><em>Categorical Data Analysis</em></a> (3rd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Christensen, R. (2020).</strong> <a href="https://doi.org/10.1007/978-3-030-32097-3"><em>Plane Answers to Complex Questions: The Theory of Linear Models</em></a> (5th ed.). Springer.</li>
+<li><strong>Christensen, R. (2019).</strong> <a href="https://doi.org/10.1007/978-3-030-29164-8"><em>Advanced Linear Modeling: Statistical Learning and Dependent Data</em></a> (3rd ed.). Springer.</li>
+<li><strong>Ding, P. (2027).</strong> <a href="https://www.routledge.com/Linear-Model-and-Extensions/Ding/p/book/9781032825502"><em>Linear Model and Extensions</em></a>. Chapman &amp; Hall/CRC Press. Forthcoming.</li>
+<li><strong>Wood, S. N. (2017).</strong> <a href="https://doi.org/10.1201/9781315370279"><em>Generalized Additive Models: An Introduction with R</em></a> (2nd ed.). Chapman &amp; Hall/CRC Press.</li>
+<li><strong>Harrell, F. E., Jr.&nbsp;(2015).</strong> <a href="https://doi.org/10.1007/978-3-319-19425-7"><em>Regression Modeling Strategies: With Applications to Linear Models, Logistic and Ordinal Regression, and Survival Analysis</em></a> (2nd ed.). Springer.</li>
+<li><strong>Gelman, A., Hill, J., &amp; Vehtari, A. (2020).</strong> <a href="https://sites.stat.columbia.edu/gelman/regression/"><em>Regression and Other Stories</em></a>. Cambridge University Press.</li>
+<li><strong>Twisk, J. W. R. (2019).</strong> <a href="https://doi.org/10.1017/9781108635660"><em>Applied Mixed Model Analysis: A Practical Guide</em></a> (2nd ed.). Cambridge University Press.</li>
+<li><strong>Kleinbaum, D. G., &amp; Klein, M. (2012).</strong> <a href="https://doi.org/10.1007/978-1-4419-6646-9"><em>Survival Analysis: A Self-Learning Text</em></a> (3rd ed.). Springer.</li>
+<li><strong>Kalbfleisch, J. D., &amp; Prentice, R. L. (2002).</strong> <a href="https://doi.org/10.1002/9781118032985"><em>The Statistical Analysis of Failure Time Data</em></a> (2nd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Fleming, T. R., &amp; Harrington, D. P. (1991).</strong> <a href="https://doi.org/10.1002/9781118150672"><em>Counting Processes and Survival Analysis</em></a>. John Wiley &amp; Sons.</li>
+</ol></li>
+<li><strong>Bayesian Statistics and Decision Theory</strong>
+<ol type="1">
+<li><strong>Hoff, P. D. (2009).</strong> <a href="https://doi.org/10.1007/978-0-387-92407-6"><em>A First Course in Bayesian Statistical Methods</em></a>. Springer.</li>
+<li><strong>McElreath, R. (2020).</strong> <a href="https://doi.org/10.1201/9780429029608"><em>Statistical Rethinking: A Bayesian Course with Examples in R and Stan</em></a> (2nd ed.). Chapman &amp; Hall/CRC Press.</li>
+<li><strong>Robert, C. P. (2007).</strong> <a href="https://doi.org/10.1007/0-387-71599-1"><em>The Bayesian Choice: From Decision-Theoretic Foundations to Computational Implementation</em></a> (2nd ed.). Springer.</li>
+<li><strong>Parmigiani, G., &amp; Inoue, L. Y. T. (2009).</strong> <a href="https://doi.org/10.1002/9780470746684"><em>Decision Theory: Principles and Approaches</em></a>. John Wiley &amp; Sons.</li>
+</ol></li>
+<li><strong>Experimental Design and Clinical Trials</strong>
+<ol type="1">
+<li><strong>Easterling, R. G. (2015).</strong> <a href="https://www.wiley-vch.de/en/areas-interest/mathematics-statistics/fundamentals-of-statistical-experimental-design-and-analysis-978-1-118-95463-8"><em>Fundamentals of Statistical Experimental Design and Analysis</em></a>. John Wiley &amp; Sons.</li>
+<li><strong>Wu, C. F. J., &amp; Hamada, M. S. (2021).</strong> <a href="https://doi.org/10.1002/9781119470007"><em>Experiments: Planning, Analysis, and Optimization</em></a> (3rd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Friedman, L. M., Furberg, C. D., DeMets, D. L., Reboussin, D. M., &amp; Granger, C. B. (2015).</strong> <a href="https://doi.org/10.1007/978-3-319-18539-2"><em>Fundamentals of Clinical Trials</em></a> (5th ed.). Springer.</li>
+<li><strong>Wang, D., &amp; Bakhai, A. (Eds.). (2006).</strong> <a href="https://books.google.com/books?id=zgx_YTHny5sC"><em>Clinical Trials: A Practical Guide to Design, Analysis, and Reporting</em></a>. Remedica.</li>
+<li><strong>Kohavi, R., Tang, D., &amp; Xu, Y. (2020).</strong> <a href="https://doi.org/10.1017/9781108653985"><em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em></a>. Cambridge University Press.</li>
+</ol></li>
+<li><strong>Causal Inference and Precision Medicine</strong>
+<ol type="1">
+<li><strong>Huntington-Klein, N. (2022).</strong> <a href="https://www.theeffectbook.net"><em>The Effect: An Introduction to Research Design and Causality</em></a>. Chapman &amp; Hall/CRC Press.</li>
+<li><a href="https://www.masteringmetrics.com/"><strong>Angrist and Pischke, <em>Mastering ’Metrics: The Path from Cause to Effect</em></strong></a></li>
+<li><strong>Cunningham, S. (2021).</strong> <a href="https://mixtape.scunning.com/"><em>Causal Inference: The Mixtape</em></a>. Yale University Press.</li>
+<li><strong>Ding, P. (2024).</strong> <a href="https://doi.org/10.1201/9781003484080"><em>A First Course in Causal Inference</em></a>. Chapman &amp; Hall/CRC Press.</li>
+<li><strong>Hernán, M. A., &amp; Robins, J. M. (2020).</strong> <a href="https://miguelhernan.org/whatifbook"><em>Causal Inference: What If</em></a>. Chapman &amp; Hall/CRC Press.</li>
+<li><strong>VanderWeele, T. J. (2015).</strong> <a href="https://global.oup.com/academic/product/explanation-in-causal-inference-9780199325870"><em>Explanation in Causal Inference: Methods for Mediation and Interaction</em></a>. Oxford University Press.</li>
+<li><strong>Angrist, J. D., &amp; Pischke, J.-S. (2009).</strong> <a href="https://doi.org/10.1515/9781400829828"><em>Mostly Harmless Econometrics: An Empiricist’s Companion</em></a>. Princeton University Press.</li>
+<li><strong>Laber, E., Chakraborty, B., Moodie, E. E. M., Cai, T., &amp; van der Laan, M. J. (Eds.). (2025).</strong> <a href="https://www.routledge.com/Handbook-of-Statistical-Methods-for-Precision-Medicine/Laber-Chakraborty-Moodie-Cai-Laan/p/book/9781003216223"><em>Handbook of Statistical Methods for Precision Medicine</em></a>. Chapman &amp; Hall/CRC Press.</li>
+<li><strong>Chernozhukov, V., Hansen, C., Kallus, N., Spindler, M., &amp; Syrgkanis, V. (2026).</strong> <a href="https://causalml-book.org/"><em>Applied Causal Inference Powered by ML and AI</em></a>. Online book manuscript.</li>
+<li><strong>Wager, S. (2025).</strong> <a href="https://web.stanford.edu/~swager/causal_inf_book.pdf"><em>Causal Inference: A Statistical Learning Approach</em></a>. Draft manuscript, Stanford University.</li>
+</ol></li>
+<li><strong>Statistical Learning, Machine Learning, and Computational Genomics</strong>
+<ol type="1">
+<li><strong>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021).</strong> <a href="https://www.statlearning.com/"><em>An Introduction to Statistical Learning: With Applications in R</em></a> (2nd ed.). Springer.</li>
+<li><strong>Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009).</strong> <a href="https://hastie.su.domains/ElemStatLearn/"><em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em></a> (2nd ed.). Springer.</li>
+<li><strong>Sutton, R. S., &amp; Barto, A. G. (2018).</strong> <a href="https://mitpress.mit.edu/9780262039246/reinforcement-learning/"><em>Reinforcement Learning: An Introduction</em></a> (2nd ed.). MIT Press.</li>
+<li><strong>Murphy, K. P. (2022).</strong> <a href="https://mitpress.mit.edu/9780262046824/probabilistic-machine-learning/"><em>Probabilistic Machine Learning: An Introduction</em></a>. MIT Press.</li>
+<li><strong>Murphy, K. P. (2023).</strong> <a href="https://mitpress.mit.edu/9780262048439/probabilistic-machine-learning/"><em>Probabilistic Machine Learning: Advanced Topics</em></a>. MIT Press.</li>
+<li><strong>Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016).</strong> <a href="https://www.deeplearningbook.org/"><em>Deep Learning</em></a>. MIT Press.</li>
+<li><strong>Shalizi, C. R. (n.d.).</strong> <a href="https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/"><em>Advanced Data Analysis from an Elementary Point of View</em></a>. Draft textbook, Carnegie Mellon University.</li>
+<li><strong>Akalin, A. (2021).</strong> <a href="https://www.routledge.com/Computational-Genomics-with-R/Akalin/p/book/9781498781855"><em>Computational Genomics with R</em></a>. Chapman &amp; Hall/CRC Press.</li>
+</ol></li>
+<li><strong>Mathematical Optimization</strong>
+<ol type="1">
+<li><strong>Bertsimas, D., &amp; Tsitsiklis, J. N. (1997).</strong> <a href="https://books.google.com/books?id=GAFsQgAACAAJ"><em>Introduction to Linear Optimization</em></a>. Athena Scientific.</li>
+<li><strong>Boyd, S., &amp; Vandenberghe, L. (2004).</strong> <a href="https://doi.org/10.1017/CBO9780511804441"><em>Convex Optimization</em></a>. Cambridge University Press.</li>
+</ol></li>
+<li><strong>Asymptotic Theory, Empirical Processes, and Semiparametric Inference</strong>
+<ol type="1">
+<li><strong>DasGupta, A. (2008).</strong> <a href="https://doi.org/10.1007/978-0-387-75971-5"><em>Asymptotic Theory of Statistics and Probability</em></a>. Springer.</li>
+<li><strong>van der Vaart, A. W. (1998).</strong> <a href="https://doi.org/10.1017/CBO9780511802256"><em>Asymptotic Statistics</em></a>. Cambridge University Press.</li>
+<li><strong>Wainwright, M. J. (2019).</strong> <a href="https://www.cambridge.org/core/books/highdimensional-statistics/8A91ECEEC38F46DAB53E9FF8757C7A4E"><em>High-Dimensional Statistics: A Non-Asymptotic Viewpoint</em></a>. Cambridge University Press.</li>
+<li><strong>Kosorok, M. R. (2008).</strong> <a href="https://doi.org/10.1007/978-0-387-74978-5"><em>Introduction to Empirical Processes and Semiparametric Inference</em></a>. Springer.</li>
+<li><strong>van der Vaart, A. W., &amp; Wellner, J. A. (2023).</strong> <a href="https://doi.org/10.1007/978-3-031-29040-4"><em>Weak Convergence and Empirical Processes: With Applications to Statistics</em></a> (2nd ed.). Springer.</li>
+<li><strong>Tsiatis, A. A. (2006).</strong> <a href="https://doi.org/10.1007/0-387-37345-4"><em>Semiparametric Theory and Missing Data</em></a>. Springer.</li>
+<li><strong>Bickel, P. J., Klaassen, C. A. J., Ritov, Y., &amp; Wellner, J. A. (1998).</strong> <a href="https://link.springer.com/book/9780387984735"><em>Efficient and Adaptive Estimation for Semiparametric Models</em></a>. Springer.</li>
+<li><strong>van der Laan, M. J., &amp; Rose, S. (2011).</strong> <a href="https://doi.org/10.1007/978-1-4419-9782-1"><em>Targeted Learning: Causal Inference for Observational and Experimental Data</em></a>. Springer.</li>
+<li><strong>Huber, P. J., &amp; Ronchetti, E. M. (2009).</strong> <a href="https://doi.org/10.1002/9780470434697"><em>Robust Statistics</em></a> (2nd ed.). John Wiley &amp; Sons.</li>
+<li><strong>Davison, A. C., &amp; Hinkley, D. V. (1997).</strong> <a href="https://doi.org/10.1017/CBO9780511802843"><em>Bootstrap Methods and Their Application</em></a>. Cambridge University Press.</li>
+<li><strong>Efron, B., &amp; Hastie, T. (2016).</strong> <a href="https://doi.org/10.1017/CBO9781316576533"><em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em></a>. Cambridge University Press.</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* Turn Quarto's flat dropdown headings into disclosure submenus.
+
+   Keep editing links in _quarto.yml; Quarto resolves their URLs normally. */
+
+(() => {
+
+  function init() {
+
+    const nav = document.querySelector('#quarto-header .navbar');
+
+    if (!nav || nav.dataset.cascadingReady) return;
+
+    nav.dataset.cascadingReady = 'true';
+
+    const headings = new Set([
+
+      'Current Research Viz',
+
+      'Past Projects Viz',
+
+      'Foundations',
+
+      'Core Statistics',
+
+      'Advanced Topics'
+
+    ]);
+
+    const groups = [];
+
+    let serial = 0;
+
+    const mobile = () => {
+
+      const toggle = nav.querySelector('.navbar-toggler');
+
+      return window.innerWidth < 760 || (toggle && getComputedStyle(toggle).display !== 'none');
+
+    };
+
+    function close(group) {
+
+      group.button.setAttribute('aria-expanded', 'false');
+
+      group.panel.hidden = true;
+
+      group.li.classList.remove('km-open');
+
+      clearTimeout(group.timer);
+
+    }
+
+    function place(group) {
+
+      const inline = mobile();
+
+      group.li.classList.toggle('km-inline', inline);
+
+      group.panel.style.left = ''; group.panel.style.top = '';
+
+      if (inline) return;
+
+      const r = group.li.getBoundingClientRect();
+
+      const p = group.panel.getBoundingClientRect();
+
+      let x = r.right - 2;
+
+      if (x + p.width > window.innerWidth - 8) x = r.left - p.width + 2;
+
+      x = Math.max(8, Math.min(x, window.innerWidth - p.width - 8));
+
+      const y = Math.max(8, Math.min(r.top, window.innerHeight - p.height - 8));
+
+      group.panel.style.left = x + 'px'; group.panel.style.top = y + 'px';
+
+    }
+
+    function open(group, focus = false) {
+
+      groups.filter(g => g !== group).forEach(close);
+
+      clearTimeout(group.timer);
+
+      group.li.classList.toggle('km-inline', mobile());
+
+      group.panel.hidden = false;
+
+      group.button.setAttribute('aria-expanded', 'true');
+
+      group.li.classList.add('km-open');
+
+      place(group);
+
+      if (focus) group.panel.querySelector('a[href], button')?.focus();
+
+    }
+
+    const roots = [...nav.querySelectorAll('.navbar-nav > .nav-item > .dropdown-menu')];
+
+    // Fallback for themes with a slightly different navbar list structure.
+
+    if (!roots.length) roots.push(...[...nav.querySelectorAll('.dropdown-menu')].filter(x => !x.parentElement.closest('.dropdown-menu')));
+
+    roots.forEach(menu => {
+
+      let current = null;
+
+      [...menu.children].forEach(li => {
+
+        const header = li.matches('.dropdown-header') ? li : li.querySelector('.dropdown-header');
+
+        if (header) {
+
+          current = null;
+
+          const label = header.textContent.trim();
+
+          if (!headings.has(label)) return;
+
+          const button = document.createElement('button');
+
+          button.type = 'button'; button.className = 'dropdown-item km-toggle';
+
+          button.textContent = label; button.setAttribute('aria-expanded', 'false');
+
+          const panel = document.createElement('ul');
+
+          panel.className = 'dropdown-menu km-submenu'; panel.hidden = true;
+
+          panel.id = 'km-submenu-' + (++serial);
+
+          button.id = 'km-toggle-' + serial;
+
+          button.setAttribute('aria-controls', panel.id);
+
+          panel.setAttribute('aria-labelledby', button.id);
+
+          li.classList.remove('dropdown-header'); li.classList.add('km-group'); li.replaceChildren(button, panel);
+
+          current = {li, button, panel, menu, timer: null}; groups.push(current);
+
+        } else if (li.querySelector('.dropdown-divider')) {
+
+          current = null;
+
+        } else if (current) {
+
+          current.panel.append(li);
+
+        }
+
+      });
+
+      menu.addEventListener('keydown', event => {
+
+        const target = event.target.closest('a,button');
+
+        if (!target) return;
+
+        const group = groups.find(g => g.li.contains(target));
+
+        const isToggle = group && target === group.button;
+
+        if (group && ((event.key === 'ArrowRight' && isToggle) || (event.key === 'ArrowDown' && isToggle))) {
+
+          event.preventDefault(); event.stopPropagation(); open(group, true); return;
+
+        }
+
+        if (group && (event.key === 'ArrowLeft' || event.key === 'Escape') && !group.panel.hidden) {
+
+          event.preventDefault(); event.stopPropagation(); close(group); group.button.focus(); return;
+
+        }
+
+        if (['ArrowDown','ArrowUp','Home','End'].includes(event.key)) {
+
+          const list = target.closest('ul');
+
+          const items = [...list.children].flatMap(li => [...li.children].filter(el => el.matches('a[href],button') && !el.disabled));
+
+          if (!items.length) return;
+
+          event.preventDefault(); event.stopPropagation();
+
+          let i = items.indexOf(target);
+
+          i = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (i + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+
+          items[i].focus();
+
+        }
+
+      }, true);
+
+      menu.parentElement.addEventListener('hidden.bs.dropdown', () => groups.filter(g => g.menu === menu).forEach(close));
+
+    });
+
+    groups.forEach(group => {
+
+      if (!group.panel.children.length) { group.button.disabled = true; return; }
+
+      group.button.addEventListener('click', event => {
+
+        event.preventDefault(); event.stopPropagation();
+
+        group.panel.hidden ? open(group) : close(group);
+
+      });
+
+      group.li.addEventListener('pointerenter', event => {
+
+        if (event.pointerType === 'mouse' && !mobile()) open(group);
+
+      });
+
+      group.li.addEventListener('pointerleave', event => {
+
+        if (event.pointerType === 'mouse' && !mobile()) group.timer = setTimeout(() => {
+
+          if (!group.li.contains(document.activeElement)) close(group);
+
+        }, 180);
+
+      });
+
+      group.li.addEventListener('focusout', () => setTimeout(() => {
+
+        if (!group.li.contains(document.activeElement)) close(group);
+
+      }, 0));
+
+    });
+
+    document.addEventListener('click', event => {
+
+      groups.filter(g => !g.li.contains(event.target)).forEach(close);
+
+    });
+
+    nav.querySelector('.navbar-collapse')?.addEventListener('hidden.bs.collapse', () => groups.forEach(close));
+
+    window.addEventListener('resize', () => groups.filter(g => !g.panel.hidden).forEach(place));
+
+    window.addEventListener('scroll', () => groups.filter(g => !g.panel.hidden).forEach(place), true);
+
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
+
+  else init();
+
+})();
+
+</script>
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../pages";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kaherbst97\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://www.linkedin.com/in/konnor-herbst-20/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> · <a href="https://orcid.org/0000-0002-3629-9337" target="_blank" aria-label="ORCID"><i class="fa-brands fa-orcid" aria-label="orcid"></i></a> · <a href="https://scholar.google.com/citations?user=n-dBubAAAAAJ&amp;hl=en" target="_blank" aria-label="Google Scholar"><i class="ai  ai-google-scholar" aria-label="google-scholar"></i></a> · <a href="https://github.com/KAHerbst97" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github" aria-label="github"></i></a> · <a href="..\attachments/kah_cv.pdf" target="_blank"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> CV</a> · <a href="..\attachments/kah_resume.pdf" target="_blank"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Résumé</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>© 2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

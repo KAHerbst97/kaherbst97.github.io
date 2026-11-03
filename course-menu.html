@@ -1,0 +1,88 @@
+
+<style>
+<link rel="apple-touch-icon"
+      sizes="180x180"
+      href="attachments/kh-favicon.png">
+
+#quarto-header .course-submenu summary {
+  cursor: pointer;
+  padding: .4rem 1rem;
+  font-weight: 600;
+  list-style: none;
+}
+
+#quarto-header .course-submenu summary::-webkit-details-marker {
+  display: none;
+}
+
+#quarto-header .course-submenu summary::after {
+  content: "▸";
+  float: right;
+}
+
+#quarto-header .course-submenu[open] summary::after {
+  content: "▾";
+}
+
+#quarto-header .course-submenu .dropdown-item {
+  padding-left: 2rem;
+}
+
+#quarto-header .course-notes-menu {
+  min-width: 19rem;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const groups = [
+    "Foundations",
+    "Core Statistics",
+    "Advanced Topics"
+  ];
+
+  const nav = [...document.querySelectorAll(
+    "#quarto-header li.nav-item.dropdown"
+  )].find(el =>
+    el.querySelector(":scope > a .menu-text")
+      ?.textContent.trim() === "Course Notes"
+  );
+
+  const menu = nav?.querySelector(":scope > ul.dropdown-menu");
+  if (!menu) return;
+
+  menu.classList.add("course-notes-menu");
+
+  let current = null;
+
+  for (const li of [...menu.children]) {
+    const header = li.querySelector(".dropdown-header");
+    const name = header?.textContent.trim();
+
+    if (groups.includes(name)) {
+      const details = document.createElement("details");
+      details.className = "course-submenu";
+
+      const summary = document.createElement("summary");
+      summary.textContent = name;
+
+      const links = document.createElement("ul");
+      links.className = "list-unstyled mb-0";
+
+      details.append(summary, links);
+      li.replaceChildren(details);
+      current = links;
+    } else if (current && li.querySelector("a.dropdown-item")) {
+      current.appendChild(li);
+    }
+  }
+
+  menu.addEventListener("click", event => {
+    if (event.target.closest("summary")) {
+      event.stopPropagation();
+    }
+  });
+});
+</script>

@@ -1,0 +1,130 @@
+<script>
+/* Turn Quarto's flat dropdown headings into disclosure submenus.
+   Keep editing links in _quarto.yml; Quarto resolves their URLs normally. */
+(() => {
+  function init() {
+    const nav = document.querySelector('#quarto-header .navbar');
+    if (!nav || nav.dataset.cascadingReady) return;
+    nav.dataset.cascadingReady = 'true';
+    const headings = new Set([
+      'Current Research Viz',
+      'Past Projects Viz',
+      'Foundations',
+      'Core Statistics',
+      'Advanced Topics'
+    ]);
+    const groups = [];
+    let serial = 0;
+    const mobile = () => {
+      const toggle = nav.querySelector('.navbar-toggler');
+      return window.innerWidth < 760 || (toggle && getComputedStyle(toggle).display !== 'none');
+    };
+    function close(group) {
+      group.button.setAttribute('aria-expanded', 'false');
+      group.panel.hidden = true;
+      group.li.classList.remove('km-open');
+      clearTimeout(group.timer);
+    }
+    function place(group) {
+      const inline = mobile();
+      group.li.classList.toggle('km-inline', inline);
+      group.panel.style.left = ''; group.panel.style.top = '';
+      if (inline) return;
+      const r = group.li.getBoundingClientRect();
+      const p = group.panel.getBoundingClientRect();
+      let x = r.right - 2;
+      if (x + p.width > window.innerWidth - 8) x = r.left - p.width + 2;
+      x = Math.max(8, Math.min(x, window.innerWidth - p.width - 8));
+      const y = Math.max(8, Math.min(r.top, window.innerHeight - p.height - 8));
+      group.panel.style.left = x + 'px'; group.panel.style.top = y + 'px';
+    }
+    function open(group, focus = false) {
+      groups.filter(g => g !== group).forEach(close);
+      clearTimeout(group.timer);
+      group.li.classList.toggle('km-inline', mobile());
+      group.panel.hidden = false;
+      group.button.setAttribute('aria-expanded', 'true');
+      group.li.classList.add('km-open');
+      place(group);
+      if (focus) group.panel.querySelector('a[href], button')?.focus();
+    }
+    const roots = [...nav.querySelectorAll('.navbar-nav > .nav-item > .dropdown-menu')];
+    // Fallback for themes with a slightly different navbar list structure.
+    if (!roots.length) roots.push(...[...nav.querySelectorAll('.dropdown-menu')].filter(x => !x.parentElement.closest('.dropdown-menu')));
+    roots.forEach(menu => {
+      let current = null;
+      [...menu.children].forEach(li => {
+        const header = li.matches('.dropdown-header') ? li : li.querySelector('.dropdown-header');
+        if (header) {
+          current = null;
+          const label = header.textContent.trim();
+          if (!headings.has(label)) return;
+          const button = document.createElement('button');
+          button.type = 'button'; button.className = 'dropdown-item km-toggle';
+          button.textContent = label; button.setAttribute('aria-expanded', 'false');
+          const panel = document.createElement('ul');
+          panel.className = 'dropdown-menu km-submenu'; panel.hidden = true;
+          panel.id = 'km-submenu-' + (++serial);
+          button.id = 'km-toggle-' + serial;
+          button.setAttribute('aria-controls', panel.id);
+          panel.setAttribute('aria-labelledby', button.id);
+          li.classList.remove('dropdown-header'); li.classList.add('km-group'); li.replaceChildren(button, panel);
+          current = {li, button, panel, menu, timer: null}; groups.push(current);
+        } else if (li.querySelector('.dropdown-divider')) {
+          current = null;
+        } else if (current) {
+          current.panel.append(li);
+        }
+      });
+      menu.addEventListener('keydown', event => {
+        const target = event.target.closest('a,button');
+        if (!target) return;
+        const group = groups.find(g => g.li.contains(target));
+        const isToggle = group && target === group.button;
+        if (group && ((event.key === 'ArrowRight' && isToggle) || (event.key === 'ArrowDown' && isToggle))) {
+          event.preventDefault(); event.stopPropagation(); open(group, true); return;
+        }
+        if (group && (event.key === 'ArrowLeft' || event.key === 'Escape') && !group.panel.hidden) {
+          event.preventDefault(); event.stopPropagation(); close(group); group.button.focus(); return;
+        }
+        if (['ArrowDown','ArrowUp','Home','End'].includes(event.key)) {
+          const list = target.closest('ul');
+          const items = [...list.children].flatMap(li => [...li.children].filter(el => el.matches('a[href],button') && !el.disabled));
+          if (!items.length) return;
+          event.preventDefault(); event.stopPropagation();
+          let i = items.indexOf(target);
+          i = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (i + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+          items[i].focus();
+        }
+      }, true);
+      menu.parentElement.addEventListener('hidden.bs.dropdown', () => groups.filter(g => g.menu === menu).forEach(close));
+    });
+    groups.forEach(group => {
+      if (!group.panel.children.length) { group.button.disabled = true; return; }
+      group.button.addEventListener('click', event => {
+        event.preventDefault(); event.stopPropagation();
+        group.panel.hidden ? open(group) : close(group);
+      });
+      group.li.addEventListener('pointerenter', event => {
+        if (event.pointerType === 'mouse' && !mobile()) open(group);
+      });
+      group.li.addEventListener('pointerleave', event => {
+        if (event.pointerType === 'mouse' && !mobile()) group.timer = setTimeout(() => {
+          if (!group.li.contains(document.activeElement)) close(group);
+        }, 180);
+      });
+      group.li.addEventListener('focusout', () => setTimeout(() => {
+        if (!group.li.contains(document.activeElement)) close(group);
+      }, 0));
+    });
+    document.addEventListener('click', event => {
+      groups.filter(g => !g.li.contains(event.target)).forEach(close);
+    });
+    nav.querySelector('.navbar-collapse')?.addEventListener('hidden.bs.collapse', () => groups.forEach(close));
+    window.addEventListener('resize', () => groups.filter(g => !g.panel.hidden).forEach(place));
+    window.addEventListener('scroll', () => groups.filter(g => !g.panel.hidden).forEach(place), true);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
+  else init();
+})();
+</script>

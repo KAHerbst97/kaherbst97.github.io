@@ -1,0 +1,779 @@
+/* Consistent site appearance (matches pages containing OJS) */
+
+:root {
+  --bs-body-font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-body-font-size: 17px;
+  --bs-body-color: #212529;
+  --bs-body-bg: #ffffff;
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: 17px;
+  color: #212529;
+  background-color: #ffffff;
+}
+
+#quarto-content h1 {
+  font-size: 40px;
+}
+
+/* Match the OJS-page navigation bar without recoloring dropdown menus. */
+#quarto-header .navbar {
+  --bs-navbar-color: #fdfefe;
+  --bs-navbar-hover-color: #ffffff;
+  --bs-navbar-active-color: #ffffff;
+  --bs-navbar-brand-color: #fdfefe;
+  --bs-navbar-brand-hover-color: #ffffff;
+  background-color: #517699 !important;
+  color: #fdfefe;
+}
+
+#quarto-header .navbar .navbar-brand,
+#quarto-header .navbar .nav-link {
+  color: #fdfefe;
+}
+
+/* Page alignment */
+
+#quarto-content {
+  text-align: left !important;
+}
+
+#quarto-content h1 {
+  text-align: center !important;
+}
+
+#quarto-content h2,
+#quarto-content h3,
+#quarto-content h4,
+#quarto-content h5,
+#quarto-content h6 {
+  text-align: left !important;
+}
+
+/* Images and figures */
+
+#quarto-content p > img {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  width: auto;
+}
+
+#quarto-content figure {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Panel tabsets */
+
+#quarto-content .panel-tabset,
+#quarto-content .panel-tabset .tab-content,
+#quarto-content .panel-tabset .tab-pane {
+  text-align: left !important;
+}
+
+#quarto-content .panel-tabset .nav-tabs {
+  justify-content: flex-start !important;
+}
+
+#quarto-content .panel-tabset .nav-tabs .nav-item,
+#quarto-content .panel-tabset .nav-tabs .nav-link {
+  text-align: left !important;
+}
+
+/* Relative links, anchors, and mailto links */
+
+#quarto-content a:not([href^="http://"]):not([href^="https://"]),
+#quarto-content a:not([href^="http://"]):not([href^="https://"]):visited {
+  color: #b34700;
+}
+
+#quarto-content a:not([href^="http://"]):not([href^="https://"]):hover,
+#quarto-content a:not([href^="http://"]):not([href^="https://"]):focus {
+  color: #7a2e00;
+  text-decoration: underline;
+}
+
+/* External links */
+
+#quarto-content a[href^="http://"],
+#quarto-content a[href^="https://"],
+#quarto-content a[href^="http://"]:visited,
+#quarto-content a[href^="https://"]:visited {
+  color: #0b3d91;
+}
+
+#quarto-content a[href^="http://"]:hover,
+#quarto-content a[href^="https://"]:hover,
+#quarto-content a[href^="http://"]:focus,
+#quarto-content a[href^="https://"]:focus {
+  color: #062a63;
+  text-decoration: underline;
+}
+
+/* Table of contents links */
+
+#TOC a[href^="http://"],
+#TOC a[href^="https://"],
+.toc a[href^="http://"],
+.toc a[href^="https://"],
+nav.toc a[href^="http://"],
+nav.toc a[href^="https://"] {
+  color: #0b3d91;
+}
+
+#TOC a:not([href^="http://"]):not([href^="https://"]),
+.toc a:not([href^="http://"]):not([href^="https://"]),
+nav.toc a:not([href^="http://"]):not([href^="https://"]) {
+  color: #b34700;
+}
+
+/* Pages with the body class "page-right" */
+
+body.page-right #quarto-content {
+  text-align: right !important;
+}
+
+body.page-right #quarto-content h1 {
+  text-align: center !important;
+}
+
+body.page-right #quarto-content h2,
+body.page-right #quarto-content h3,
+body.page-right #quarto-content h4,
+body.page-right #quarto-content h5,
+body.page-right #quarto-content h6 {
+  text-align: left !important;
+}
+
+body.page-right #quarto-content p > img,
+body.page-right #quarto-content figure {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+body.page-right #quarto-content pre,
+body.page-right #quarto-content code {
+  text-align: left !important;
+}
+
+/* Inline school logos */
+
+#quarto-content img.school-logo {
+  height: 1em;
+  width: auto;
+  vertical-align: -0.15em;
+  margin-right: 0.35em;
+}
+
+.no-top-border table,
+.no-top-border table thead,
+.no-top-border table thead tr:first-child > th {
+  border-top: none !important;
+}
+
+/* Footer */
+
+.footer-made-with {
+  position: relative;
+  margin: 2rem 0 0;
+  padding: 0.45rem 0;
+  box-sizing: border-box;
+  background: #f8f8f8;
+  border-top: 0;
+  box-shadow:
+    0 0 0 100vmax #f8f8f8,
+    0 -1px 0 100vmax #e6e6e6;
+  clip-path: inset(0 -100vmax);
+  font-size: 0.85rem;
+  color: #444;
+  overflow: visible;
+  z-index: 0;
+}
+
+.footer-made-with .footer-inner {
+  max-width: calc(100vw - 0.5rem);
+  margin: 0 auto;
+  padding: 0 0.35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.05rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-made-with .footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.05rem;
+}
+
+.footer-made-with .footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35em;
+  height: 1.35em;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-made-with .footer-icon:hover {
+  color: #000;
+}
+
+.footer-made-with .footer-icon.linkedin {
+  color: #0a66c2;
+}
+
+.footer-made-with .footer-icon.orcid {
+  color: #a6ce39;
+}
+
+.footer-made-with .footer-icon.scholar {
+  color: #4285f4;
+}
+
+.footer-made-with .footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer-made-with .made-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-made-with .made-icon:hover {
+  color: #000;
+}
+
+.footer-made-with .made-icon i {
+  font-size: 1.05em;
+}
+
+.footer-made-with .quarto-logo-img {
+  height: 1.1em;
+  width: auto;
+  vertical-align: -0.15em;
+}
+
+
+/* Chapter-opening epigraphs */
+
+.chapter-epigraph {
+  margin: 0.75rem auto 1.75rem;
+  padding: 0;
+  text-align: center;
+}
+
+.chapter-epigraph blockquote {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--bs-secondary-color, #777);
+}
+
+.chapter-epigraph blockquote p {
+  margin: 0;
+  text-align: center;
+}
+
+.chapter-epigraph > p:last-child {
+  margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--bs-secondary-color, #777);
+}
+
+
+/* Custom Quarto boxes
+
+   Example:
+   ::: {.callout-note .box .box-proof title="Set equality" collapse="true"}
+
+   Run box-defaults.lua at pre-ast in _quarto.yml.
+   The filter supplies labels, collapse defaults, and icon selection.
+*/
+
+div.callout.box {
+  --box-width: 100%;
+  --box-slim-width: 38rem;
+  --box-border: #b34700;
+  --box-body-bg: #fffbf7;
+  --box-header-mix: 18%;
+  --box-qed-size: 0.78rem;
+
+  width: 100%;
+  max-width: var(--box-width);
+  box-sizing: border-box;
+  margin: 1rem 0 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--box-border) 28%, var(--box-body-bg));
+  border-left: 5px solid var(--box-border);
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background-color: var(--box-body-bg);
+}
+
+/* Full width by default. Add .box-slim for a narrower box. */
+
+div.callout.box.slim {
+  width: fit-content;
+  max-width: min(100%, 36rem);
+}
+/* Bright Academic: vibrant borders, tinted headers, pale bodies. */
+
+div.callout.box.box-theorem {
+  --box-border: #ad651b;
+  --box-body-bg: #fff5e8;
+  --box-header-mix: 26%;
+}
+
+div.callout.box.box-proof,
+div.callout.box.box-purple {
+  --box-border: #d09252;
+  --box-body-bg: #fffaf2;
+  --box-header-mix: 12%;
+}
+
+div.callout.box.box-definition,
+div.callout.box.box-blue {
+  --box-border: #287cb5;
+  --box-body-bg: #eff8ff;
+  --box-header-mix: 24%;
+}
+
+div.callout.box.box-example,
+div.callout.box.box-sage {
+  --box-border: #2a936d;
+  --box-body-bg: #f0fbf5;
+  --box-header-mix: 22%;
+}
+
+div.callout.box.box-tip {
+  --box-border: #8955b7;
+  --box-body-bg: #f8f2ff;
+  --box-header-mix: 24%;
+}
+
+div.callout.box.box-remark {
+  --box-border: #c28b1c;
+  --box-body-bg: #fff9e8;
+  --box-header-mix: 16%;
+}
+
+div.callout.box.box-caution {
+  --box-border: #c34f4a;
+  --box-body-bg: #fff2f0;
+  --box-header-mix: 22%;
+}
+
+/* Tinted header. Leave Quarto's title and collapse chevron alone. */
+
+div.callout.box > .callout-header {
+  background-color: color-mix(
+    in srgb,
+    var(--box-border) var(--box-header-mix),
+    var(--box-body-bg)
+  );
+  opacity: 1;
+}
+
+/* Give every titled box the same header spacing as a collapsible callout.
+   Quarto already uses these values when aria-expanded is present. */
+
+/* Uniform header height for all boxes */
+
+/* Uniform, compact headers */
+
+div.callout.box.callout-titled > .callout-header {
+  min-height: 1rem;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+/* Custom icon shapes.
+   Theorem: circled exclamation mark.
+   Tip and remark: lightbulb.
+   The icon color itself is set below using --box-border.
+*/
+
+div.callout.box.box-theorem {
+  --box-icon-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z'/%3E%3C/svg%3E");
+}
+
+div.callout.box:is(.box-tip, .box-remark) {
+  --box-icon-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z'/%3E%3C/svg%3E");
+}
+
+/* Recolor Quarto's existing icon pseudo-element.
+   No transforms or extra pseudo-elements: alignment stays native.
+*/
+
+div.callout.box:is(.box-theorem, .box-tip, .box-remark)
+  > .callout-header .callout-icon::before {
+  background-image: none;
+  background-color: var(--box-border);
+  -webkit-mask: var(--box-icon-mask) center / contain no-repeat;
+  mask: var(--box-icon-mask) center / contain no-repeat;
+  opacity: 1;
+}
+
+/* Body: include Quarto's .callout-body-container wrapper. */
+
+div.callout.box > .callout-body-container,
+div.callout.box > .callout-body-container > .callout-body,
+div.callout.box > .callout-body {
+  background-color: var(--box-body-bg);
+}
+
+.box .callout-body > :first-child {
+  margin-top: 0;
+}
+
+.box .callout-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Automatic end-of-proof square. Adjust --box-qed-size above. */
+
+div.callout.box.box-proof > .callout-body-container > .callout-body::after,
+div.callout.box.box-proof > .callout-body-container.callout-body::after,
+div.callout.box.box-proof > .callout-body::after {
+  content: "";
+  display: block;
+  width: var(--box-qed-size);
+  height: var(--box-qed-size);
+  margin: 0.55rem 0 0.1rem auto;
+  background-color: var(--box-border);
+}
+
+/* Suppress manual .qed elements so the automatic square is the only one. */
+
+div.callout.box.box-proof > .callout-body-container > .callout-body > .qed,
+div.callout.box.box-proof > .callout-body-container.callout-body > .qed,
+div.callout.box.box-proof > .callout-body > .qed {
+  display: none;
+}
+/* Cascading navbar menus; see cascading-menu.html.
+   Scoped to the navbar so page tabs and other dropdowns remain unchanged. */
+#quarto-header .km-group { position: relative; }
+#quarto-header .km-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  color: var(--bs-dropdown-link-color, #35424d);
+  cursor: pointer;
+}
+#quarto-header .km-toggle::after {
+  content: "";
+  flex: 0 0 .42rem;
+  height: .42rem;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+#quarto-header .km-toggle:hover,
+#quarto-header .km-toggle:focus-visible,
+#quarto-header .km-open > .km-toggle {
+  background: var(--bs-dropdown-link-hover-bg, #eef3f6);
+  color: var(--bs-dropdown-link-hover-color, #35424d);
+}
+#quarto-header .km-toggle:focus-visible {
+  outline: 2px solid #517699;
+  outline-offset: -2px;
+}
+#quarto-header .km-submenu {
+  position: fixed !important;
+  transform: none !important;
+  inset: auto;
+  margin: 0 !important;
+  min-width: 18rem;
+  width: max-content;
+  max-width: min(25rem, calc(100vw - 16px));
+  max-height: calc(100dvh - 16px);
+  overflow-y: auto;
+  z-index: 1100;
+  border-radius: .3rem;
+  box-shadow: 0 .4rem 1.2rem rgba(0,0,0,.15);
+  list-style: none;
+}
+#quarto-header .km-submenu[hidden] { display: none !important; }
+#quarto-header .km-submenu:not([hidden]) { display: block !important; }
+#quarto-header .km-submenu .dropdown-item { white-space: normal; }
+#quarto-header .km-inline > .km-submenu {
+  position: static !important;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  max-height: none;
+  padding-left: .8rem;
+  border: 0;
+  border-left: 2px solid #517699;
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--bs-dropdown-bg, #fff);
+}
+#quarto-header .km-inline.km-open > .km-toggle::after { transform: rotate(135deg); }
+
+
+
+
+/* Homepage layout only: fluid gutters, bounded content, no visual scaling. */
+/* Desktop portrait size: change this one value. */
+.home-grid { --portrait-size: 380px; }
+.kh-page-heading { grid-column:1 / -1; width:100%; text-align:center; margin:clamp(20px,3vh,40px) auto 1rem; }
+#quarto-content .kh-page-heading h1 { text-align:center!important; font-size:clamp(2rem,2.8vw,2.8rem); margin:0 0 .25rem; }
+.kh-page-heading .affiliation { text-align:center; color:#687681; margin:0; }
+body:has(.home-grid) #quarto-content {
+  width:100%;max-width:none;padding-inline:0;padding-top:0;
+  min-height:0;flex:0 0 auto;
+}
+body:has(.home-grid) #quarto-content main.content {
+  grid-column:1 / -1;box-sizing:border-box;
+  width:calc(100% - 2 * clamp(16px, 4vw, 80px));max-width:1680px;
+  min-width:0;margin:0 auto;padding:0 0 clamp(24px, 3vh, 40px);
+}
+body:has(.home-grid) #title-block-header{display:none}
+.home-grid {
+  display:grid;grid-template-columns:minmax(0,77fr) minmax(0,23fr);
+  align-items:start;gap:clamp(18px,2vw,32px);
+  width:100%;max-width:none;margin:clamp(16px,2vh,26px) auto 0;
+}
+.home-profile {
+  display:flex;flex-direction:column;min-width:0;text-align:center;
+  color:#35424d;padding-top:6px;font-size:.9rem;line-height:1.55;
+}
+.home-profile p{margin:0 0 13px}
+.home-profile .profile-photo {
+  display:block;float:none;flex-shrink:0;width:285px;max-width:100%;
+  height:auto;aspect-ratio:285 / 250;object-fit:cover;
+  border-radius:16px;margin:0 auto 15px;
+}
+.home-profile h1{font-size:1.9rem;line-height:1.1;margin:0 0 6px;font-weight:700}
+.home-profile .affiliation{color:#687681;font-size:.88rem;margin-bottom:17px}
+.home-profile .advisors{font-size:.8rem;color:#687681;margin-bottom:12px}
+.home-profile>.advisors p:last-child{margin-bottom:0}
+.home-profile > p:last-child {
+  max-width: none;
+}
+.home-profile .home-links{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:17px 0 13px}
+.home-profile .home-links a{display:inline-block;border:1px solid #cddce7;border-radius:6px;padding:6px 11px;text-decoration:none;font-size:.82rem;font-weight:600;color:#287cb5;background:#f5f9fc}
+.home-profile .social-links{font-size:.76rem;line-height:1.9}
+.home-profile .social-links a{white-space:nowrap;text-decoration:none}
+.home-widget{min-width:0}
+.home-widget .cell,.home-widget .cell-output-display{margin:0;min-width:0}
+.home-widget>.cell,.home-widget .cell-output-display,.home-widget .observablehq {
+  min-width:0;
+}
+.home-widget .causal-play{transform:none;width:100%;min-width:0}
+.home-widget .causal-play svg{height:clamp(230px,19vw,300px);min-width:0;width:100%;aspect-ratio:auto}
+/* Stack before the graph and toolbar become cramped; keep natural scrolling. */
+@media(max-width:950px){
+  .home-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .home-profile{display:block;max-width:620px;width:100%;margin:auto}
+  .home-profile .profile-photo{width:200px}
+  .home-profile>p:last-child{margin:0 auto;padding-top:0}
+  .home-widget .causal-play svg{height:auto;aspect-ratio:8 / 3}
+}
+@media(max-width:540px){
+  .home-grid{gap:18px}
+  .home-profile .profile-photo{width:160px}
+  .home-profile h1{font-size:1.65rem}
+  .home-profile .affiliation{font-size:.82rem}
+  .home-widget .causal-play .tools{align-items:center;gap:6px}
+  .home-widget .causal-play .history-tools{margin-left:auto}
+  .home-widget .causal-play .editor{grid-template-columns:minmax(0,1fr)}
+  .home-widget .causal-play .editor-fields{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .home-widget .causal-play .editor input,.home-widget .causal-play .editor select{max-width:100%}
+}
+
+/* Homepage explorer: the two desktop proportions are defined here. */
+.home-grid { transition:grid-template-columns .22s ease; }
+.home-grid.is-exploring { grid-template-columns:minmax(0,35fr) minmax(0,65fr); }
+.home-grid .home-widget { min-width:0; }
+.home-grid .kh-explore [hidden] { display:none !important; }
+.home-grid .kh-explore { color:#35424d; min-width:0; }
+.home-grid .home-profile { align-self:start; }
+.home-profile .kh-copy { min-width:0; }
+.home-profile .kh-bio > p { font-size:1rem; line-height:1.55; max-width:75ch; margin:0 auto; }
+.home-profile .kh-bio > p + p { margin-top:.8rem; }
+/* Landing view: a portrait and biography, with software in the outer margin. */
+@media (min-width:951px) {
+  .home-grid:not(.is-exploring) {
+    grid-template-columns:minmax(0,1fr) clamp(155px,13vw,208px);
+    column-gap:clamp(22px,3vw,56px);
+    margin-top:1rem;
+  }
+  .home-grid:not(.is-exploring) > .home-profile {
+    display:grid;
+    position:relative;
+    grid-template-rows:auto auto;
+    grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items:center;
+    gap:clamp(24px,3vw,60px);
+    row-gap:0;
+    max-width:1180px;
+    width:100%;
+    justify-self:center;
+    text-align:left;
+  }
+  /* Identity occupies the upper row. Only the prose sets the portrait height. */
+  .home-grid:not(.is-exploring) .kh-bio { grid-area:2 / 2 / 3 / 3; min-width:0; }
+  .home-grid:not(.is-exploring) .kh-copy { grid-area:1 / 2 / 2 / 3; }
+  .home-grid:not(.is-exploring) .profile-photo {
+    grid-area:2 / 1 / 3 / 2;
+    position:absolute;
+    inset:0;
+    width: min(100%, var(--portrait-size));
+    height: auto;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position:right center;
+    margin:auto 0 auto auto;
+  }
+  #quarto-content .home-grid:not(.is-exploring) .kh-copy h1 {
+    text-align:left!important; font-size:clamp(2rem,2.8vw,2.8rem);
+  }
+  .home-grid:not(.is-exploring) .kh-bio > p { margin-inline:0; }
+  .home-grid:not(.is-exploring) .home-widget { align-self:center; }
+  .kh-shelf .kh-cards { gap:.2rem; }
+  .kh-shelf .kh-card {
+    background:transparent; border-color:transparent;
+    grid-template-columns:20px minmax(0,1fr); padding:.45rem .25rem;
+    gap:.45rem; color:#4c6070;
+  }
+  .kh-shelf .kh-card svg { width:20px; height:20px; }
+  .kh-shelf .kh-card strong { font-size:.83rem; font-weight:600; }
+  .kh-shelf .kh-card small,.kh-shelf .kh-card .kh-open { display:none; }
+  .kh-shelf .kh-card:hover,.kh-shelf .kh-card:focus-visible {
+    color:#294b65; background:#f2f5f7; border-color:#dce4e9;
+  }
+}
+.kh-explore .kh-eyebrow { margin:0 0 .65rem; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#546776; }
+.kh-cards { display:grid; gap:.6rem; }
+.kh-explore button { font:inherit; cursor:pointer; }
+.kh-card { --accent:#517699; display:grid; grid-template-columns:38px 1fr; gap:.65rem; align-items:center; text-align:left; width:100%; padding:.75rem; border:1px solid #ced8de; border-radius:8px; background:white; color:#35424d; }
+.kh-card[data-example=win] { --accent:#287e67; }
+.kh-card[data-example=trip] { --accent:#79658e; }
+.kh-card:hover { border-color:var(--accent); background:#f8fafb; }
+.kh-card strong,.kh-card small,.kh-card .kh-open { display:block; }
+.kh-card small { font-size:.78rem; line-height:1.35; margin:.2rem 0; }
+.kh-card .kh-open { font-size:.74rem; color:var(--accent); font-weight:650; }
+.kh-card svg { width:38px; height:38px; color:var(--accent); }
+.kh-worknav { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; margin-bottom:.55rem; }
+.kh-worknav button { border:1px solid #cdd7df; border-radius:5px; background:white; color:#35424d; padding:.32rem .65rem; font-size:.8rem; }
+.kh-worknav .kh-back { margin-right:auto; }
+.kh-worknav button[aria-pressed=true] { background:#425d73; color:white; }
+.kh-explore button:focus-visible { outline:3px solid #517699; outline-offset:2px; }
+.kh-panel { min-width:0; overflow-wrap:break-word; }
+.kh-panel>.cpwin-lab { margin-top:0; }
+.kh-project-link { display:inline-block; font-size:.82rem; margin-top:1rem; }
+@media(max-width:950px) {
+  .home-grid,.home-grid.is-exploring { grid-template-columns:minmax(0,1fr); }
+  .home-grid:not(.is-exploring) .home-profile { display:flex; gap:0; }
+  .home-grid:not(.is-exploring) .home-profile .profile-photo { margin-bottom:15px; }
+  .home-grid:not(.is-exploring) .kh-copy,#quarto-content .home-grid:not(.is-exploring) .kh-copy h1 { text-align:center!important; }
+  .home-grid:not(.is-exploring) .kh-bio > p { margin-inline:auto; }
+  .kh-cards { grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr)); }
+}
+@media(prefers-reduced-motion:reduce) { .home-grid { transition:none; } }
+
+
+/* Homepage news, below both columns in either view. */
+
+.kh-news {
+  clear: both;
+  width: 100%;
+  max-width: 48rem;
+  margin: 120px auto 0;
+}
+
+#quarto-content .kh-news h2 {
+  text-align: center !important;
+  font-size: 1.35rem;
+  margin: 0 0 .65rem;
+  border: 0;
+}
+
+.kh-news dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0,1fr);
+  gap: 0 1.6rem;
+  margin: 0;
+}
+
+.kh-news dt,
+.kh-news dd {
+  margin: 0;
+  padding: .55rem 0;
+  border-bottom: 1px solid #e5eaee;
+}
+
+.kh-news dt {
+  color: #526777;
+  font-size: .85rem;
+  font-weight: 650;
+}
+
+.kh-news dd {
+  font-size: .95rem;
+}
+
+.kh-news dd p {
+  margin: 0;
+}
+
+@media (max-width: 950px) {
+  .kh-news {
+    margin-top: clamp(24px, 4vh, 44px);
+  }
+}
+
+@media (max-width: 550px) {
+  .kh-news dl {
+    display: block;
+  }
+
+  .kh-news dt {
+    border: 0;
+    padding: .65rem 0 .1rem;
+  }
+
+  .kh-news dd {
+    padding: .05rem 0 .55rem;
+  }
+}

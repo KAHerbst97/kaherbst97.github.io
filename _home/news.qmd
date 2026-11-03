@@ -1,0 +1,14 @@
+
+<!-- Newest first. Add a date, a newline, then a colon and the update. -->
+
+November 2026
+: Launched this website.
+
+September 2026
+: Began an NIH/NHLBI T32 training fellowship in cardiovascular biostatistics at Duke.
+
+January 2026
+: Presented at the *Statistics for Novel Clinical Trial Designs Conference*.
+
+September 2025
+: Began a Clinical Biostatistics Research Fellowship at the Duke Clinical Research Institute (DCRI).

@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Konnor Herbst">
+<meta name="description" content="Konnor’s Site">
+
+<title>counting – Konnor Herbst</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../attachments/kh-favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="– Konnor Herbst">
+<meta property="og:image" content="https://kaherbst97.github.io/pages/notes/2counting_files/figure-html/unnamed-chunk-4-1.svg">
+<meta property="og:site_name" content="Konnor Herbst">
+<meta name="twitter:title" content="– Konnor Herbst">
+<meta name="twitter:image" content="https://kaherbst97.github.io/pages/notes/2counting_files/figure-html/unnamed-chunk-4-1.svg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Konnor Herbst</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../pages/research_overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li class="dropdown-header">Current Research Viz</li>
+        <li>
+    <a class="dropdown-item" href="../../pages/research/copriority_win.html">
+ <span class="dropdown-text">Co-Priority Win Statistics</span></a>
+  </li>  
+        <li class="dropdown-header">Past Projects Viz</li>
+        <li>
+    <a class="dropdown-item" href="../../pages/research/cf_TRIP.html">
+ <span class="dropdown-text">Triangle Permutation (TRIP) Maps</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Notes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
+        <li>
+    <a class="dropdown-item" href="../../pages/notes_overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li class="dropdown-header">Foundations</li>
+        <li>
+    <a class="dropdown-item" href="../../pages/notes/1setTheory.html">
+ <span class="dropdown-text">Set Theory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../pages/notes/2counting.html">
+ <span class="dropdown-text">Combinatorics</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/KAHerbst97" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#essential-combinatorics" id="toc-essential-combinatorics" class="nav-link active" data-scroll-target="#essential-combinatorics">Essential Combinatorics</a>
+  <ul class="collapse">
+  <li><a href="#slots" id="toc-slots" class="nav-link" data-scroll-target="#slots">Slots</a></li>
+  <li><a href="#factorials-and-permutations" id="toc-factorials-and-permutations" class="nav-link" data-scroll-target="#factorials-and-permutations">Factorials and Permutations</a></li>
+  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations">Combinations</a></li>
+  <li><a href="#stars-and-bars-combinations-with-repetition" id="toc-stars-and-bars-combinations-with-repetition" class="nav-link" data-scroll-target="#stars-and-bars-combinations-with-repetition">Stars and Bars, Combinations with Repetition</a></li>
+  <li><a href="#multinomial-coefficients" id="toc-multinomial-coefficients" class="nav-link" data-scroll-target="#multinomial-coefficients">Multinomial Coefficients</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="essential-combinatorics" class="level1">
+<h1>Essential Combinatorics</h1>
+<div class="chapter-epigraph">
+<blockquote class="blockquote">
+<p>“They call me the Count because I love to count things!” — <strong>Count von Count</strong>, <em>Sesame Street</em></p>
+</blockquote>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="What counts as a different outcome?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What counts as a different outcome?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our answers depend on whether we care about the sequence in which we choose items (order) and whether we can choose the same item more than once (replacement). Order and replacement determine which of the four counting rules below applies when selecting <span class="math inline">\(m\)</span> items from <span class="math inline">\(n\)</span> distinct items.</p>
+</div>
+</div>
+<div class="no-top-border">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>With Replacement</strong></th>
+<th><strong>Without Replacement</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Order Matters</strong></td>
+<td><span class="math inline">\(n^m\)</span></td>
+<td><span class="math inline">\(\displaystyle \frac{n!}{(n-m)!}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Order Does Not Matter</strong></td>
+<td><span class="math inline">\(\displaystyle \binom{n-1+m}{m}=\frac{(n-1+m)!}{(n-1)!m!}\)</span></td>
+<td><span class="math inline">\(\displaystyle \binom{n}{m}=\frac{n!}{m!(n-m)!}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="61" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 60;"><span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>countingModel <span class="op">=</span> {</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> changes <span class="op">=</span> <span class="kw">new</span> <span class="bu">EventTarget</span>()<span class="op">;</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> letters <span class="op">=</span> <span class="st">"ABCDEFGHIJKLMNOPQRST"</span><span class="op">;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> n <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> m <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="kw">set</span>(nextN<span class="op">,</span> nextM) {</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (nextN <span class="op">===</span> n <span class="op">&amp;&amp;</span> nextM <span class="op">===</span> m) <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> nextN<span class="op">;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> nextM<span class="op">;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    changes<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">Event</span>(<span class="st">"change"</span>))<span class="op">;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">populate</span>(select<span class="op">,</span> min<span class="op">,</span> initial) {</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> min<span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">20</span><span class="op">;</span> i<span class="op">++</span>) select<span class="op">.</span><span class="fu">add</span>(<span class="kw">new</span> <span class="fu">Option</span>(i<span class="op">,</span> i))<span class="op">;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    select<span class="op">.</span><span class="at">value</span> <span class="op">=</span> initial<span class="op">;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="co">// BigInt keeps counts and page positions exact, even for 20^20.</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">choose</span>(n<span class="op">,</span> k) {</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (k <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">||</span> k <span class="op">&gt;</span> n) <span class="cf">return</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(k<span class="op">,</span> n <span class="op">-</span> k)<span class="op">;</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span>n<span class="op">;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> k<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>      result <span class="op">=</span> result <span class="op">*</span> <span class="bu">BigInt</span>(n <span class="op">-</span> i <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">BigInt</span>(i)<span class="op">;</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">ways</span>(n<span class="op">,</span> m<span class="op">,</span> ordered<span class="op">,</span> repeats) {</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (m <span class="op">===</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="dv">1</span>n<span class="op">;</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">0</span> <span class="op">||</span> (<span class="op">!</span>repeats <span class="op">&amp;&amp;</span> m <span class="op">&gt;</span> n)) <span class="cf">return</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>ordered) <span class="cf">return</span> <span class="fu">choose</span>(repeats <span class="op">?</span> n <span class="op">+</span> m <span class="op">-</span> <span class="dv">1</span> <span class="op">:</span> n<span class="op">,</span> m)<span class="op">;</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (repeats) <span class="cf">return</span> <span class="bu">BigInt</span>(n) <span class="op">**</span> <span class="bu">BigInt</span>(m)<span class="op">;</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span>n<span class="op">;</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> m<span class="op">;</span> i<span class="op">++</span>) result <span class="op">*=</span> <span class="bu">BigInt</span>(n <span class="op">-</span> i)<span class="op">;</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> style <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo {</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="vs">      color:#35424d; background:#fbfcfd; border:1px solid #d5dce1;</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="vs">      border-left:4px solid #79658e; border-radius:.5rem;</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="vs">      padding:1rem; margin:1rem 0;</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo p { margin:.45rem 0; }</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .controls, .count-demo .bins, .count-demo .outcomes,</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .pager {</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="vs">      display:flex; flex-wrap:wrap; align-items:center;</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="vs">      gap:.45rem .8rem; margin:.7rem 0;</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo button, .count-demo select {</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="vs">      font:inherit; color:inherit; background:white;</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="vs">      border:1px solid #bbc5cd; border-radius:.35rem; padding:.2rem .5rem;</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo button:enabled { cursor:pointer; }</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo button:disabled { opacity:.55; }</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo :focus-visible { outline:2px solid #506c83; outline-offset:2px; }</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .bin { min-width:4.6rem; min-height:4rem; text-align:center; }</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .bin[aria-pressed="true"] { outline:2px solid #635080; }</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .stars {</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="vs">      display:block; color:#635080; max-width:9rem; overflow-wrap:anywhere;</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .outcomes { gap:.35rem; }</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .chip {</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="vs">      background:#ede9f3; color:#49395e; border-radius:.3rem;</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="vs">      padding:.2rem .5rem; font-family:monospace;</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo .answer { font-weight:700; }</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="vs">    .count-demo [hidden] { display:none; }</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span> <span class="fu">n</span>() { <span class="cf">return</span> n<span class="op">;</span> }<span class="op">,</span> <span class="kw">get</span> <span class="fu">m</span>() { <span class="cf">return</span> m<span class="op">;</span> }<span class="op">,</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span><span class="op">,</span> changes<span class="op">,</span> letters<span class="op">,</span> populate<span class="op">,</span> ways<span class="op">,</span> style<span class="op">,</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>    <span class="dt">format</span><span class="op">:</span> value <span class="kw">=&gt;</span> value<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="st">"en-US"</span>)</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="144" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 143;"><span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> model <span class="op">=</span> countingModel<span class="op">;</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> widget <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;section class="count-demo"&gt;</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;style&gt;</span><span class="sc">${</span>model<span class="op">.</span><span class="at">style</span><span class="sc">}</span><span class="vs">&lt;/style&gt;</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;strong&gt;Widget: Essential Combinatorics&lt;/strong&gt;</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="controls"&gt;</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;label&gt;Items (n) &lt;select data-n&gt;&lt;/select&gt;&lt;/label&gt;</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;label&gt;Draws (m) &lt;select data-m&gt;&lt;/select&gt;&lt;/label&gt;</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;label&gt;&lt;input type="checkbox" data-order checked&gt; Order matters&lt;/label&gt;</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;label&gt;&lt;input type="checkbox" data-repeat&gt; With replacement&lt;/label&gt;</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p data-items&gt;&lt;/p&gt;</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p class="answer" aria-live="polite"&gt;&lt;/p&gt;</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p data-example&gt;&lt;/p&gt;</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="outcomes" aria-label="Distinct outcomes"&gt;&lt;/div&gt;</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;nav class="pager" aria-label="Outcome pages"&gt;</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" data-first&gt;First&lt;/button&gt;</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" data-prev&gt;Previous&lt;/button&gt;</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span data-range aria-live="polite"&gt;&lt;/span&gt;</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" data-next&gt;Next&lt;/button&gt;</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" data-last&gt;Last&lt;/button&gt;</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/nav&gt;</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/section&gt;`</span><span class="op">;</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="kw">get</span> <span class="op">=</span> selector <span class="kw">=&gt;</span> widget<span class="op">.</span><span class="fu">querySelector</span>(selector)<span class="op">;</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pageSize <span class="op">=</span> <span class="dv">24</span>n<span class="op">;</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> page <span class="op">=</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> lastPage <span class="op">=</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>  model<span class="op">.</span><span class="fu">populate</span>(<span class="kw">get</span>(<span class="st">"[data-n]"</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> model<span class="op">.</span><span class="at">n</span>)<span class="op">;</span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>  model<span class="op">.</span><span class="fu">populate</span>(<span class="kw">get</span>(<span class="st">"[data-m]"</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> model<span class="op">.</span><span class="at">m</span>)<span class="op">;</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Skip whole groups of outcomes sharing a prefix to reach the requested rank.</span></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">outcomeAt</span>(rank<span class="op">,</span> items<span class="op">,</span> draws<span class="op">,</span> ordered<span class="op">,</span> repeats) {</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> available <span class="op">=</span> items<span class="op">;</span></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> outcome <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> left <span class="op">=</span> draws<span class="op">;</span> left <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span> left<span class="op">--</span>) {</span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> available<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> next<span class="op">;</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (ordered) {</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>          next <span class="op">=</span> repeats <span class="op">?</span> available <span class="op">:</span> available<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> i) <span class="op">+</span> available<span class="op">.</span><span class="fu">slice</span>(i <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>          next <span class="op">=</span> available<span class="op">.</span><span class="fu">slice</span>(repeats <span class="op">?</span> i <span class="op">:</span> i <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> block <span class="op">=</span> model<span class="op">.</span><span class="fu">ways</span>(next<span class="op">.</span><span class="at">length</span><span class="op">,</span> left <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> ordered<span class="op">,</span> repeats)<span class="op">;</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (rank <span class="op">&lt;</span> block) {</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>          outcome <span class="op">+=</span> available[i]<span class="op">;</span></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>          available <span class="op">=</span> next<span class="op">;</span></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>          <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>        rank <span class="op">-=</span> block<span class="op">;</span></span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outcome <span class="op">||</span> <span class="st">"∅ (empty selection)"</span><span class="op">;</span></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> {n<span class="op">,</span> m} <span class="op">=</span> model<span class="op">;</span></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ordered <span class="op">=</span> <span class="kw">get</span>(<span class="st">"[data-order]"</span>)<span class="op">.</span><span class="at">checked</span><span class="op">;</span></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> repeats <span class="op">=</span> <span class="kw">get</span>(<span class="st">"[data-repeat]"</span>)<span class="op">.</span><span class="at">checked</span><span class="op">;</span></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> items <span class="op">=</span> model<span class="op">.</span><span class="at">letters</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> n)<span class="op">;</span></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> total <span class="op">=</span> model<span class="op">.</span><span class="fu">ways</span>(n<span class="op">,</span> m<span class="op">,</span> ordered<span class="op">,</span> repeats)<span class="op">;</span></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>    lastPage <span class="op">=</span> total <span class="op">?</span> (total <span class="op">-</span> <span class="dv">1</span>n) <span class="op">/</span> pageSize <span class="op">:</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-items]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Available items: "</span> <span class="op">+</span> ([<span class="op">...</span>items]<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>) <span class="op">||</span> <span class="st">"none"</span>)<span class="op">;</span></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> formula<span class="op">;</span></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (m <span class="op">===</span> <span class="dv">0</span>) formula <span class="op">=</span> <span class="st">"One empty selection"</span><span class="op">;</span></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">0</span>) formula <span class="op">=</span> <span class="st">"No items to draw"</span><span class="op">;</span></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (<span class="op">!</span>repeats <span class="op">&amp;&amp;</span> m <span class="op">&gt;</span> n) formula <span class="op">=</span> <span class="st">"More draws than items"</span><span class="op">;</span></span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (ordered <span class="op">&amp;&amp;</span> repeats) formula <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">^</span><span class="sc">${</span>m<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (ordered) formula <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">! / (</span><span class="sc">${</span>n<span class="sc">}</span><span class="vs"> − </span><span class="sc">${</span>m<span class="sc">}</span><span class="vs">)!`</span><span class="op">;</span></span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (repeats) formula <span class="op">=</span> <span class="vs">`(</span><span class="sc">${</span>n <span class="op">+</span> m <span class="op">-</span> <span class="dv">1</span><span class="sc">}</span><span class="vs"> choose </span><span class="sc">${</span>m<span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> formula <span class="op">=</span> <span class="vs">`(</span><span class="sc">${</span>n<span class="sc">}</span><span class="vs"> choose </span><span class="sc">${</span>m<span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">".answer"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>      <span class="vs">`</span><span class="sc">${</span>formula<span class="sc">}</span><span class="vs"> → </span><span class="sc">${</span>model<span class="op">.</span><span class="fu">format</span>(total)<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>total <span class="op">===</span> <span class="dv">1</span>n <span class="op">?</span> <span class="st">"outcome"</span> <span class="op">:</span> <span class="st">"outcomes"</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> example<span class="op">;</span></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>total) example <span class="op">=</span> <span class="st">"No selection satisfies these rules."</span><span class="op">;</span></span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (<span class="op">!</span>m) example <span class="op">=</span> <span class="st">"There is one way to choose nothing."</span><span class="op">;</span></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (<span class="op">!</span>ordered <span class="op">&amp;&amp;</span> repeats) {</span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>      example <span class="op">=</span> <span class="st">"This is the stars-and-bars case. Each letter appears once for every star in its box."</span><span class="op">;</span></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (m <span class="op">===</span> <span class="dv">2</span> <span class="op">&amp;&amp;</span> n <span class="op">&gt;=</span> <span class="dv">2</span>) {</span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>      example <span class="op">=</span> ordered <span class="op">?</span> <span class="st">"AB and BA count separately."</span> <span class="op">:</span> <span class="st">"AB and BA count once, shown as AB."</span><span class="op">;</span></span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>      example <span class="op">+=</span> repeats <span class="op">?</span> <span class="st">" AA is allowed."</span> <span class="op">:</span> <span class="st">" AA is excluded."</span><span class="op">;</span></span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (ordered) {</span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>      example <span class="op">=</span> repeats</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>        <span class="op">?</span> <span class="st">"The draw order is recorded, and letters may repeat."</span></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="st">"The draw order is recorded, and each letter can appear only once."</span><span class="op">;</span></span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>      example <span class="op">=</span> <span class="st">"Each letter can appear only once. Sorting the letters gives each selection one spelling."</span><span class="op">;</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-example]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> example<span class="op">;</span></span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> start <span class="op">=</span> page <span class="op">*</span> pageSize<span class="op">;</span></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> end <span class="op">=</span> start <span class="op">+</span> pageSize <span class="op">&lt;</span> total <span class="op">?</span> start <span class="op">+</span> pageSize <span class="op">:</span> total<span class="op">;</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> panel <span class="op">=</span> <span class="kw">get</span>(<span class="st">".outcomes"</span>)<span class="op">;</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>    panel<span class="op">.</span><span class="fu">replaceChildren</span>()<span class="op">;</span></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> rank <span class="op">=</span> start<span class="op">;</span> rank <span class="op">&lt;</span> end<span class="op">;</span> rank<span class="op">++</span>) {</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> chip <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"span"</span>)<span class="op">;</span></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>      chip<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"chip"</span><span class="op">;</span></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>      chip<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="fu">outcomeAt</span>(rank<span class="op">,</span> items<span class="op">,</span> m<span class="op">,</span> ordered<span class="op">,</span> repeats)<span class="op">;</span></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>      panel<span class="op">.</span><span class="fu">appendChild</span>(chip)<span class="op">;</span></span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">".pager"</span>)<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> total <span class="op">&lt;=</span> pageSize<span class="op">;</span></span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-range]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> total</span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>      <span class="op">?</span> <span class="vs">`</span><span class="sc">${</span>model<span class="op">.</span><span class="fu">format</span>(start <span class="op">+</span> <span class="dv">1</span>n)<span class="sc">}</span><span class="vs">–</span><span class="sc">${</span>model<span class="op">.</span><span class="fu">format</span>(end)<span class="sc">}</span><span class="vs"> of </span><span class="sc">${</span>model<span class="op">.</span><span class="fu">format</span>(total)<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-first]"</span>)<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> <span class="kw">get</span>(<span class="st">"[data-prev]"</span>)<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> page <span class="op">===</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-last]"</span>)<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> <span class="kw">get</span>(<span class="st">"[data-next]"</span>)<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> page <span class="op">===</span> lastPage<span class="op">;</span></span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">resetPage</span>() {</span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-n]"</span>)<span class="op">.</span><span class="at">value</span> <span class="op">=</span> model<span class="op">.</span><span class="at">n</span><span class="op">;</span></span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-m]"</span>)<span class="op">.</span><span class="at">value</span> <span class="op">=</span> model<span class="op">.</span><span class="at">m</span><span class="op">;</span></span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> <span class="dv">0</span>n<span class="op">;</span></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>()<span class="op">;</span></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-n]"</span>)<span class="op">.</span><span class="at">onchange</span> <span class="op">=</span> e <span class="kw">=&gt;</span> model<span class="op">.</span><span class="fu">set</span>(<span class="bu">Number</span>(e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">value</span>)<span class="op">,</span> model<span class="op">.</span><span class="at">m</span>)<span class="op">;</span></span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-m]"</span>)<span class="op">.</span><span class="at">onchange</span> <span class="op">=</span> e <span class="kw">=&gt;</span> model<span class="op">.</span><span class="fu">set</span>(model<span class="op">.</span><span class="at">n</span><span class="op">,</span> <span class="bu">Number</span>(e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">value</span>))<span class="op">;</span></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-order]"</span>)<span class="op">.</span><span class="at">onchange</span> <span class="op">=</span> resetPage<span class="op">;</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-repeat]"</span>)<span class="op">.</span><span class="at">onchange</span> <span class="op">=</span> resetPage<span class="op">;</span></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-first]"</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> { page <span class="op">=</span> <span class="dv">0</span>n<span class="op">;</span> <span class="fu">draw</span>()<span class="op">;</span> }<span class="op">;</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-prev]"</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> { page<span class="op">--;</span> <span class="fu">draw</span>()<span class="op">;</span> }<span class="op">;</span></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-next]"</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> { page<span class="op">++;</span> <span class="fu">draw</span>()<span class="op">;</span> }<span class="op">;</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-last]"</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> { page <span class="op">=</span> lastPage<span class="op">;</span> <span class="fu">draw</span>()<span class="op">;</span> }<span class="op">;</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>  model<span class="op">.</span><span class="at">changes</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"change"</span><span class="op">,</span> resetPage)<span class="op">;</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>  invalidation<span class="op">.</span><span class="fu">then</span>(() <span class="kw">=&gt;</span> model<span class="op">.</span><span class="at">changes</span><span class="op">.</span><span class="fu">removeEventListener</span>(<span class="st">"change"</span><span class="op">,</span> resetPage))<span class="op">;</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resetPage</span>()<span class="op">;</span></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> widget<span class="op">;</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="box box-definition callout callout-style-default callout-note no-icon callout-titled" title="Definition: Order">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Order
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Order</strong> determines whether different arrangements of the same selected items count as distinct outcomes. If order matters, different arrangements are counted separately; if order does not matter, they are treated as the same outcome.</p>
+</div>
+</div>
+<div class="box box-definition callout callout-style-default callout-note no-icon callout-titled" title="Definition: Replacement">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Replacement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Replacement</strong> refers to the possibility that the exact same item can be chosen multiple times in the final selection. With replacement we can choose <span class="math inline">\(n&gt;m\)</span> items from <span class="math inline">\(m\)</span> because choices need not be distinct</p>
+</div>
+</div>
+<section id="slots" class="level2">
+<h2 class="anchored" data-anchor-id="slots">Slots</h2>
+<p>A simple way to count outcomes is to picture a row of empty <em>slots</em>, one for each choice. Ask how many options you have for the first slot, then for the second, and so on. <strong>Replacement</strong> determines whether you can use an item again if it was used earlier. <strong>Order</strong> determines whether the slot order matters or arrangements like <span class="math inline">\(AB\)</span> and <span class="math inline">\(BA\)</span> count as two outcomes or one.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2counting_files/figure-html/unnamed-chunk-4-1.svg" class="img-fluid figure-img" style="width:2.7in"></p>
+<figcaption>Each of the <span class="math inline">\(K\)</span> slots represents one choice.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The <strong>Product Rule</strong> (or the Multiplication Rule) helps determine the total number of ways to fill our slots/number of total choices, if there are <span class="math inline">\(n\)</span> ways to perform one action and <span class="math inline">\(m\)</span> ways to perform a second independent action, then there are <span class="math display">\[n(m)\]</span> ways to perform both actions. This can be envisioned as simply filling two slots,</p>
+<div class="box box-example callout callout-style-default callout-tip no-icon callout-titled" title="Example: Two slots, three letters">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Two slots, three letters
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Choose two letters from <span class="math inline">\(\{A,B,C\}\)</span> without replacement and record them in order. There are three choices for the first slot. Whichever letter we use, exactly two choices remain for the second slot. If the first letter is <span class="math inline">\(A\)</span>, the second can be <span class="math inline">\(B\)</span> or <span class="math inline">\(C\)</span>. Starting with <span class="math inline">\(B\)</span> or <span class="math inline">\(C\)</span> also gives two possibilities, so we get <span class="math inline">\(3\times 2=6\)</span> ordered outcomes: <span class="math display">\[
+\underbrace{AB,\ AC}_{A\text{ first}},\qquad
+\underbrace{BA,\ BC}_{B\text{ first}},\qquad
+\underbrace{CA,\ CB}_{C\text{ first}}.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>To fill these two slots we can further envision counting spots in a grid with the <span class="math inline">\(n\)</span> options representing slot <span class="math inline">\(1\)</span> along the horizontal axis and <span class="math inline">\(m\)</span> options representing slot <span class="math inline">\(2\)</span> along the vertical axis,</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2counting_files/figure-html/unnamed-chunk-5-1.svg" class="img-fluid figure-img" style="width:2.7in"></p>
+<figcaption>Each of the n(m) boxes represents one choice</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="box box-theorem callout callout-style-default callout-important callout-titled" title="Theorem: The Generalized Product Rule [Thm 1.2, Rozanov]">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: The Generalized Product Rule [Thm 1.2, Rozanov]
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given <span class="math inline">\(n_1\)</span> elements <span class="math inline">\(a_1,\ldots,a_{n_1}\)</span> and <span class="math inline">\(n_2\)</span> elements <span class="math inline">\(b_1,\ldots,b_{n_2}\)</span> etc. up to <span class="math inline">\(n_r\)</span> elements <span class="math inline">\(x_1,\ldots,x_{n_r}\)</span> there are precisely <span class="math inline">\(n_1n_2\ldots n_r\)</span> r-tuples <span class="math inline">\((a_{i_1},b_{i_2},\ldots,x_{i_r})\)</span> containing one element of each kind</p>
+</div>
+</div>
+</section>
+<section id="factorials-and-permutations" class="level2">
+<h2 class="anchored" data-anchor-id="factorials-and-permutations">Factorials and Permutations</h2>
+<p>The product rule gives us a way to count choices slot by slot. Start with the case where order matters and we choose without replacement.</p>
+<div class="box box-definition callout callout-style-default callout-note no-icon callout-titled" title="Definition: Permutation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Permutation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An <strong><span class="math inline">\(m\)</span>-permutation</strong> of <span class="math inline">\(n\)</span> distinct items is an ordered selection of <span class="math inline">\(m\)</span> of those items without replacement. For <span class="math inline">\(1\le m\le n\)</span>, there are <span class="math inline">\(n\)</span> choices for the first slot, <span class="math inline">\(n-1\)</span> for the second, and <span class="math inline">\(n-m+1\)</span> for the last. By the product rule, <span id="eq-perms"><span class="math display">\[
+    P(n,m)
+\coloneqq \underbrace{n(n-1)\cdots(n-m+1)}_{m\text{ factors}}
+=\frac{n!}{(n-m)!}.
+\tag{1}\]</span></span></p>
+<p>The formula also gives <span class="math inline">\(P(n,0)=1\)</span>, since there is exactly one empty selection. When <span class="math inline">\(m=n\)</span>, we arrange all <span class="math inline">\(n\)</span> items and get <span class="math inline">\(P(n,n)=n!\)</span>.</p>
+</div>
+</div>
+<div class="box box-example callout callout-style-default callout-tip no-icon callout-titled" title="Example: First and second prize">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: First and second prize
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ann (A), Bob (B), Carla (C), and Dave (D) are competing for first and second prize. Write each outcome as an ordered pair <span class="math inline">\((\text{first},\text{second})\)</span>. For example, <span class="math inline">\((A,B)\)</span> means Ann wins first prize and Bob wins second. Reversing the pair changes who wins each prize.</p>
+<p>There are four choices for first prize. Whoever wins it, three contestants remain eligible for second prize. Grouping the outcomes by the first-prize winner makes the count easy to see: <span class="math display">\[
+    \begin{aligned}
+    (A,B),\quad (A,C),\quad (A,D)\\
+    (B,A),\quad (B,C),\quad (B,D)\\
+    (C,A),\quad (C,B),\quad (C,D)\\
+    (D,A),\quad (D,B),\quad (D,C).
+    \end{aligned}
+    \]</span> So <span class="math inline">\(P(4,2)=4\cdot 3=12\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="box box-theorem callout callout-style-default callout-important callout-titled" title="Theorem: Properties of Factorials and Permutations">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Properties of Factorials and Permutations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Factorials and permutations satisfy several useful identities and approximations that simplify counting problems and connect combinatorics to probability theory,</p>
+<ul>
+<li><p><strong>Sequential permutation identity.</strong> Suppose we fill <span class="math inline">\(i\)</span> slots and then fill another <span class="math inline">\(j\)</span> slots, all without replacement. For nonnegative integers <span class="math inline">\(i,j\)</span> with <span class="math inline">\(i+j\le n\)</span>,</p>
+<p><span id="eq-seqperm"><span class="math display">\[
+P(n,i+j)=P(n,i)\,P(n-i,j).
+\tag{2}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are <span class="math inline">\(P(n,i)\)</span> ways to fill the first <span class="math inline">\(i\)</span> slots. Whichever items we use, exactly <span class="math inline">\(n-i\)</span> remain, so there are <span class="math inline">\(P(n-i,j)\)</span> ways to fill the next <span class="math inline">\(j\)</span> slots. Every ordered list of <span class="math inline">\(i+j\)</span> items arises exactly once this way. The product rule gives the result.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Derangements.</strong> A derangement is a permutation in which no item stays in its original position. Let <span class="math inline">\(D_n\)</span> denote the number of derangements of <span class="math inline">\(n\)</span> distinct items. If we choose <span class="math inline">\(i\)</span> items to stay in place, the remaining <span class="math inline">\(n-i\)</span> items can be arranged in <span class="math inline">\((n-i)!\)</span> ways. Applying inclusion–exclusion gives <span id="eq-derange"><span class="math display">\[
+D_n
+=\sum_{i=0}^n(-1)^i\binom{n}{i}(n-i)!
+=n!\sum_{i=0}^n\frac{(-1)^i}{i!}.
+\tag{3}\]</span></span></p>
+<p>If all <span class="math inline">\(n!\)</span> permutations are equally likely, then <span class="math display">\[
+P(\text{no item stays in place})
+=\frac{D_n}{n!}
+=\sum_{i=0}^n\frac{(-1)^i}{i!}
+\longrightarrow e^{-1}\approx 0.368.
+\]</span> The limit follows from the power series for <span class="math inline">\(e^x\)</span> evaluated at <span class="math inline">\(x=-1\)</span>.</p></li>
+<li><p><strong>Stirling’s approximation.</strong> For large <span class="math inline">\(n\)</span>, we can approximate <span class="math inline">\(n!\)</span> by <span id="eq-stirling"><span class="math display">\[
+n!\sim\sqrt{2\pi n}\left(\frac{n}{e}\right)^n,
+\qquad n\to\infty,
+\tag{4}\]</span></span></p>
+<p>where <span class="math inline">\(\sim\)</span> means the ratio of the two sides approaches <span class="math inline">\(1\)</span>. Taking logarithms gives <span class="math display">\[
+\log(n!)=n\log n-n+\tfrac12\log(2\pi n)+o(1),
+\]</span> where <span class="math inline">\(o(1)\)</span> is a term that approaches zero. This form is useful when factorials appear in a log-likelihood, as they do for the Poisson and multinomial distributions.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="combinations" class="level2">
+<h2 class="anchored" data-anchor-id="combinations">Combinations</h2>
+<div class="box box-definition callout callout-style-default callout-note no-icon callout-titled" title="Definition: Combination">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Combination
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Combinations</strong> address scenarios where order does not matter and selections are made <em>without replacement</em>. Here, only the set of chosen items is important, not the sequence in which they are selected. The number of ways to choose <span class="math inline">\(m\)</span> items from <span class="math inline">\(n\)</span> items is written as <span class="math inline">\(C(n, m)\)</span> or <span class="math inline">\(\binom{n}{m}\)</span> by: <span id="eq-comb"><span class="math display">\[C(n,m) \coloneqq \frac{n!}{m!(n-m)!} \tag{5}\]</span></span></p>
+</div>
+</div>
+<div class="box box-example callout callout-style-default callout-tip no-icon callout-titled" title="Example: Combination">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Combination
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you are forming a committee from a larger group and the order in which members are chosen is irrelevant, then combinations are used. That is suppose we are forming a committee of 2 members from 3 possibilities: Ann (A), Bob (B) and Carla (C).</p>
+<p>Here there are three possible committees, <span class="math display">\[(A \ \&amp; \ B),(A \ \&amp; \ C),(B \ \&amp; \ C)\]</span> <span class="math display">\[\frac{3!}{(3-2)!(2)!} = 3\]</span></p>
+</div>
+</div>
+</div>
+<div class="box box-example callout callout-style-default callout-tip no-icon callout-titled" title="Example: XKCD 3015, Dungeons and Dragons">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: XKCD 3015, Dungeons and Dragons
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://imgs.xkcd.com/comics/dnd_combinatorics.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption><em>xkcd #3015</em></figcaption>
+</figure>
+</div>
+<p>If 5 of 10 arrows are cursed, the probability of selecting two uncursed arrows without replacement is</p>
+<p><span class="math display">\[
+P(\text{neither cursed})
+=\frac{\binom{5}{2}}{\binom{10}{2}}
+=\frac{2}{9}\approx0.2222.
+\]</span></p>
+<p>The dungeon master claims that rolling three six-sided dice and one four-sided die, using a total of at least 16 as the cutoff, gives the same probability of <span class="math inline">\(2/9\)</span>. Since the dice rolls are independent, there are <span class="math inline">\(6^3(4)=864\)</span> equally likely outcomes. We can count the favorable outcomes using the following table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Four-sided die</th>
+<th>Required sum of 3d6</th>
+<th style="text-align: right;">Favorable outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(\geq 15\)</span></td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(\geq 14\)</span></td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(\geq 13\)</span></td>
+<td style="text-align: right;">56</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(\geq 12\)</span></td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>192</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Thus,</p>
+<p><span class="math display">\[
+P(\text{sum}\geq16)=\frac{192}{864}=\frac29.
+\]</span></p>
+<p>and as always, the dungeon master is correct</p>
+</div>
+</div>
+</div>
+<div class="box box-remark callout callout-style-default callout-tip callout-titled" title="Remark: Intuition on why we divide by $(n-m)!$ and $m!$">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remark: Intuition on why we divide by <span class="math inline">\((n-m)!\)</span> and <span class="math inline">\(m!\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When computing the number of arrangements (or permutations) for <span class="math inline">\(m\)</span> items out of <span class="math inline">\(n\)</span> distinct items without replacement, a useful approach is to start by considering how many ways there are to arrange all <span class="math inline">\(n\)</span> items. This total is <span class="math inline">\(n!\)</span>, but we are only interested in the order of the first <span class="math inline">\(m\)</span> items.</p>
+<p>Notice that in each complete ordering of <span class="math inline">\(n\)</span> items, the last <span class="math inline">\((n-m)\)</span> positions (positions <span class="math inline">\((m+1)\)</span> through <span class="math inline">\(n\)</span>) can be arranged in any order. There are exactly <span class="math inline">\((n-m)!\)</span> ways to arrange these remaining items. In other words, if we view the first <span class="math inline">\(m\)</span> items in a full ordering as our permutation of interest, then different orderings of the remaining <span class="math inline">\((n-m)\)</span> items do not alter this selected permutation.</p>
+<p>For example, suppose <span class="math inline">\(n=4\)</span> and <span class="math inline">\(m=2\)</span>. The full orderings <span class="math inline">\([1,2,3,4]\)</span> and <span class="math inline">\([1,2,4,3]\)</span> both yield the same permutation <span class="math inline">\([1,2]\)</span> when only the first two items are considered.</p>
+<p>We can represent a full ordering as, <span class="math display">\[
+\underbrace{[x_1,\ldots,x_m}_{\text{Permutation of Interest}}, \underbrace{x_{m+1},\ldots,x_n}_{\text{Extra Portion}}].
+\]</span></p>
+<p>Since each distinct permutation of the <span class="math inline">\(m\)</span> items appears <span class="math inline">\((n-m)!\)</span> times in the <span class="math inline">\(n!\)</span> full orderings, we divide <span class="math inline">\(n!\)</span> by <span class="math inline">\((n-m)!\)</span> to account for the repeated arrangements of the extra portion. This gives the number of unique permutations of <span class="math inline">\(m\)</span> items from <span class="math inline">\(n\)</span> items as <span class="math inline">\(\frac{n!}{(n-m)!}\)</span> a similar argument yields the formula for combinations.</p>
+</div>
+</div>
+</div>
+<div class="box box-remark callout callout-style-default callout-tip callout-titled" title="Remark: Pascal's Triangle">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remark: Pascal’s Triangle
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-pascal-hex" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pascal-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="2counting_files/figure-html/fig-pascal-hex-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:3.6in">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pascal-hex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pascal’s triangle. Each interior number is the sum of the two numbers touching it from above.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Pascal’s triangle</em> starts with a single <span class="math inline">\(1\)</span>. Each row begins and ends with <span class="math inline">\(1\)</span>, and each interior entry is the sum of the two entries immediately above it. Every row is symmetric from left to right.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-pascal-zoom" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pascal-zoom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="2counting_files/figure-html/fig-pascal-zoom-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:2.2in">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pascal-zoom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The two middle entries of the row <span class="math inline">\(1,3,3,1\)</span> give the middle entry of the next row: <span class="math inline">\(3+3=6\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The entry in <em>row <span class="math inline">\(n\)</span>, position <span class="math inline">\(i\)</span></em> is <span class="math inline">\(\binom{n}{i}\)</span>, the number of ways to choose <span class="math inline">\(i\)</span> items from <span class="math inline">\(n\)</span> distinct items.</p>
+</div>
+</div>
+</div>
+<div class="box box-theorem callout callout-style-default callout-important callout-titled" title="Theorem: Properties of Combinations">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Properties of Combinations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Combinations, permutations, and factorials satisfy many useful identities that simplify counting problems. Many of these identities can be visualized with <em>Pascal’s triangle</em> above,</p>
+<ul>
+<li><p><strong>Symmetry of Combinations.</strong> <span class="math display">\[\binom{n}{i}=\binom{n}{n-i}\]</span> {#eq-symm},</p></li>
+<li><p><strong>Relationship between permutations and combinations.</strong> For <span class="math inline">\(0\le i\le n\)</span>, <span id="eq-permComb"><span class="math display">\[
+P(n,i)=i!\binom{n}{i}=\frac{n!}{(n-i)!}.
+\tag{6}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First choose the <span class="math inline">\(i\)</span> items that will appear. There are <span class="math inline">\(\binom{n}{i}\)</span> ways to do this. Once the items are chosen, there are <span class="math inline">\(i!\)</span> ways to arrange them. Every ordered selection arises exactly once, so the product rule gives <span class="math inline">\(P(n,i)=i!\binom{n}{i}\)</span>.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Row sums.</strong> The entries in row <span class="math inline">\(n\)</span> sum to <span class="math inline">\(2^n\)</span>. <span id="eq-rowSums"><span class="math display">\[
+\sum_{i=0}^n\binom{n}{i}=2^n.
+\tag{7}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Count the subsets of a set with <span class="math inline">\(n\)</span> items. Each item can be included or excluded, giving <span class="math inline">\(2^n\)</span> subsets. Alternatively, group the subsets by size. There are <span class="math inline">\(\binom{n}{i}\)</span> subsets of size <span class="math inline">\(i\)</span>, and summing over all sizes counts every subset exactly once.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Sum of squared combinations.</strong> The sum of the squares of the entries in row <span class="math inline">\(n\)</span> equals the middle entry of row <span class="math inline">\(2n\)</span>. <span class="math display">\[
+\sum_{i=0}^n\binom{n}{i}^2=\binom{2n}{n}.
+\]</span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Split <span class="math inline">\(2n\)</span> distinct items into two groups of <span class="math inline">\(n\)</span> and choose <span class="math inline">\(n\)</span> items in total. If we choose <span class="math inline">\(i\)</span> from the first group, we must choose <span class="math inline">\(n-i\)</span> from the second. Choosing <span class="math inline">\(n-i\)</span> items to include is equivalent to choosing <span class="math inline">\(i\)</span> items to leave out, so <span class="math inline">\(\binom{n}{n-i}=\binom{n}{i}\)</span>. Summing over <span class="math inline">\(i\)</span> gives <span class="math display">\[
+\binom{2n}{n}
+=\sum_{i=0}^n\binom{n}{i}\binom{n}{n-i}
+=\sum_{i=0}^n\binom{n}{i}^2.
+\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Square of a row sum.</strong> Squaring the sum of row <span class="math inline">\(n\)</span> gives the sum of row <span class="math inline">\(2n\)</span>. <span class="math display">\[
+\left(\sum_{i=0}^n\binom{n}{i}\right)^2
+=4^n
+=\sum_{k=0}^{2n}\binom{2n}{k}.
+\]</span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By the row-sum identity, row <span class="math inline">\(n\)</span> sums to <span class="math inline">\(2^n\)</span>. Squaring gives <span class="math inline">\((2^n)^2=2^{2n}\)</span>, which is the sum of row <span class="math inline">\(2n\)</span> by the same identity.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Addition identity (Pascal’s rule).</strong> Each interior entry is the sum of the two entries directly above it. For <span class="math inline">\(1\le i\le n-1\)</span>, <span id="eq-add"><span class="math display">\[
+\binom{n}{i}
+=\binom{n-1}{i-1}+\binom{n-1}{i}.
+\tag{8}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mark one of the <span class="math inline">\(n\)</span> items. Every selection of <span class="math inline">\(i\)</span> items falls into exactly one of two cases.</p>
+<ul>
+<li><strong>It includes the marked item.</strong> Choose the remaining <span class="math inline">\(i-1\)</span> items from the other <span class="math inline">\(n-1\)</span>, giving <span class="math inline">\(\binom{n-1}{i-1}\)</span> selections.</li>
+<li><strong>It excludes the marked item.</strong> Choose all <span class="math inline">\(i\)</span> items from the other <span class="math inline">\(n-1\)</span>, giving <span class="math inline">\(\binom{n-1}{i}\)</span> selections.</li>
+</ul>
+<p>Adding the two counts gives <span class="math inline">\(\binom{n}{i}\)</span>. We can also see the identity directly by putting the two terms over a common denominator: <span class="math display">\[
+\begin{aligned}
+\binom{n-1}{i-1}+\binom{n-1}{i}
+&amp;=\frac{i(n-1)!+(n-i)(n-1)!}{i!(n-i)!}\\
+&amp;=\frac{n!}{i!(n-i)!}
+=\binom{n}{i}.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Hockey-stick identity.</strong> For integers <span class="math inline">\(n\ge i\ge0\)</span>, <span id="eq-hockey"><span class="math display">\[
+\sum_{j=i}^{n}\binom{j}{i}=\binom{n+1}{i+1}.
+\tag{9}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Choose <span class="math inline">\(i+1\)</span> numbers from <span class="math inline">\(\{1,\ldots,n+1\}\)</span> and group the selections by their largest number. If the largest is <span class="math inline">\(j+1\)</span>, the remaining <span class="math inline">\(i\)</span> numbers must come from <span class="math inline">\(\{1,\ldots,j\}\)</span>, giving <span class="math inline">\(\binom{j}{i}\)</span> possibilities. Every selection has exactly one largest number, and its possible values run from <span class="math inline">\(i+1\)</span> to <span class="math inline">\(n+1\)</span>. Summing over <span class="math inline">\(j=i,\ldots,n\)</span> counts every selection once.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Vandermonde’s identity.</strong> For integers <span class="math inline">\(0\le i,m\le n\)</span>, <span id="eq-vandermonde"><span class="math display">\[
+\binom{n}{i}
+=\sum_{j=0}^{i}\binom{m}{j}\binom{n-m}{i-j}.
+\tag{10}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Split <span class="math inline">\(n\)</span> items into two groups of sizes <span class="math inline">\(m\)</span> and <span class="math inline">\(n-m\)</span>. To choose <span class="math inline">\(i\)</span> items with exactly <span class="math inline">\(j\)</span> from the first group, we must choose the other <span class="math inline">\(i-j\)</span> from the second. The product rule gives <span class="math inline">\(\binom{m}{j}\binom{n-m}{i-j}\)</span> such selections. Summing over <span class="math inline">\(j\)</span> counts every selection of <span class="math inline">\(i\)</span> items once. If either group is too small for a proposed selection, its binomial coefficient is zero.</p>
+<p>The sum-of-squares identity is the special case where both groups have the same size and we choose half the items.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Alternating row sums.</strong> For <span class="math inline">\(n\ge1\)</span>, the entries in even positions and the entries in odd positions have the same sum. Equivalently, <span id="eq-altRow"><span class="math display">\[
+\sum_{i=0}^n(-1)^i\binom{n}{i}=0.
+\tag{11}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Fix one of the <span class="math inline">\(n\)</span> items. Pair each subset with the subset obtained by toggling that item: add it if it is absent and remove it if it is present. Toggling twice returns us to the original subset, so every subset belongs to exactly one pair. Each pair contains one even-sized subset and one odd-sized subset. Their contributions to the alternating sum cancel.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Binomial theorem.</strong> The entries of Pascal’s triangle are called <em>binomial coefficients</em> because they are the coefficients in the expansion of <span class="math inline">\((a+b)^n\)</span>. For every nonnegative integer <span class="math inline">\(n\)</span>, <span id="eq-bin"><span class="math display">\[
+(a+b)^n
+=\sum_{i=0}^n\binom{n}{i}a^i b^{n-i}
+=\sum_{i=0}^n\binom{n}{i}a^{n-i}b^i.
+\tag{12}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=0\)</span>, both sides equal <span class="math inline">\(1\)</span>. Now suppose the expansion holds for <span class="math inline">\(n-1\)</span>. Multiplying by <span class="math inline">\(a+b\)</span> gives <span class="math display">\[
+\begin{aligned}
+(a+b)^n
+&amp;=a\sum_{i=0}^{n-1}\binom{n-1}{i}a^i b^{n-1-i}
+  +b\sum_{i=0}^{n-1}\binom{n-1}{i}a^i b^{n-1-i}\\
+&amp;=\sum_{i=1}^{n}\binom{n-1}{i-1}a^i b^{n-i}
+  +\sum_{i=0}^{n-1}\binom{n-1}{i}a^i b^{n-i}.
+\end{aligned}
+\]</span></p>
+<p>The first sum supplies the endpoint <span class="math inline">\(a^n\)</span>, and the second supplies <span class="math inline">\(b^n\)</span>. For each interior power <span class="math inline">\(a^i b^{n-i}\)</span>, both sums contribute. Adding their coefficients gives <span class="math inline">\(\binom{n-1}{i-1}+\binom{n-1}{i}=\binom{n}{i}\)</span> by Pascal’s rule. This proves the first expansion. Replacing <span class="math inline">\(i\)</span> by <span class="math inline">\(n-i\)</span> and using <span class="math inline">\(\binom{n}{n-i}=\binom{n}{i}\)</span> gives the second.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Binomial coefficient moment identities.</strong> Weighting the entries of row <span class="math inline">\(n\)</span> by <span class="math inline">\(i\)</span> or by <span class="math inline">\(i(i-1)\)</span> gives <span id="eq-bin2"><span class="math display">\[
+\begin{aligned}
+\sum_{i=0}^n i\binom{n}{i} &amp;= n2^{n-1},\\
+\sum_{i=0}^n i(i-1)\binom{n}{i} &amp;= n(n-1)2^{n-2}.
+\end{aligned}
+\tag{13}\]</span></span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Differentiate the binomial expansion with respect to <span class="math inline">\(a\)</span>, holding <span class="math inline">\(b\)</span> fixed. The sum is finite, so we can differentiate term by term. For <span class="math inline">\(n\ge2\)</span>, <span class="math display">\[
+\begin{aligned}
+n(a+b)^{n-1}
+&amp;=\sum_{i=1}^n i\binom{n}{i}a^{i-1}b^{n-i},\\
+n(n-1)(a+b)^{n-2}
+&amp;=\sum_{i=2}^n i(i-1)\binom{n}{i}a^{i-2}b^{n-i}.
+\end{aligned}
+\]</span> Set <span class="math inline">\(a=b=1\)</span> to obtain both identities. The cases <span class="math inline">\(n=0,1\)</span> follow directly from the first two rows of the triangle.</p>
+</div>
+</div>
+</div>
+<div class="box box-example callout callout-style-default callout-tip no-icon callout-titled" title="Example: Mean and variance of the binomial distribution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Mean and variance of the binomial distribution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\sim\operatorname{Bin}(n,p)\)</span>, so <span class="math inline">\(P(X=i)=\binom{n}{i}p^i(1-p)^{n-i}\)</span>. Setting <span class="math inline">\(a=p\)</span> and <span class="math inline">\(b=1-p\)</span> in the binomial theorem shows that these probabilities sum to <span class="math inline">\((p+1-p)^n=1\)</span>.</p>
+<p>Now make the same substitution <strong>after differentiating</strong>. Multiplying the first derivative identity by <span class="math inline">\(p\)</span> and the second by <span class="math inline">\(p^2\)</span> restores the factor <span class="math inline">\(p^i\)</span> in each probability. This gives <span class="math display">\[
+\begin{aligned}
+E(X)
+&amp;=\sum_{i=0}^n i\,P(X=i)=np,\\
+E\{X(X-1)\}
+&amp;=\sum_{i=0}^n i(i-1)\,P(X=i)=n(n-1)p^2.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(X^2=X(X-1)+X\)</span>, we get the variance without calculating a new sum: <span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(X)
+&amp;=E\{X(X-1)\}+E(X)-[E(X)]^2\\
+&amp;=n(n-1)p^2+np-n^2p^2\\
+&amp;=np(1-p).
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="stars-and-bars-combinations-with-repetition" class="level2">
+<h2 class="anchored" data-anchor-id="stars-and-bars-combinations-with-repetition">Stars and Bars, Combinations with Repetition</h2>
+<p>When we allow repeats and ignore order, we are choosing a <em>multiset</em> of size <span class="math inline">\(m\)</span> from <span class="math inline">\(n\)</span> types.</p>
+<div class="box box-theorem callout callout-style-default callout-important callout-titled" title="Theorem: Counting Combinations with Repetition / Stars and Bars">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Counting Combinations with Repetition / Stars and Bars
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The number of ways to choose <span class="math inline">\(m\)</span> items from <span class="math inline">\(n\)</span> types, with repetition allowed and order unimportant, is <span id="eq-starsAndBars"><span class="math display">\[
+\binom{n + m - 1}{m}
+\tag{14}\]</span></span> notice this is the same thing as <span class="math inline">\(\binom{n + m - 1}{n - 1}\)</span></p>
+<div class="box box-proof callout callout-style-default callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Think of laying out a sequence of <span class="math inline">\(m\)</span> “stars” and <span class="math inline">\(n-1\)</span> “bars.” The first block of stars (before the first bar) counts how many of type 1 we chose, the next block (between bar 1 and bar 2) how many of type 2, and so on, up through type <span class="math inline">\(n\)</span> (after the last bar). In total there are <span class="math display">\[
+m\text{ stars} + (n-1)\text{ bars} = m + n - 1
+\]</span> positions, and we need only choose which <span class="math inline">\(m\)</span> of those are stars. Hence <span class="math display">\[
+\binom{m + n - 1}{m}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="795" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 794;"><span id="cb3-795"><a href="#cb3-795" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-796"><a href="#cb3-796" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> model <span class="op">=</span> countingModel<span class="op">;</span></span>
+<span id="cb3-797"><a href="#cb3-797" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> widget <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;section class="count-demo"&gt;</span></span>
+<span id="cb3-798"><a href="#cb3-798" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;style&gt;</span><span class="sc">${</span>model<span class="op">.</span><span class="at">style</span><span class="sc">}</span><span class="vs">&lt;/style&gt;</span></span>
+<span id="cb3-799"><a href="#cb3-799" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;strong&gt;Widget: Stars and bars&lt;/strong&gt;</span></span>
+<span id="cb3-800"><a href="#cb3-800" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-801"><a href="#cb3-801" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="controls"&gt;</span></span>
+<span id="cb3-802"><a href="#cb3-802" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;label&gt;Items (n) &lt;select data-n&gt;&lt;/select&gt;&lt;/label&gt;</span></span>
+<span id="cb3-803"><a href="#cb3-803" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;label&gt;Draws (m) &lt;select data-m&gt;&lt;/select&gt;&lt;/label&gt;</span></span>
+<span id="cb3-804"><a href="#cb3-804" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" data-reset&gt;Reset boxes&lt;/button&gt;</span></span>
+<span id="cb3-805"><a href="#cb3-805" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb3-806"><a href="#cb3-806" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-807"><a href="#cb3-807" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p data-explanation&gt;&lt;/p&gt;</span></span>
+<span id="cb3-808"><a href="#cb3-808" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p data-reading&gt;&lt;/p&gt;</span></span>
+<span id="cb3-809"><a href="#cb3-809" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="bins" role="group" aria-label="Item counts"&gt;&lt;/div&gt;</span></span>
+<span id="cb3-810"><a href="#cb3-810" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p class="answer" data-answer&gt;&lt;/p&gt;</span></span>
+<span id="cb3-811"><a href="#cb3-811" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p data-hint aria-live="polite"&gt;&lt;/p&gt;</span></span>
+<span id="cb3-812"><a href="#cb3-812" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/section&gt;`</span><span class="op">;</span></span>
+<span id="cb3-813"><a href="#cb3-813" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-814"><a href="#cb3-814" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="kw">get</span> <span class="op">=</span> selector <span class="kw">=&gt;</span> widget<span class="op">.</span><span class="fu">querySelector</span>(selector)<span class="op">;</span></span>
+<span id="cb3-815"><a href="#cb3-815" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> boxes <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-816"><a href="#cb3-816" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> source <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb3-817"><a href="#cb3-817" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-818"><a href="#cb3-818" aria-hidden="true" tabindex="-1"></a>  model<span class="op">.</span><span class="fu">populate</span>(<span class="kw">get</span>(<span class="st">"[data-n]"</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> model<span class="op">.</span><span class="at">n</span>)<span class="op">;</span></span>
+<span id="cb3-819"><a href="#cb3-819" aria-hidden="true" tabindex="-1"></a>  model<span class="op">.</span><span class="fu">populate</span>(<span class="kw">get</span>(<span class="st">"[data-m]"</span>)<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> model<span class="op">.</span><span class="at">m</span>)<span class="op">;</span></span>
+<span id="cb3-820"><a href="#cb3-820" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-821"><a href="#cb3-821" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">reset</span>() {</span>
+<span id="cb3-822"><a href="#cb3-822" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> {n<span class="op">,</span> m} <span class="op">=</span> model<span class="op">;</span></span>
+<span id="cb3-823"><a href="#cb3-823" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-n]"</span>)<span class="op">.</span><span class="at">value</span> <span class="op">=</span> n<span class="op">;</span></span>
+<span id="cb3-824"><a href="#cb3-824" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-m]"</span>)<span class="op">.</span><span class="at">value</span> <span class="op">=</span> m<span class="op">;</span></span>
+<span id="cb3-825"><a href="#cb3-825" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-826"><a href="#cb3-826" aria-hidden="true" tabindex="-1"></a>    boxes <span class="op">=</span> <span class="bu">Array</span>(n)<span class="op">.</span><span class="fu">fill</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-827"><a href="#cb3-827" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb3-828"><a href="#cb3-828" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> first <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(m <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb3-829"><a href="#cb3-829" aria-hidden="true" tabindex="-1"></a>      boxes[<span class="dv">0</span>] <span class="op">=</span> first<span class="op">;</span></span>
+<span id="cb3-830"><a href="#cb3-830" aria-hidden="true" tabindex="-1"></a>      boxes[n <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> m <span class="op">-</span> first<span class="op">;</span></span>
+<span id="cb3-831"><a href="#cb3-831" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-832"><a href="#cb3-832" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-833"><a href="#cb3-833" aria-hidden="true" tabindex="-1"></a>    source <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb3-834"><a href="#cb3-834" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>()<span class="op">;</span></span>
+<span id="cb3-835"><a href="#cb3-835" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-836"><a href="#cb3-836" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-837"><a href="#cb3-837" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">pick</span>(i) {</span>
+<span id="cb3-838"><a href="#cb3-838" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> hint <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb3-839"><a href="#cb3-839" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-840"><a href="#cb3-840" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="op">===</span> source) {</span>
+<span id="cb3-841"><a href="#cb3-841" aria-hidden="true" tabindex="-1"></a>      source <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb3-842"><a href="#cb3-842" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (source <span class="op">!==</span> <span class="kw">null</span>) {</span>
+<span id="cb3-843"><a href="#cb3-843" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> <span class="im">from</span> <span class="op">=</span> source<span class="op">;</span></span>
+<span id="cb3-844"><a href="#cb3-844" aria-hidden="true" tabindex="-1"></a>      boxes[<span class="im">from</span>]<span class="op">--;</span></span>
+<span id="cb3-845"><a href="#cb3-845" aria-hidden="true" tabindex="-1"></a>      boxes[i]<span class="op">++;</span></span>
+<span id="cb3-846"><a href="#cb3-846" aria-hidden="true" tabindex="-1"></a>      source <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb3-847"><a href="#cb3-847" aria-hidden="true" tabindex="-1"></a>      hint <span class="op">=</span> <span class="vs">`Choose where to move the stars`</span><span class="op">;</span></span>
+<span id="cb3-848"><a href="#cb3-848" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (boxes[i] <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb3-849"><a href="#cb3-849" aria-hidden="true" tabindex="-1"></a>      hint <span class="op">=</span> <span class="st">"Start with a box that contains a star."</span><span class="op">;</span></span>
+<span id="cb3-850"><a href="#cb3-850" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb3-851"><a href="#cb3-851" aria-hidden="true" tabindex="-1"></a>      source <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb3-852"><a href="#cb3-852" aria-hidden="true" tabindex="-1"></a>      hint <span class="op">=</span> <span class="vs">`Choose where to move one star from box </span><span class="sc">${</span>model<span class="op">.</span><span class="at">letters</span>[i]<span class="sc">}</span><span class="vs">.`</span><span class="op">;</span></span>
+<span id="cb3-853"><a href="#cb3-853" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-854"><a href="#cb3-854" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-855"><a href="#cb3-855" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>(hint)<span class="op">;</span></span>
+<span id="cb3-856"><a href="#cb3-856" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">".bins"</span>)<span class="op">.</span><span class="at">children</span>[i]<span class="op">.</span><span class="fu">focus</span>()<span class="op">;</span></span>
+<span id="cb3-857"><a href="#cb3-857" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-858"><a href="#cb3-858" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-859"><a href="#cb3-859" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">draw</span>(hint <span class="op">=</span> <span class="st">""</span>) {</span>
+<span id="cb3-860"><a href="#cb3-860" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> {n<span class="op">,</span> m} <span class="op">=</span> model<span class="op">;</span></span>
+<span id="cb3-861"><a href="#cb3-861" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> bars <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb3-862"><a href="#cb3-862" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> slots <span class="op">=</span> m <span class="op">+</span> bars<span class="op">;</span></span>
+<span id="cb3-863"><a href="#cb3-863" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> total <span class="op">=</span> model<span class="op">.</span><span class="fu">ways</span>(n<span class="op">,</span> m<span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb3-864"><a href="#cb3-864" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> reading <span class="op">=</span> <span class="kw">get</span>(<span class="st">"[data-reading]"</span>)<span class="op">;</span></span>
+<span id="cb3-865"><a href="#cb3-865" aria-hidden="true" tabindex="-1"></a>    reading<span class="op">.</span><span class="fu">replaceChildren</span>()<span class="op">;</span></span>
+<span id="cb3-866"><a href="#cb3-866" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-867"><a href="#cb3-867" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> explanation<span class="op">;</span></span>
+<span id="cb3-868"><a href="#cb3-868" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb3-869"><a href="#cb3-869" aria-hidden="true" tabindex="-1"></a>      explanation <span class="op">=</span> m <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb3-870"><a href="#cb3-870" aria-hidden="true" tabindex="-1"></a>        <span class="op">?</span> <span class="st">"With no items and no draws, the empty selection is the only outcome."</span></span>
+<span id="cb3-871"><a href="#cb3-871" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="st">"With no items available, there is nothing to draw."</span><span class="op">;</span></span>
+<span id="cb3-872"><a href="#cb3-872" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (m <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb3-873"><a href="#cb3-873" aria-hidden="true" tabindex="-1"></a>      explanation <span class="op">=</span> <span class="st">"With no draws, there are no stars. Every box is empty."</span><span class="op">;</span></span>
+<span id="cb3-874"><a href="#cb3-874" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">1</span>) {</span>
+<span id="cb3-875"><a href="#cb3-875" aria-hidden="true" tabindex="-1"></a>      explanation <span class="op">=</span> <span class="st">"There is only one item, A. Every star goes in box A, so no bars are needed."</span><span class="op">;</span></span>
+<span id="cb3-876"><a href="#cb3-876" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb3-877"><a href="#cb3-877" aria-hidden="true" tabindex="-1"></a>      explanation <span class="op">=</span></span>
+<span id="cb3-878"><a href="#cb3-878" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`Picture </span><span class="sc">${</span>slots<span class="sc">}</span><span class="vs"> slots in a row. Choose </span><span class="sc">${</span>m<span class="sc">}</span><span class="vs"> of them for stars, one star per draw, `</span> <span class="op">+</span></span>
+<span id="cb3-879"><a href="#cb3-879" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`and put a bar in each remaining slot. `</span> <span class="op">+</span></span>
+<span id="cb3-880"><a href="#cb3-880" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`The </span><span class="sc">${</span>bars <span class="op">===</span> <span class="dv">1</span> <span class="op">?</span> <span class="st">"bar divides"</span> <span class="op">:</span> <span class="vs">`</span><span class="sc">${</span>bars<span class="sc">}</span><span class="vs"> bars divide`</span><span class="sc">}</span><span class="vs"> the row into </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs"> groups. `</span> <span class="op">+</span></span>
+<span id="cb3-881"><a href="#cb3-881" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`Those groups are the boxes. Start in box A and read from left to right. `</span> <span class="op">+</span></span>
+<span id="cb3-882"><a href="#cb3-882" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`Each star counts as one draw of the current item. Each bar moves you to the next box.`</span><span class="op">;</span></span>
+<span id="cb3-883"><a href="#cb3-883" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-884"><a href="#cb3-884" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-explanation]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> explanation<span class="op">;</span></span>
+<span id="cb3-885"><a href="#cb3-885" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-886"><a href="#cb3-886" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> slots <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb3-887"><a href="#cb3-887" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> row <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"code"</span>)<span class="op">;</span></span>
+<span id="cb3-888"><a href="#cb3-888" aria-hidden="true" tabindex="-1"></a>      row<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> boxes<span class="op">.</span><span class="fu">map</span>(value <span class="kw">=&gt;</span> <span class="st">"★"</span><span class="op">.</span><span class="fu">repeat</span>(value))<span class="op">.</span><span class="fu">join</span>(<span class="st">"│"</span>)<span class="op">;</span></span>
+<span id="cb3-889"><a href="#cb3-889" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-890"><a href="#cb3-890" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> counts <span class="op">=</span> boxes<span class="op">.</span><span class="fu">map</span>((value<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>model<span class="op">.</span><span class="at">letters</span>[i]<span class="sc">}</span><span class="vs"> = </span><span class="sc">${</span>value<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb3-891"><a href="#cb3-891" aria-hidden="true" tabindex="-1"></a>      reading<span class="op">.</span><span class="fu">append</span>(<span class="st">"Your row "</span><span class="op">,</span> row<span class="op">,</span> <span class="vs">` gives </span><span class="sc">${</span>counts<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>)<span class="sc">}</span><span class="vs">.`</span>)<span class="op">;</span></span>
+<span id="cb3-892"><a href="#cb3-892" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-893"><a href="#cb3-893" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> emptyMiddle <span class="op">=</span> boxes<span class="op">.</span><span class="fu">findIndex</span>((value<span class="op">,</span> i) <span class="kw">=&gt;</span></span>
+<span id="cb3-894"><a href="#cb3-894" aria-hidden="true" tabindex="-1"></a>        value <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> i <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> i <span class="op">&lt;</span> n <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-895"><a href="#cb3-895" aria-hidden="true" tabindex="-1"></a>      )<span class="op">;</span></span>
+<span id="cb3-896"><a href="#cb3-896" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (emptyMiddle <span class="op">!==</span> <span class="op">-</span><span class="dv">1</span>) {</span>
+<span id="cb3-897"><a href="#cb3-897" aria-hidden="true" tabindex="-1"></a>        reading<span class="op">.</span><span class="fu">append</span>(<span class="vs">` The bars on either side of box </span><span class="sc">${</span>model<span class="op">.</span><span class="at">letters</span>[emptyMiddle]<span class="sc">}</span><span class="vs"> touch because that box is empty.`</span>)<span class="op">;</span></span>
+<span id="cb3-898"><a href="#cb3-898" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span> (boxes[<span class="dv">0</span>] <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb3-899"><a href="#cb3-899" aria-hidden="true" tabindex="-1"></a>        reading<span class="op">.</span><span class="fu">append</span>(<span class="st">" The row starts with a bar because box A is empty."</span>)<span class="op">;</span></span>
+<span id="cb3-900"><a href="#cb3-900" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span> (boxes[n <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb3-901"><a href="#cb3-901" aria-hidden="true" tabindex="-1"></a>        reading<span class="op">.</span><span class="fu">append</span>(<span class="vs">` The row ends with a bar because box </span><span class="sc">${</span>model<span class="op">.</span><span class="at">letters</span>[n <span class="op">-</span> <span class="dv">1</span>]<span class="sc">}</span><span class="vs"> is empty.`</span>)<span class="op">;</span></span>
+<span id="cb3-902"><a href="#cb3-902" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb3-903"><a href="#cb3-903" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-904"><a href="#cb3-904" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-905"><a href="#cb3-905" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> bins <span class="op">=</span> <span class="kw">get</span>(<span class="st">".bins"</span>)<span class="op">;</span></span>
+<span id="cb3-906"><a href="#cb3-906" aria-hidden="true" tabindex="-1"></a>    bins<span class="op">.</span><span class="fu">replaceChildren</span>()<span class="op">;</span></span>
+<span id="cb3-907"><a href="#cb3-907" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-908"><a href="#cb3-908" aria-hidden="true" tabindex="-1"></a>    boxes<span class="op">.</span><span class="fu">forEach</span>((value<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-909"><a href="#cb3-909" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> letter <span class="op">=</span> model<span class="op">.</span><span class="at">letters</span>[i]<span class="op">;</span></span>
+<span id="cb3-910"><a href="#cb3-910" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> button <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"button"</span>)<span class="op">;</span></span>
+<span id="cb3-911"><a href="#cb3-911" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">type</span> <span class="op">=</span> <span class="st">"button"</span><span class="op">;</span></span>
+<span id="cb3-912"><a href="#cb3-912" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"bin"</span><span class="op">;</span></span>
+<span id="cb3-913"><a href="#cb3-913" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> m <span class="op">===</span> <span class="dv">0</span> <span class="op">||</span> n <span class="op">===</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-914"><a href="#cb3-914" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">"aria-pressed"</span><span class="op">,</span> <span class="bu">String</span>(source <span class="op">===</span> i))<span class="op">;</span></span>
+<span id="cb3-915"><a href="#cb3-915" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">"aria-label"</span><span class="op">,</span> <span class="vs">`Box </span><span class="sc">${</span>letter<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>value<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>value <span class="op">===</span> <span class="dv">1</span> <span class="op">?</span> <span class="st">"star"</span> <span class="op">:</span> <span class="st">"stars"</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb3-916"><a href="#cb3-916" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="fu">pick</span>(i)<span class="op">;</span></span>
+<span id="cb3-917"><a href="#cb3-917" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-918"><a href="#cb3-918" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> title <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"strong"</span>)<span class="op">;</span></span>
+<span id="cb3-919"><a href="#cb3-919" aria-hidden="true" tabindex="-1"></a>      title<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>letter<span class="sc">}</span><span class="vs"> (</span><span class="sc">${</span>value<span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span>
+<span id="cb3-920"><a href="#cb3-920" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-921"><a href="#cb3-921" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> stars <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"span"</span>)<span class="op">;</span></span>
+<span id="cb3-922"><a href="#cb3-922" aria-hidden="true" tabindex="-1"></a>      stars<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"stars"</span><span class="op">;</span></span>
+<span id="cb3-923"><a href="#cb3-923" aria-hidden="true" tabindex="-1"></a>      stars<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> value <span class="op">?</span> <span class="st">"★"</span><span class="op">.</span><span class="fu">repeat</span>(value) <span class="op">:</span> <span class="st">"empty"</span><span class="op">;</span></span>
+<span id="cb3-924"><a href="#cb3-924" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-925"><a href="#cb3-925" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="fu">append</span>(title<span class="op">,</span> stars)<span class="op">;</span></span>
+<span id="cb3-926"><a href="#cb3-926" aria-hidden="true" tabindex="-1"></a>      bins<span class="op">.</span><span class="fu">appendChild</span>(button)<span class="op">;</span></span>
+<span id="cb3-927"><a href="#cb3-927" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-928"><a href="#cb3-928" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-929"><a href="#cb3-929" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> outcome <span class="op">=</span> boxes<span class="op">.</span><span class="fu">map</span>((value<span class="op">,</span> i) <span class="kw">=&gt;</span> model<span class="op">.</span><span class="at">letters</span>[i]<span class="op">.</span><span class="fu">repeat</span>(value))<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="op">;</span></span>
+<span id="cb3-930"><a href="#cb3-930" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (total <span class="op">===</span> <span class="dv">0</span>n) {</span>
+<span id="cb3-931"><a href="#cb3-931" aria-hidden="true" tabindex="-1"></a>      <span class="kw">get</span>(<span class="st">"[data-answer]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">"0 possible outcomes."</span><span class="op">;</span></span>
+<span id="cb3-932"><a href="#cb3-932" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (total <span class="op">===</span> <span class="dv">1</span>n) {</span>
+<span id="cb3-933"><a href="#cb3-933" aria-hidden="true" tabindex="-1"></a>      <span class="kw">get</span>(<span class="st">"[data-answer]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`Only outcome: </span><span class="sc">${</span>outcome <span class="op">||</span> <span class="st">"empty selection"</span><span class="sc">}</span><span class="vs">.`</span><span class="op">;</span></span>
+<span id="cb3-934"><a href="#cb3-934" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb3-935"><a href="#cb3-935" aria-hidden="true" tabindex="-1"></a>      <span class="kw">get</span>(<span class="st">"[data-answer]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb3-936"><a href="#cb3-936" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`These boxes show </span><span class="sc">${</span>outcome<span class="sc">}</span><span class="vs">, one of (</span><span class="sc">${</span>slots<span class="sc">}</span><span class="vs"> choose </span><span class="sc">${</span>m<span class="sc">}</span><span class="vs">) = `</span> <span class="op">+</span></span>
+<span id="cb3-937"><a href="#cb3-937" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`</span><span class="sc">${</span>model<span class="op">.</span><span class="fu">format</span>(total)<span class="sc">}</span><span class="vs"> possible outcomes.`</span><span class="op">;</span></span>
+<span id="cb3-938"><a href="#cb3-938" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-939"><a href="#cb3-939" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-940"><a href="#cb3-940" aria-hidden="true" tabindex="-1"></a>    <span class="kw">get</span>(<span class="st">"[data-hint]"</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> n <span class="op">&gt;</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> m <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb3-941"><a href="#cb3-941" aria-hidden="true" tabindex="-1"></a>      <span class="op">?</span> hint <span class="op">||</span> <span class="st">"To move one star, click its box and then its destination."</span></span>
+<span id="cb3-942"><a href="#cb3-942" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb3-943"><a href="#cb3-943" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-944"><a href="#cb3-944" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-945"><a href="#cb3-945" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-n]"</span>)<span class="op">.</span><span class="at">onchange</span> <span class="op">=</span> <span class="bu">event</span> <span class="kw">=&gt;</span> model<span class="op">.</span><span class="fu">set</span>(<span class="bu">Number</span>(<span class="bu">event</span><span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">value</span>)<span class="op">,</span> model<span class="op">.</span><span class="at">m</span>)<span class="op">;</span></span>
+<span id="cb3-946"><a href="#cb3-946" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-m]"</span>)<span class="op">.</span><span class="at">onchange</span> <span class="op">=</span> <span class="bu">event</span> <span class="kw">=&gt;</span> model<span class="op">.</span><span class="fu">set</span>(model<span class="op">.</span><span class="at">n</span><span class="op">,</span> <span class="bu">Number</span>(<span class="bu">event</span><span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">value</span>))<span class="op">;</span></span>
+<span id="cb3-947"><a href="#cb3-947" aria-hidden="true" tabindex="-1"></a>  <span class="kw">get</span>(<span class="st">"[data-reset]"</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> reset<span class="op">;</span></span>
+<span id="cb3-948"><a href="#cb3-948" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-949"><a href="#cb3-949" aria-hidden="true" tabindex="-1"></a>  model<span class="op">.</span><span class="at">changes</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"change"</span><span class="op">,</span> reset)<span class="op">;</span></span>
+<span id="cb3-950"><a href="#cb3-950" aria-hidden="true" tabindex="-1"></a>  invalidation<span class="op">.</span><span class="fu">then</span>(() <span class="kw">=&gt;</span> model<span class="op">.</span><span class="at">changes</span><span class="op">.</span><span class="fu">removeEventListener</span>(<span class="st">"change"</span><span class="op">,</span> reset))<span class="op">;</span></span>
+<span id="cb3-951"><a href="#cb3-951" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-952"><a href="#cb3-952" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reset</span>()<span class="op">;</span></span>
+<span id="cb3-953"><a href="#cb3-953" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> widget<span class="op">;</span></span>
+<span id="cb3-954"><a href="#cb3-954" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="box box-tip callout callout-style-default callout-tip callout-titled" title="Tip: Stars and Bars Can Be Used to Count Solutions to linear Diophantine equations">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip: Stars and Bars Can Be Used to Count Solutions to linear Diophantine equations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The stars-and-bars method can be used to count the number of nonnegative integer solutions to equations of the form</p>
+<p><span class="math display">\[
+x_1+x_2+\cdots+x_n=m,
+\qquad x_j\in\mathbb{Z}_{\geq0}
+\]</span></p>
+<p>There are <span class="math inline">\(m\)</span> identical units (stars) distributed among <span class="math inline">\(n\)</span> variables, separated by <span class="math inline">\(n-1\)</span> bars. Since the arrangement contains <span class="math inline">\(m+n-1\)</span> positions, choosing the positions of the bars gives</p>
+<p><span class="math display">\[
+\binom{m+n-1}{n-1}
+\]</span></p>
+<p><em>Inequality constraints</em> can also be handled by introducing a nonnegative slack variable. For example, to count solutions to</p>
+<p><span class="math display">\[
+x_1+\cdots+x_n\leq m,
+\]</span></p>
+<p>define <span class="math inline">\(x_{n+1}=m-\sum_{j=1}^n x_j\geq0\)</span>. This gives the equivalent equation</p>
+<p><span class="math display">\[
+x_1+\cdots+x_n+x_{n+1}=m.
+\]</span></p>
+<p>We now have <span class="math inline">\(n+1\)</span> nonnegative variables, so the number of solutions is</p>
+<p><span class="math display">\[
+\binom{m+n}{n}
+\]</span></p>
+<p>These formulas assume the variables are nonnegative integers without individual upper bounds. If constraints such as <span class="math inline">\(x_j\leq b_j\)</span> are imposed, stars and bars may count invalid solutions, which must be excluded, often using the <em>inclusion–exclusion principle</em>.</p>
+</div>
+</div>
+</div>
+<div class="box box-example callout callout-style-default callout-tip no-icon callout-titled" title="Example: Distributing Halloween candies">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Distributing Halloween candies
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose a group of <span class="math inline">\(n=3\)</span> children arrives at your door on Halloween asking for candy. How many ways can we distribute <span class="math inline">\(m=6\)</span> identical candies among these <span class="math inline">\(n=3\)</span> children, allowing some children to receive none?</p>
+<p>Let <span class="math inline">\(x_i\)</span> denote the number of candies received by child <span class="math inline">\(i\)</span>. We want to count the nonnegative integer solutions to <span class="math display">\[
+x_1+\cdots+x_n=m.
+\]</span></p>
+<p>Represent each candy by a star and use <span class="math inline">\(n-1\)</span> bars to partition the stars into <span class="math inline">\(n\)</span> groups, one for each child. There are <span class="math inline">\(m+n-1\)</span> slots in total, and choosing which <span class="math inline">\(n-1\)</span> contain bars determines the allocation. Thus, the number of possible allocations is <span class="math display">\[
+\binom{m+n-1}{n-1}
+=\binom{6+3-1}{3-1}
+=\binom{8}{2}
+=28.
+\]</span></p>
+<p>Notice that adjacent bars represent an empty group. For example, <code>***||***</code> corresponds to <span class="math inline">\((3,0,3)\)</span>, where the second child receives no candies.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="multinomial-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="multinomial-coefficients">Multinomial Coefficients</h2>
+<p>When selecting <span class="math inline">\(i\)</span> items from <span class="math inline">\(n\)</span> distinct items <strong>without replacement and without regard to order</strong>, we can assign each item one of two labels: <em>selected</em> or <em>not selected</em>. There are <span class="math inline">\(i\)</span> repetitions of the first label and <span class="math inline">\(n-i\)</span> repetitions of the second. Counting the distinct arrangements of these labels gives</p>
+<p><span class="math display">\[
+\binom{n}{i}
+=
+\frac{n!}{i!(n-i)!}
+=
+\binom{n}{i,n-i}.
+\]</span></p>
+<p>The <strong>multinomial coefficient</strong> generalizes this idea from two categories to <span class="math inline">\(K\)</span> categories.</p>
+<div class="box box-theorem callout callout-style-default callout-important callout-titled" title="Theorem: Multinomial Coefficient (Thm. 1.4, Rozanov)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Multinomial Coefficient (Thm. 1.4, Rozanov)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we have <span class="math inline">\(n\)</span> distinct elements and <span class="math inline">\(K\)</span> labeled categories. Let <span class="math inline">\(n_1,\ldots,n_K\)</span> be nonnegative integers satisfying <span class="math inline">\(\sum_{i=1}^K n_i=n\)</span>. The number of ways to partition the elements into these categories, with exactly <span class="math inline">\(n_i\)</span> elements in category <span class="math inline">\(i\)</span>, is</p>
+<p><span id="eq-multinom"><span class="math display">\[
+P(n;n_1,\ldots,n_K)
+\coloneqq
+\binom{n}{n_1,\ldots,n_K}
+=
+\frac{n!}{n_1!\cdots n_K!}.
+\tag{15}\]</span></span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="sources" class="level1">
+<h1>Sources</h1>
+<ol type="1">
+<li><strong>Rozanov, Y. A. (1977). <a href="https://books.google.com/books?id=Ond2H8P_65gC">Probability Theory: A Concise Course</a>.</strong> Dover Publications. Revised English edition, translated and edited by Richard A. Silverman.</li>
+<li><strong>Dekking, F. M., Kraaikamp, C., Lopuhaä, H. P., &amp; Meester, L. E. (2005).</strong> <a href="https://doi.org/10.1007/1-84628-168-7"><em>A Modern Introduction to Probability and Statistics: Understanding Why and How</em></a>. Springer.</li>
+</ol>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* Turn Quarto's flat dropdown headings into disclosure submenus.
+
+   Keep editing links in _quarto.yml; Quarto resolves their URLs normally. */
+
+(() => {
+
+  function init() {
+
+    const nav = document.querySelector('#quarto-header .navbar');
+
+    if (!nav || nav.dataset.cascadingReady) return;
+
+    nav.dataset.cascadingReady = 'true';
+
+    const headings = new Set([
+
+      'Current Research Viz',
+
+      'Past Projects Viz',
+
+      'Foundations',
+
+      'Core Statistics',
+
+      'Advanced Topics'
+
+    ]);
+
+    const groups = [];
+
+    let serial = 0;
+
+    const mobile = () => {
+
+      const toggle = nav.querySelector('.navbar-toggler');
+
+      return window.innerWidth < 760 || (toggle && getComputedStyle(toggle).display !== 'none');
+
+    };
+
+    function close(group) {
+
+      group.button.setAttribute('aria-expanded', 'false');
+
+      group.panel.hidden = true;
+
+      group.li.classList.remove('km-open');
+
+      clearTimeout(group.timer);
+
+    }
+
+    function place(group) {
+
+      const inline = mobile();
+
+      group.li.classList.toggle('km-inline', inline);
+
+      group.panel.style.left = ''; group.panel.style.top = '';
+
+      if (inline) return;
+
+      const r = group.li.getBoundingClientRect();
+
+      const p = group.panel.getBoundingClientRect();
+
+      let x = r.right - 2;
+
+      if (x + p.width > window.innerWidth - 8) x = r.left - p.width + 2;
+
+      x = Math.max(8, Math.min(x, window.innerWidth - p.width - 8));
+
+      const y = Math.max(8, Math.min(r.top, window.innerHeight - p.height - 8));
+
+      group.panel.style.left = x + 'px'; group.panel.style.top = y + 'px';
+
+    }
+
+    function open(group, focus = false) {
+
+      groups.filter(g => g !== group).forEach(close);
+
+      clearTimeout(group.timer);
+
+      group.li.classList.toggle('km-inline', mobile());
+
+      group.panel.hidden = false;
+
+      group.button.setAttribute('aria-expanded', 'true');
+
+      group.li.classList.add('km-open');
+
+      place(group);
+
+      if (focus) group.panel.querySelector('a[href], button')?.focus();
+
+    }
+
+    const roots = [...nav.querySelectorAll('.navbar-nav > .nav-item > .dropdown-menu')];
+
+    // Fallback for themes with a slightly different navbar list structure.
+
+    if (!roots.length) roots.push(...[...nav.querySelectorAll('.dropdown-menu')].filter(x => !x.parentElement.closest('.dropdown-menu')));
+
+    roots.forEach(menu => {
+
+      let current = null;
+
+      [...menu.children].forEach(li => {
+
+        const header = li.matches('.dropdown-header') ? li : li.querySelector('.dropdown-header');
+
+        if (header) {
+
+          current = null;
+
+          const label = header.textContent.trim();
+
+          if (!headings.has(label)) return;
+
+          const button = document.createElement('button');
+
+          button.type = 'button'; button.className = 'dropdown-item km-toggle';
+
+          button.textContent = label; button.setAttribute('aria-expanded', 'false');
+
+          const panel = document.createElement('ul');
+
+          panel.className = 'dropdown-menu km-submenu'; panel.hidden = true;
+
+          panel.id = 'km-submenu-' + (++serial);
+
+          button.id = 'km-toggle-' + serial;
+
+          button.setAttribute('aria-controls', panel.id);
+
+          panel.setAttribute('aria-labelledby', button.id);
+
+          li.classList.remove('dropdown-header'); li.classList.add('km-group'); li.replaceChildren(button, panel);
+
+          current = {li, button, panel, menu, timer: null}; groups.push(current);
+
+        } else if (li.querySelector('.dropdown-divider')) {
+
+          current = null;
+
+        } else if (current) {
+
+          current.panel.append(li);
+
+        }
+
+      });
+
+      menu.addEventListener('keydown', event => {
+
+        const target = event.target.closest('a,button');
+
+        if (!target) return;
+
+        const group = groups.find(g => g.li.contains(target));
+
+        const isToggle = group && target === group.button;
+
+        if (group && ((event.key === 'ArrowRight' && isToggle) || (event.key === 'ArrowDown' && isToggle))) {
+
+          event.preventDefault(); event.stopPropagation(); open(group, true); return;
+
+        }
+
+        if (group && (event.key === 'ArrowLeft' || event.key === 'Escape') && !group.panel.hidden) {
+
+          event.preventDefault(); event.stopPropagation(); close(group); group.button.focus(); return;
+
+        }
+
+        if (['ArrowDown','ArrowUp','Home','End'].includes(event.key)) {
+
+          const list = target.closest('ul');
+
+          const items = [...list.children].flatMap(li => [...li.children].filter(el => el.matches('a[href],button') && !el.disabled));
+
+          if (!items.length) return;
+
+          event.preventDefault(); event.stopPropagation();
+
+          let i = items.indexOf(target);
+
+          i = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (i + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+
+          items[i].focus();
+
+        }
+
+      }, true);
+
+      menu.parentElement.addEventListener('hidden.bs.dropdown', () => groups.filter(g => g.menu === menu).forEach(close));
+
+    });
+
+    groups.forEach(group => {
+
+      if (!group.panel.children.length) { group.button.disabled = true; return; }
+
+      group.button.addEventListener('click', event => {
+
+        event.preventDefault(); event.stopPropagation();
+
+        group.panel.hidden ? open(group) : close(group);
+
+      });
+
+      group.li.addEventListener('pointerenter', event => {
+
+        if (event.pointerType === 'mouse' && !mobile()) open(group);
+
+      });
+
+      group.li.addEventListener('pointerleave', event => {
+
+        if (event.pointerType === 'mouse' && !mobile()) group.timer = setTimeout(() => {
+
+          if (!group.li.contains(document.activeElement)) close(group);
+
+        }, 180);
+
+      });
+
+      group.li.addEventListener('focusout', () => setTimeout(() => {
+
+        if (!group.li.contains(document.activeElement)) close(group);
+
+      }, 0));
+
+    });
+
+    document.addEventListener('click', event => {
+
+      groups.filter(g => !g.li.contains(event.target)).forEach(close);
+
+    });
+
+    nav.querySelector('.navbar-collapse')?.addEventListener('hidden.bs.collapse', () => groups.forEach(close));
+
+    window.addEventListener('resize', () => groups.filter(g => !g.panel.hidden).forEach(place));
+
+    window.addEventListener('scroll', () => groups.filter(g => !g.panel.hidden).forEach(place), true);
+
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
+
+  else init();
+
+})();
+
+</script>
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuY291bnRpbmdNb2RlbCA9IHtcbiAgY29uc3QgY2hhbmdlcyA9IG5ldyBFdmVudFRhcmdldCgpO1xuICBjb25zdCBsZXR0ZXJzID0gXCJBQkNERUZHSElKS0xNTk9QUVJTVFwiO1xuICBsZXQgbiA9IDM7XG4gIGxldCBtID0gMjtcblxuICBmdW5jdGlvbiBzZXQobmV4dE4sIG5leHRNKSB7XG4gICAgaWYgKG5leHROID09PSBuICYmIG5leHRNID09PSBtKSByZXR1cm47XG4gICAgbiA9IG5leHROO1xuICAgIG0gPSBuZXh0TTtcbiAgICBjaGFuZ2VzLmRpc3BhdGNoRXZlbnQobmV3IEV2ZW50KFwiY2hhbmdlXCIpKTtcbiAgfVxuXG4gIGZ1bmN0aW9uIHBvcHVsYXRlKHNlbGVjdCwgbWluLCBpbml0aWFsKSB7XG4gICAgZm9yIChsZXQgaSA9IG1pbjsgaSA8PSAyMDsgaSsrKSBzZWxlY3QuYWRkKG5ldyBPcHRpb24oaSwgaSkpO1xuICAgIHNlbGVjdC52YWx1ZSA9IGluaXRpYWw7XG4gIH1cblxuICAvLyBCaWdJbnQga2VlcHMgY291bnRzIGFuZCBwYWdlIHBvc2l0aW9ucyBleGFjdCwgZXZlbiBmb3IgMjBeMjAuXG4gIGZ1bmN0aW9uIGNob29zZShuLCBrKSB7XG4gICAgaWYgKGsgPCAwIHx8IGsgPiBuKSByZXR1cm4gMG47XG4gICAgayA9IE1hdGgubWluKGssIG4gLSBrKTtcbiAgICBsZXQgcmVzdWx0ID0gMW47XG4gICAgZm9yIChsZXQgaSA9IDE7IGkgPD0gazsgaSsrKSB7XG4gICAgICByZXN1bHQgPSByZXN1bHQgKiBCaWdJbnQobiAtIGkgKyAxKSAvIEJpZ0ludChpKTtcbiAgICB9XG4gICAgcmV0dXJuIHJlc3VsdDtcbiAgfVxuXG4gIGZ1bmN0aW9uIHdheXMobiwgbSwgb3JkZXJlZCwgcmVwZWF0cykge1xuICAgIGlmIChtID09PSAwKSByZXR1cm4gMW47XG4gICAgaWYgKG4gPT09IDAgfHwgKCFyZXBlYXRzICYmIG0gPiBuKSkgcmV0dXJuIDBuO1xuICAgIGlmICghb3JkZXJlZCkgcmV0dXJuIGNob29zZShyZXBlYXRzID8gbiArIG0gLSAxIDogbiwgbSk7XG4gICAgaWYgKHJlcGVhdHMpIHJldHVybiBCaWdJbnQobikgKiogQmlnSW50KG0pO1xuICAgIGxldCByZXN1bHQgPSAxbjtcbiAgICBmb3IgKGxldCBpID0gMDsgaSA8IG07IGkrKykgcmVzdWx0ICo9IEJpZ0ludChuIC0gaSk7XG4gICAgcmV0dXJuIHJlc3VsdDtcbiAgfVxuXG4gIGNvbnN0IHN0eWxlID0gYFxuICAgIC5jb3VudC1kZW1vIHtcbiAgICAgIGNvbG9yOiMzNTQyNGQ7IGJhY2tncm91bmQ6I2ZiZmNmZDsgYm9yZGVyOjFweCBzb2xpZCAjZDVkY2UxO1xuICAgICAgYm9yZGVyLWxlZnQ6NHB4IHNvbGlkICM3OTY1OGU7IGJvcmRlci1yYWRpdXM6LjVyZW07XG4gICAgICBwYWRkaW5nOjFyZW07IG1hcmdpbjoxcmVtIDA7XG4gICAgfVxuICAgIC5jb3VudC1kZW1vIHAgeyBtYXJnaW46LjQ1cmVtIDA7IH1cbiAgICAuY291bnQtZGVtbyAuY29udHJvbHMsIC5jb3VudC1kZW1vIC5iaW5zLCAuY291bnQtZGVtbyAub3V0Y29tZXMsXG4gICAgLmNvdW50LWRlbW8gLnBhZ2VyIHtcbiAgICAgIGRpc3BsYXk6ZmxleDsgZmxleC13cmFwOndyYXA7IGFsaWduLWl0ZW1zOmNlbnRlcjtcbiAgICAgIGdhcDouNDVyZW0gLjhyZW07IG1hcmdpbjouN3JlbSAwO1xuICAgIH1cbiAgICAuY291bnQtZGVtbyBidXR0b24sIC5jb3VudC1kZW1vIHNlbGVjdCB7XG4gICAgICBmb250OmluaGVyaXQ7IGNvbG9yOmluaGVyaXQ7IGJhY2tncm91bmQ6d2hpdGU7XG4gICAgICBib3JkZXI6MXB4IHNvbGlkICNiYmM1Y2Q7IGJvcmRlci1yYWRpdXM6LjM1cmVtOyBwYWRkaW5nOi4ycmVtIC41cmVtO1xuICAgIH1cbiAgICAuY291bnQtZGVtbyBidXR0b246ZW5hYmxlZCB7IGN1cnNvcjpwb2ludGVyOyB9XG4gICAgLmNvdW50LWRlbW8gYnV0dG9uOmRpc2FibGVkIHsgb3BhY2l0eTouNTU7IH1cbiAgICAuY291bnQtZGVtbyA6Zm9jdXMtdmlzaWJsZSB7IG91dGxpbmU6MnB4IHNvbGlkICM1MDZjODM7IG91dGxpbmUtb2Zmc2V0OjJweDsgfVxuICAgIC5jb3VudC1kZW1vIC5iaW4geyBtaW4td2lkdGg6NC42cmVtOyBtaW4taGVpZ2h0OjRyZW07IHRleHQtYWxpZ246Y2VudGVyOyB9XG4gICAgLmNvdW50LWRlbW8gLmJpblthcmlhLXByZXNzZWQ9XCJ0cnVlXCJdIHsgb3V0bGluZToycHggc29saWQgIzYzNTA4MDsgfVxuICAgIC5jb3VudC1kZW1vIC5zdGFycyB7XG4gICAgICBkaXNwbGF5OmJsb2NrOyBjb2xvcjojNjM1MDgwOyBtYXgtd2lkdGg6OXJlbTsgb3ZlcmZsb3ctd3JhcDphbnl3aGVyZTtcbiAgICB9XG4gICAgLmNvdW50LWRlbW8gLm91dGNvbWVzIHsgZ2FwOi4zNXJlbTsgfVxuICAgIC5jb3VudC1kZW1vIC5jaGlwIHtcbiAgICAgIGJhY2tncm91bmQ6I2VkZTlmMzsgY29sb3I6IzQ5Mzk1ZTsgYm9yZGVyLXJhZGl1czouM3JlbTtcbiAgICAgIHBhZGRpbmc6LjJyZW0gLjVyZW07IGZvbnQtZmFtaWx5Om1vbm9zcGFjZTtcbiAgICB9XG4gICAgLmNvdW50LWRlbW8gLmFuc3dlciB7IGZvbnQtd2VpZ2h0OjcwMDsgfVxuICAgIC5jb3VudC1kZW1vIFtoaWRkZW5dIHsgZGlzcGxheTpub25lOyB9XG4gIGA7XG5cbiAgcmV0dXJuIHtcbiAgICBnZXQgbigpIHsgcmV0dXJuIG47IH0sIGdldCBtKCkgeyByZXR1cm4gbTsgfSxcbiAgICBzZXQsIGNoYW5nZXMsIGxldHRlcnMsIHBvcHVsYXRlLCB3YXlzLCBzdHlsZSxcbiAgICBmb3JtYXQ6IHZhbHVlID0+IHZhbHVlLnRvTG9jYWxlU3RyaW5nKFwiZW4tVVNcIilcbiAgfTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ilxue1xuICBjb25zdCBtb2RlbCA9IGNvdW50aW5nTW9kZWw7XG4gIGNvbnN0IHdpZGdldCA9IGh0bWxgPHNlY3Rpb24gY2xhc3M9XCJjb3VudC1kZW1vXCI+XG4gICAgPHN0eWxlPiR7bW9kZWwuc3R5bGV9PC9zdHlsZT5cbiAgICA8c3Ryb25nPldpZGdldDogRXNzZW50aWFsIENvbWJpbmF0b3JpY3M8L3N0cm9uZz5cbiAgICA8ZGl2IGNsYXNzPVwiY29udHJvbHNcIj5cbiAgICAgIDxsYWJlbD5JdGVtcyAobikgPHNlbGVjdCBkYXRhLW4+PC9zZWxlY3Q+PC9sYWJlbD5cbiAgICAgIDxsYWJlbD5EcmF3cyAobSkgPHNlbGVjdCBkYXRhLW0+PC9zZWxlY3Q+PC9sYWJlbD5cbiAgICAgIDxsYWJlbD48aW5wdXQgdHlwZT1cImNoZWNrYm94XCIgZGF0YS1vcmRlciBjaGVja2VkPiBPcmRlciBtYXR0ZXJzPC9sYWJlbD5cbiAgICAgIDxsYWJlbD48aW5wdXQgdHlwZT1cImNoZWNrYm94XCIgZGF0YS1yZXBlYXQ+IFdpdGggcmVwbGFjZW1lbnQ8L2xhYmVsPlxuICAgIDwvZGl2PlxuICAgIDxwIGRhdGEtaXRlbXM+PC9wPlxuICAgIDxwIGNsYXNzPVwiYW5zd2VyXCIgYXJpYS1saXZlPVwicG9saXRlXCI+PC9wPlxuICAgIDxwIGRhdGEtZXhhbXBsZT48L3A+XG4gICAgPGRpdiBjbGFzcz1cIm91dGNvbWVzXCIgYXJpYS1sYWJlbD1cIkRpc3RpbmN0IG91dGNvbWVzXCI+PC9kaXY+XG4gICAgPG5hdiBjbGFzcz1cInBhZ2VyXCIgYXJpYS1sYWJlbD1cIk91dGNvbWUgcGFnZXNcIj5cbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGRhdGEtZmlyc3Q+Rmlyc3Q8L2J1dHRvbj5cbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGRhdGEtcHJldj5QcmV2aW91czwvYnV0dG9uPlxuICAgICAgPHNwYW4gZGF0YS1yYW5nZSBhcmlhLWxpdmU9XCJwb2xpdGVcIj48L3NwYW4+XG4gICAgICA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiBkYXRhLW5leHQ+TmV4dDwvYnV0dG9uPlxuICAgICAgPGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgZGF0YS1sYXN0Pkxhc3Q8L2J1dHRvbj5cbiAgICA8L25hdj5cbiAgPC9zZWN0aW9uPmA7XG5cbiAgY29uc3QgZ2V0ID0gc2VsZWN0b3IgPT4gd2lkZ2V0LnF1ZXJ5U2VsZWN0b3Ioc2VsZWN0b3IpO1xuICBjb25zdCBwYWdlU2l6ZSA9IDI0bjtcbiAgbGV0IHBhZ2UgPSAwbjtcbiAgbGV0IGxhc3RQYWdlID0gMG47XG5cbiAgbW9kZWwucG9wdWxhdGUoZ2V0KFwiW2RhdGEtbl1cIiksIDAsIG1vZGVsLm4pO1xuICBtb2RlbC5wb3B1bGF0ZShnZXQoXCJbZGF0YS1tXVwiKSwgMCwgbW9kZWwubSk7XG5cbiAgLy8gU2tpcCB3aG9sZSBncm91cHMgb2Ygb3V0Y29tZXMgc2hhcmluZyBhIHByZWZpeCB0byByZWFjaCB0aGUgcmVxdWVzdGVkIHJhbmsuXG4gIGZ1bmN0aW9uIG91dGNvbWVBdChyYW5rLCBpdGVtcywgZHJhd3MsIG9yZGVyZWQsIHJlcGVhdHMpIHtcbiAgICBsZXQgYXZhaWxhYmxlID0gaXRlbXM7XG4gICAgbGV0IG91dGNvbWUgPSBcIlwiO1xuICAgIGZvciAobGV0IGxlZnQgPSBkcmF3czsgbGVmdCA+IDA7IGxlZnQtLSkge1xuICAgICAgZm9yIChsZXQgaSA9IDA7IGkgPCBhdmFpbGFibGUubGVuZ3RoOyBpKyspIHtcbiAgICAgICAgbGV0IG5leHQ7XG4gICAgICAgIGlmIChvcmRlcmVkKSB7XG4gICAgICAgICAgbmV4dCA9IHJlcGVhdHMgPyBhdmFpbGFibGUgOiBhdmFpbGFibGUuc2xpY2UoMCwgaSkgKyBhdmFpbGFibGUuc2xpY2UoaSArIDEpO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIG5leHQgPSBhdmFpbGFibGUuc2xpY2UocmVwZWF0cyA/IGkgOiBpICsgMSk7XG4gICAgICAgIH1cbiAgICAgICAgY29uc3QgYmxvY2sgPSBtb2RlbC53YXlzKG5leHQubGVuZ3RoLCBsZWZ0IC0gMSwgb3JkZXJlZCwgcmVwZWF0cyk7XG4gICAgICAgIGlmIChyYW5rIDwgYmxvY2spIHtcbiAgICAgICAgICBvdXRjb21lICs9IGF2YWlsYWJsZVtpXTtcbiAgICAgICAgICBhdmFpbGFibGUgPSBuZXh0O1xuICAgICAgICAgIGJyZWFrO1xuICAgICAgICB9XG4gICAgICAgIHJhbmsgLT0gYmxvY2s7XG4gICAgICB9XG4gICAgfVxuICAgIHJldHVybiBvdXRjb21lIHx8IFwi4oiFIChlbXB0eSBzZWxlY3Rpb24pXCI7XG4gIH1cblxuICBmdW5jdGlvbiBkcmF3KCkge1xuICAgIGNvbnN0IHtuLCBtfSA9IG1vZGVsO1xuICAgIGNvbnN0IG9yZGVyZWQgPSBnZXQoXCJbZGF0YS1vcmRlcl1cIikuY2hlY2tlZDtcbiAgICBjb25zdCByZXBlYXRzID0gZ2V0KFwiW2RhdGEtcmVwZWF0XVwiKS5jaGVja2VkO1xuICAgIGNvbnN0IGl0ZW1zID0gbW9kZWwubGV0dGVycy5zbGljZSgwLCBuKTtcbiAgICBjb25zdCB0b3RhbCA9IG1vZGVsLndheXMobiwgbSwgb3JkZXJlZCwgcmVwZWF0cyk7XG4gICAgbGFzdFBhZ2UgPSB0b3RhbCA/ICh0b3RhbCAtIDFuKSAvIHBhZ2VTaXplIDogMG47XG5cbiAgICBnZXQoXCJbZGF0YS1pdGVtc11cIikudGV4dENvbnRlbnQgPVxuICAgICAgXCJBdmFpbGFibGUgaXRlbXM6IFwiICsgKFsuLi5pdGVtc10uam9pbihcIiwgXCIpIHx8IFwibm9uZVwiKTtcblxuICAgIGxldCBmb3JtdWxhO1xuICAgIGlmIChtID09PSAwKSBmb3JtdWxhID0gXCJPbmUgZW1wdHkgc2VsZWN0aW9uXCI7XG4gICAgZWxzZSBpZiAobiA9PT0gMCkgZm9ybXVsYSA9IFwiTm8gaXRlbXMgdG8gZHJhd1wiO1xuICAgIGVsc2UgaWYgKCFyZXBlYXRzICYmIG0gPiBuKSBmb3JtdWxhID0gXCJNb3JlIGRyYXdzIHRoYW4gaXRlbXNcIjtcbiAgICBlbHNlIGlmIChvcmRlcmVkICYmIHJlcGVhdHMpIGZvcm11bGEgPSBgJHtufV4ke219YDtcbiAgICBlbHNlIGlmIChvcmRlcmVkKSBmb3JtdWxhID0gYCR7bn0hIC8gKCR7bn0g4oiSICR7bX0pIWA7XG4gICAgZWxzZSBpZiAocmVwZWF0cykgZm9ybXVsYSA9IGAoJHtuICsgbSAtIDF9IGNob29zZSAke219KWA7XG4gICAgZWxzZSBmb3JtdWxhID0gYCgke259IGNob29zZSAke219KWA7XG5cbiAgICBnZXQoXCIuYW5zd2VyXCIpLnRleHRDb250ZW50ID1cbiAgICAgIGAke2Zvcm11bGF9IOKGkiAke21vZGVsLmZvcm1hdCh0b3RhbCl9ICR7dG90YWwgPT09IDFuID8gXCJvdXRjb21lXCIgOiBcIm91dGNvbWVzXCJ9YDtcblxuICAgIGxldCBleGFtcGxlO1xuICAgIGlmICghdG90YWwpIGV4YW1wbGUgPSBcIk5vIHNlbGVjdGlvbiBzYXRpc2ZpZXMgdGhlc2UgcnVsZXMuXCI7XG4gICAgZWxzZSBpZiAoIW0pIGV4YW1wbGUgPSBcIlRoZXJlIGlzIG9uZSB3YXkgdG8gY2hvb3NlIG5vdGhpbmcuXCI7XG4gICAgZWxzZSBpZiAoIW9yZGVyZWQgJiYgcmVwZWF0cykge1xuICAgICAgZXhhbXBsZSA9IFwiVGhpcyBpcyB0aGUgc3RhcnMtYW5kLWJhcnMgY2FzZS4gRWFjaCBsZXR0ZXIgYXBwZWFycyBvbmNlIGZvciBldmVyeSBzdGFyIGluIGl0cyBib3guXCI7XG4gICAgfSBlbHNlIGlmIChtID09PSAyICYmIG4gPj0gMikge1xuICAgICAgZXhhbXBsZSA9IG9yZGVyZWQgPyBcIkFCIGFuZCBCQSBjb3VudCBzZXBhcmF0ZWx5LlwiIDogXCJBQiBhbmQgQkEgY291bnQgb25jZSwgc2hvd24gYXMgQUIuXCI7XG4gICAgICBleGFtcGxlICs9IHJlcGVhdHMgPyBcIiBBQSBpcyBhbGxvd2VkLlwiIDogXCIgQUEgaXMgZXhjbHVkZWQuXCI7XG4gICAgfSBlbHNlIGlmIChvcmRlcmVkKSB7XG4gICAgICBleGFtcGxlID0gcmVwZWF0c1xuICAgICAgICA/IFwiVGhlIGRyYXcgb3JkZXIgaXMgcmVjb3JkZWQsIGFuZCBsZXR0ZXJzIG1heSByZXBlYXQuXCJcbiAgICAgICAgOiBcIlRoZSBkcmF3IG9yZGVyIGlzIHJlY29yZGVkLCBhbmQgZWFjaCBsZXR0ZXIgY2FuIGFwcGVhciBvbmx5IG9uY2UuXCI7XG4gICAgfSBlbHNlIHtcbiAgICAgIGV4YW1wbGUgPSBcIkVhY2ggbGV0dGVyIGNhbiBhcHBlYXIgb25seSBvbmNlLiBTb3J0aW5nIHRoZSBsZXR0ZXJzIGdpdmVzIGVhY2ggc2VsZWN0aW9uIG9uZSBzcGVsbGluZy5cIjtcbiAgICB9XG4gICAgZ2V0KFwiW2RhdGEtZXhhbXBsZV1cIikudGV4dENvbnRlbnQgPSBleGFtcGxlO1xuXG4gICAgY29uc3Qgc3RhcnQgPSBwYWdlICogcGFnZVNpemU7XG4gICAgY29uc3QgZW5kID0gc3RhcnQgKyBwYWdlU2l6ZSA8IHRvdGFsID8gc3RhcnQgKyBwYWdlU2l6ZSA6IHRvdGFsO1xuICAgIGNvbnN0IHBhbmVsID0gZ2V0KFwiLm91dGNvbWVzXCIpO1xuICAgIHBhbmVsLnJlcGxhY2VDaGlsZHJlbigpO1xuICAgIGZvciAobGV0IHJhbmsgPSBzdGFydDsgcmFuayA8IGVuZDsgcmFuaysrKSB7XG4gICAgICBjb25zdCBjaGlwID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInNwYW5cIik7XG4gICAgICBjaGlwLmNsYXNzTmFtZSA9IFwiY2hpcFwiO1xuICAgICAgY2hpcC50ZXh0Q29udGVudCA9IG91dGNvbWVBdChyYW5rLCBpdGVtcywgbSwgb3JkZXJlZCwgcmVwZWF0cyk7XG4gICAgICBwYW5lbC5hcHBlbmRDaGlsZChjaGlwKTtcbiAgICB9XG5cbiAgICBnZXQoXCIucGFnZXJcIikuaGlkZGVuID0gdG90YWwgPD0gcGFnZVNpemU7XG4gICAgZ2V0KFwiW2RhdGEtcmFuZ2VdXCIpLnRleHRDb250ZW50ID0gdG90YWxcbiAgICAgID8gYCR7bW9kZWwuZm9ybWF0KHN0YXJ0ICsgMW4pfeKAkyR7bW9kZWwuZm9ybWF0KGVuZCl9IG9mICR7bW9kZWwuZm9ybWF0KHRvdGFsKX1gXG4gICAgICA6IFwiXCI7XG4gICAgZ2V0KFwiW2RhdGEtZmlyc3RdXCIpLmRpc2FibGVkID0gZ2V0KFwiW2RhdGEtcHJldl1cIikuZGlzYWJsZWQgPSBwYWdlID09PSAwbjtcbiAgICBnZXQoXCJbZGF0YS1sYXN0XVwiKS5kaXNhYmxlZCA9IGdldChcIltkYXRhLW5leHRdXCIpLmRpc2FibGVkID0gcGFnZSA9PT0gbGFzdFBhZ2U7XG4gIH1cblxuICBmdW5jdGlvbiByZXNldFBhZ2UoKSB7XG4gICAgZ2V0KFwiW2RhdGEtbl1cIikudmFsdWUgPSBtb2RlbC5uO1xuICAgIGdldChcIltkYXRhLW1dXCIpLnZhbHVlID0gbW9kZWwubTtcbiAgICBwYWdlID0gMG47XG4gICAgZHJhdygpO1xuICB9XG5cbiAgZ2V0KFwiW2RhdGEtbl1cIikub25jaGFuZ2UgPSBlID0+IG1vZGVsLnNldChOdW1iZXIoZS50YXJnZXQudmFsdWUpLCBtb2RlbC5tKTtcbiAgZ2V0KFwiW2RhdGEtbV1cIikub25jaGFuZ2UgPSBlID0+IG1vZGVsLnNldChtb2RlbC5uLCBOdW1iZXIoZS50YXJnZXQudmFsdWUpKTtcbiAgZ2V0KFwiW2RhdGEtb3JkZXJdXCIpLm9uY2hhbmdlID0gcmVzZXRQYWdlO1xuICBnZXQoXCJbZGF0YS1yZXBlYXRdXCIpLm9uY2hhbmdlID0gcmVzZXRQYWdlO1xuICBnZXQoXCJbZGF0YS1maXJzdF1cIikub25jbGljayA9ICgpID0+IHsgcGFnZSA9IDBuOyBkcmF3KCk7IH07XG4gIGdldChcIltkYXRhLXByZXZdXCIpLm9uY2xpY2sgPSAoKSA9PiB7IHBhZ2UtLTsgZHJhdygpOyB9O1xuICBnZXQoXCJbZGF0YS1uZXh0XVwiKS5vbmNsaWNrID0gKCkgPT4geyBwYWdlKys7IGRyYXcoKTsgfTtcbiAgZ2V0KFwiW2RhdGEtbGFzdF1cIikub25jbGljayA9ICgpID0+IHsgcGFnZSA9IGxhc3RQYWdlOyBkcmF3KCk7IH07XG5cbiAgbW9kZWwuY2hhbmdlcy5hZGRFdmVudExpc3RlbmVyKFwiY2hhbmdlXCIsIHJlc2V0UGFnZSk7XG4gIGludmFsaWRhdGlvbi50aGVuKCgpID0+IG1vZGVsLmNoYW5nZXMucmVtb3ZlRXZlbnRMaXN0ZW5lcihcImNoYW5nZVwiLCByZXNldFBhZ2UpKTtcbiAgcmVzZXRQYWdlKCk7XG4gIHJldHVybiB3aWRnZXQ7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbntcbiAgY29uc3QgbW9kZWwgPSBjb3VudGluZ01vZGVsO1xuICBjb25zdCB3aWRnZXQgPSBodG1sYDxzZWN0aW9uIGNsYXNzPVwiY291bnQtZGVtb1wiPlxuICAgIDxzdHlsZT4ke21vZGVsLnN0eWxlfTwvc3R5bGU+XG4gICAgPHN0cm9uZz5XaWRnZXQ6IFN0YXJzIGFuZCBiYXJzPC9zdHJvbmc+XG5cbiAgICA8ZGl2IGNsYXNzPVwiY29udHJvbHNcIj5cbiAgICAgIDxsYWJlbD5JdGVtcyAobikgPHNlbGVjdCBkYXRhLW4+PC9zZWxlY3Q+PC9sYWJlbD5cbiAgICAgIDxsYWJlbD5EcmF3cyAobSkgPHNlbGVjdCBkYXRhLW0+PC9zZWxlY3Q+PC9sYWJlbD5cbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGRhdGEtcmVzZXQ+UmVzZXQgYm94ZXM8L2J1dHRvbj5cbiAgICA8L2Rpdj5cblxuICAgIDxwIGRhdGEtZXhwbGFuYXRpb24+PC9wPlxuICAgIDxwIGRhdGEtcmVhZGluZz48L3A+XG4gICAgPGRpdiBjbGFzcz1cImJpbnNcIiByb2xlPVwiZ3JvdXBcIiBhcmlhLWxhYmVsPVwiSXRlbSBjb3VudHNcIj48L2Rpdj5cbiAgICA8cCBjbGFzcz1cImFuc3dlclwiIGRhdGEtYW5zd2VyPjwvcD5cbiAgICA8cCBkYXRhLWhpbnQgYXJpYS1saXZlPVwicG9saXRlXCI+PC9wPlxuICA8L3NlY3Rpb24+YDtcblxuICBjb25zdCBnZXQgPSBzZWxlY3RvciA9PiB3aWRnZXQucXVlcnlTZWxlY3RvcihzZWxlY3Rvcik7XG4gIGxldCBib3hlcyA9IFtdO1xuICBsZXQgc291cmNlID0gbnVsbDtcblxuICBtb2RlbC5wb3B1bGF0ZShnZXQoXCJbZGF0YS1uXVwiKSwgMCwgbW9kZWwubik7XG4gIG1vZGVsLnBvcHVsYXRlKGdldChcIltkYXRhLW1dXCIpLCAwLCBtb2RlbC5tKTtcblxuICBmdW5jdGlvbiByZXNldCgpIHtcbiAgICBjb25zdCB7biwgbX0gPSBtb2RlbDtcbiAgICBnZXQoXCJbZGF0YS1uXVwiKS52YWx1ZSA9IG47XG4gICAgZ2V0KFwiW2RhdGEtbV1cIikudmFsdWUgPSBtO1xuXG4gICAgYm94ZXMgPSBBcnJheShuKS5maWxsKDApO1xuICAgIGlmIChuID4gMCkge1xuICAgICAgY29uc3QgZmlyc3QgPSBNYXRoLmZsb29yKG0gLyAyKTtcbiAgICAgIGJveGVzWzBdID0gZmlyc3Q7XG4gICAgICBib3hlc1tuIC0gMV0gKz0gbSAtIGZpcnN0O1xuICAgIH1cblxuICAgIHNvdXJjZSA9IG51bGw7XG4gICAgZHJhdygpO1xuICB9XG5cbiAgZnVuY3Rpb24gcGljayhpKSB7XG4gICAgbGV0IGhpbnQgPSBcIlwiO1xuXG4gICAgaWYgKGkgPT09IHNvdXJjZSkge1xuICAgICAgc291cmNlID0gbnVsbDtcbiAgICB9IGVsc2UgaWYgKHNvdXJjZSAhPT0gbnVsbCkge1xuICAgICAgY29uc3QgZnJvbSA9IHNvdXJjZTtcbiAgICAgIGJveGVzW2Zyb21dLS07XG4gICAgICBib3hlc1tpXSsrO1xuICAgICAgc291cmNlID0gbnVsbDtcbiAgICAgIGhpbnQgPSBgQ2hvb3NlIHdoZXJlIHRvIG1vdmUgdGhlIHN0YXJzYDtcbiAgICB9IGVsc2UgaWYgKGJveGVzW2ldID09PSAwKSB7XG4gICAgICBoaW50ID0gXCJTdGFydCB3aXRoIGEgYm94IHRoYXQgY29udGFpbnMgYSBzdGFyLlwiO1xuICAgIH0gZWxzZSB7XG4gICAgICBzb3VyY2UgPSBpO1xuICAgICAgaGludCA9IGBDaG9vc2Ugd2hlcmUgdG8gbW92ZSBvbmUgc3RhciBmcm9tIGJveCAke21vZGVsLmxldHRlcnNbaV19LmA7XG4gICAgfVxuXG4gICAgZHJhdyhoaW50KTtcbiAgICBnZXQoXCIuYmluc1wiKS5jaGlsZHJlbltpXS5mb2N1cygpO1xuICB9XG5cbiAgZnVuY3Rpb24gZHJhdyhoaW50ID0gXCJcIikge1xuICAgIGNvbnN0IHtuLCBtfSA9IG1vZGVsO1xuICAgIGNvbnN0IGJhcnMgPSBNYXRoLm1heCgwLCBuIC0gMSk7XG4gICAgY29uc3Qgc2xvdHMgPSBtICsgYmFycztcbiAgICBjb25zdCB0b3RhbCA9IG1vZGVsLndheXMobiwgbSwgZmFsc2UsIHRydWUpO1xuICAgIGNvbnN0IHJlYWRpbmcgPSBnZXQoXCJbZGF0YS1yZWFkaW5nXVwiKTtcbiAgICByZWFkaW5nLnJlcGxhY2VDaGlsZHJlbigpO1xuXG4gICAgbGV0IGV4cGxhbmF0aW9uO1xuICAgIGlmIChuID09PSAwKSB7XG4gICAgICBleHBsYW5hdGlvbiA9IG0gPT09IDBcbiAgICAgICAgPyBcIldpdGggbm8gaXRlbXMgYW5kIG5vIGRyYXdzLCB0aGUgZW1wdHkgc2VsZWN0aW9uIGlzIHRoZSBvbmx5IG91dGNvbWUuXCJcbiAgICAgICAgOiBcIldpdGggbm8gaXRlbXMgYXZhaWxhYmxlLCB0aGVyZSBpcyBub3RoaW5nIHRvIGRyYXcuXCI7XG4gICAgfSBlbHNlIGlmIChtID09PSAwKSB7XG4gICAgICBleHBsYW5hdGlvbiA9IFwiV2l0aCBubyBkcmF3cywgdGhlcmUgYXJlIG5vIHN0YXJzLiBFdmVyeSBib3ggaXMgZW1wdHkuXCI7XG4gICAgfSBlbHNlIGlmIChuID09PSAxKSB7XG4gICAgICBleHBsYW5hdGlvbiA9IFwiVGhlcmUgaXMgb25seSBvbmUgaXRlbSwgQS4gRXZlcnkgc3RhciBnb2VzIGluIGJveCBBLCBzbyBubyBiYXJzIGFyZSBuZWVkZWQuXCI7XG4gICAgfSBlbHNlIHtcbiAgICAgIGV4cGxhbmF0aW9uID1cbiAgICAgICAgYFBpY3R1cmUgJHtzbG90c30gc2xvdHMgaW4gYSByb3cuIENob29zZSAke219IG9mIHRoZW0gZm9yIHN0YXJzLCBvbmUgc3RhciBwZXIgZHJhdywgYCArXG4gICAgICAgIGBhbmQgcHV0IGEgYmFyIGluIGVhY2ggcmVtYWluaW5nIHNsb3QuIGAgK1xuICAgICAgICBgVGhlICR7YmFycyA9PT0gMSA/IFwiYmFyIGRpdmlkZXNcIiA6IGAke2JhcnN9IGJhcnMgZGl2aWRlYH0gdGhlIHJvdyBpbnRvICR7bn0gZ3JvdXBzLiBgICtcbiAgICAgICAgYFRob3NlIGdyb3VwcyBhcmUgdGhlIGJveGVzLiBTdGFydCBpbiBib3ggQSBhbmQgcmVhZCBmcm9tIGxlZnQgdG8gcmlnaHQuIGAgK1xuICAgICAgICBgRWFjaCBzdGFyIGNvdW50cyBhcyBvbmUgZHJhdyBvZiB0aGUgY3VycmVudCBpdGVtLiBFYWNoIGJhciBtb3ZlcyB5b3UgdG8gdGhlIG5leHQgYm94LmA7XG4gICAgfVxuICAgIGdldChcIltkYXRhLWV4cGxhbmF0aW9uXVwiKS50ZXh0Q29udGVudCA9IGV4cGxhbmF0aW9uO1xuXG4gICAgaWYgKG4gPiAwICYmIHNsb3RzID4gMCkge1xuICAgICAgY29uc3Qgcm93ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImNvZGVcIik7XG4gICAgICByb3cudGV4dENvbnRlbnQgPSBib3hlcy5tYXAodmFsdWUgPT4gXCLimIVcIi5yZXBlYXQodmFsdWUpKS5qb2luKFwi4pSCXCIpO1xuXG4gICAgICBjb25zdCBjb3VudHMgPSBib3hlcy5tYXAoKHZhbHVlLCBpKSA9PiBgJHttb2RlbC5sZXR0ZXJzW2ldfSA9ICR7dmFsdWV9YCk7XG4gICAgICByZWFkaW5nLmFwcGVuZChcIllvdXIgcm93IFwiLCByb3csIGAgZ2l2ZXMgJHtjb3VudHMuam9pbihcIiwgXCIpfS5gKTtcblxuICAgICAgY29uc3QgZW1wdHlNaWRkbGUgPSBib3hlcy5maW5kSW5kZXgoKHZhbHVlLCBpKSA9PlxuICAgICAgICB2YWx1ZSA9PT0gMCAmJiBpID4gMCAmJiBpIDwgbiAtIDFcbiAgICAgICk7XG4gICAgICBpZiAoZW1wdHlNaWRkbGUgIT09IC0xKSB7XG4gICAgICAgIHJlYWRpbmcuYXBwZW5kKGAgVGhlIGJhcnMgb24gZWl0aGVyIHNpZGUgb2YgYm94ICR7bW9kZWwubGV0dGVyc1tlbXB0eU1pZGRsZV19IHRvdWNoIGJlY2F1c2UgdGhhdCBib3ggaXMgZW1wdHkuYCk7XG4gICAgICB9IGVsc2UgaWYgKGJveGVzWzBdID09PSAwKSB7XG4gICAgICAgIHJlYWRpbmcuYXBwZW5kKFwiIFRoZSByb3cgc3RhcnRzIHdpdGggYSBiYXIgYmVjYXVzZSBib3ggQSBpcyBlbXB0eS5cIik7XG4gICAgICB9IGVsc2UgaWYgKGJveGVzW24gLSAxXSA9PT0gMCkge1xuICAgICAgICByZWFkaW5nLmFwcGVuZChgIFRoZSByb3cgZW5kcyB3aXRoIGEgYmFyIGJlY2F1c2UgYm94ICR7bW9kZWwubGV0dGVyc1tuIC0gMV19IGlzIGVtcHR5LmApO1xuICAgICAgfVxuICAgIH1cblxuICAgIGNvbnN0IGJpbnMgPSBnZXQoXCIuYmluc1wiKTtcbiAgICBiaW5zLnJlcGxhY2VDaGlsZHJlbigpO1xuXG4gICAgYm94ZXMuZm9yRWFjaCgodmFsdWUsIGkpID0+IHtcbiAgICAgIGNvbnN0IGxldHRlciA9IG1vZGVsLmxldHRlcnNbaV07XG4gICAgICBjb25zdCBidXR0b24gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiYnV0dG9uXCIpO1xuICAgICAgYnV0dG9uLnR5cGUgPSBcImJ1dHRvblwiO1xuICAgICAgYnV0dG9uLmNsYXNzTmFtZSA9IFwiYmluXCI7XG4gICAgICBidXR0b24uZGlzYWJsZWQgPSBtID09PSAwIHx8IG4gPT09IDE7XG4gICAgICBidXR0b24uc2V0QXR0cmlidXRlKFwiYXJpYS1wcmVzc2VkXCIsIFN0cmluZyhzb3VyY2UgPT09IGkpKTtcbiAgICAgIGJ1dHRvbi5zZXRBdHRyaWJ1dGUoXCJhcmlhLWxhYmVsXCIsIGBCb3ggJHtsZXR0ZXJ9LCAke3ZhbHVlfSAke3ZhbHVlID09PSAxID8gXCJzdGFyXCIgOiBcInN0YXJzXCJ9YCk7XG4gICAgICBidXR0b24ub25jbGljayA9ICgpID0+IHBpY2soaSk7XG5cbiAgICAgIGNvbnN0IHRpdGxlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInN0cm9uZ1wiKTtcbiAgICAgIHRpdGxlLnRleHRDb250ZW50ID0gYCR7bGV0dGVyfSAoJHt2YWx1ZX0pYDtcblxuICAgICAgY29uc3Qgc3RhcnMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwic3BhblwiKTtcbiAgICAgIHN0YXJzLmNsYXNzTmFtZSA9IFwic3RhcnNcIjtcbiAgICAgIHN0YXJzLnRleHRDb250ZW50ID0gdmFsdWUgPyBcIuKYhVwiLnJlcGVhdCh2YWx1ZSkgOiBcImVtcHR5XCI7XG5cbiAgICAgIGJ1dHRvbi5hcHBlbmQodGl0bGUsIHN0YXJzKTtcbiAgICAgIGJpbnMuYXBwZW5kQ2hpbGQoYnV0dG9uKTtcbiAgICB9KTtcblxuICAgIGNvbnN0IG91dGNvbWUgPSBib3hlcy5tYXAoKHZhbHVlLCBpKSA9PiBtb2RlbC5sZXR0ZXJzW2ldLnJlcGVhdCh2YWx1ZSkpLmpvaW4oXCJcIik7XG4gICAgaWYgKHRvdGFsID09PSAwbikge1xuICAgICAgZ2V0KFwiW2RhdGEtYW5zd2VyXVwiKS50ZXh0Q29udGVudCA9IFwiMCBwb3NzaWJsZSBvdXRjb21lcy5cIjtcbiAgICB9IGVsc2UgaWYgKHRvdGFsID09PSAxbikge1xuICAgICAgZ2V0KFwiW2RhdGEtYW5zd2VyXVwiKS50ZXh0Q29udGVudCA9IGBPbmx5IG91dGNvbWU6ICR7b3V0Y29tZSB8fCBcImVtcHR5IHNlbGVjdGlvblwifS5gO1xuICAgIH0gZWxzZSB7XG4gICAgICBnZXQoXCJbZGF0YS1hbnN3ZXJdXCIpLnRleHRDb250ZW50ID1cbiAgICAgICAgYFRoZXNlIGJveGVzIHNob3cgJHtvdXRjb21lfSwgb25lIG9mICgke3Nsb3RzfSBjaG9vc2UgJHttfSkgPSBgICtcbiAgICAgICAgYCR7bW9kZWwuZm9ybWF0KHRvdGFsKX0gcG9zc2libGUgb3V0Y29tZXMuYDtcbiAgICB9XG5cbiAgICBnZXQoXCJbZGF0YS1oaW50XVwiKS50ZXh0Q29udGVudCA9IG4gPiAxICYmIG0gPiAwXG4gICAgICA/IGhpbnQgfHwgXCJUbyBtb3ZlIG9uZSBzdGFyLCBjbGljayBpdHMgYm94IGFuZCB0aGVuIGl0cyBkZXN0aW5hdGlvbi5cIlxuICAgICAgOiBcIlwiO1xuICB9XG5cbiAgZ2V0KFwiW2RhdGEtbl1cIikub25jaGFuZ2UgPSBldmVudCA9PiBtb2RlbC5zZXQoTnVtYmVyKGV2ZW50LnRhcmdldC52YWx1ZSksIG1vZGVsLm0pO1xuICBnZXQoXCJbZGF0YS1tXVwiKS5vbmNoYW5nZSA9IGV2ZW50ID0+IG1vZGVsLnNldChtb2RlbC5uLCBOdW1iZXIoZXZlbnQudGFyZ2V0LnZhbHVlKSk7XG4gIGdldChcIltkYXRhLXJlc2V0XVwiKS5vbmNsaWNrID0gcmVzZXQ7XG5cbiAgbW9kZWwuY2hhbmdlcy5hZGRFdmVudExpc3RlbmVyKFwiY2hhbmdlXCIsIHJlc2V0KTtcbiAgaW52YWxpZGF0aW9uLnRoZW4oKCkgPT4gbW9kZWwuY2hhbmdlcy5yZW1vdmVFdmVudExpc3RlbmVyKFwiY2hhbmdlXCIsIHJlc2V0KSk7XG5cbiAgcmVzZXQoKTtcbiAgcmV0dXJuIHdpZGdldDtcbn1cbiJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../pages/notes";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kaherbst97\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://www.linkedin.com/in/konnor-herbst-20/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> · <a href="https://orcid.org/0000-0002-3629-9337" target="_blank" aria-label="ORCID"><i class="fa-brands fa-orcid" aria-label="orcid"></i></a> · <a href="https://scholar.google.com/citations?user=n-dBubAAAAAJ&amp;hl=en" target="_blank" aria-label="Google Scholar"><i class="ai  ai-google-scholar" aria-label="google-scholar"></i></a> · <a href="https://github.com/KAHerbst97" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github" aria-label="github"></i></a> · <a href="../..\attachments/kah_cv.pdf" target="_blank"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> CV</a> · <a href="../..\attachments/kah_resume.pdf" target="_blank"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Résumé</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>© 2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
