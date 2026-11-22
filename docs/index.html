@@ -151,12 +151,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./pages/research_overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
-        <li class="dropdown-header">Current Research Viz</li>
+        <li class="dropdown-header">Visualizations</li>
         <li>
     <a class="dropdown-item" href="./pages/research/copriority_win.html">
  <span class="dropdown-text">Co-Priority Win Statistics</span></a>
   </li>  
-        <li class="dropdown-header">Past Projects Viz</li>
         <li>
     <a class="dropdown-item" href="./pages/research/cf_TRIP.html">
  <span class="dropdown-text">Triangle Permutation (TRIP) Maps</span></a>
@@ -229,17 +228,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="kh-bio">
-<p><em>What makes one treatment or policy better than another?</em> The answer often depends on who is affected, which outcomes matter, what we choose to measure and how decisions unfold over time.</p>
-<p>I develop statistical methods to help answer these questions by comparing treatments across multiple, sometimes competing outcomes, understanding why some people benefit more than others, and learning treatment strategies that adapt to individual needs and changing circumstances. My applied interests are still developing but currently include cardiovascular and aging-related diseases, precision medicine, drug repurposing, and policy evaluation in healthcare and education.</p>
+<p>I’m interested in developing statistical methods for comparing treatments across multiple outcomes, characterizing effect heterogeneity, and learning individualized and adaptive treatment strategies. Much of this work lies at the intersection of causal inference, statistical learning, and clinical trial design.</p>
+<p>What I love about statistics is that it forces you to be precise about what you understand and, often, what you don’t. While modern methods have given us powerful tools for analyzing data, our understanding of their limitations and what we can conclude from them hasn’t always kept pace. This motivates me to ask not just what we can learn from data, but which questions we’re answering, what assumptions we’re making, what conclusions those assumptions actually justify, and how to communicate our findings so they can be understood and used responsibly by non-statisticians.</p>
+<p>On this site, you’ll find an overview of my <a href="./pages/research_overview.html">research</a> and a growing collection of <a href="./pages/notes_overview.html">statistics notes</a> I’m putting together along the way.</p>
 </div>
 </div>
 <div class="home-widget">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="61" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 60;"><span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> moduleURL <span class="op">=</span> <span class="kw">new</span> <span class="fu">URL</span>(<span class="st">"home-assets/explorer.js"</span><span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="at">baseURI</span>)<span class="op">;</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { createExplorer } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(moduleURL<span class="op">.</span><span class="at">href</span>)<span class="op">;</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">createExplorer</span>(html)<span class="op">;</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="63" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 62;"><span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> moduleURL <span class="op">=</span> <span class="kw">new</span> <span class="fu">URL</span>(<span class="st">"home-assets/explorer.js"</span><span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="at">baseURI</span>)<span class="op">;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { createExplorer } <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(moduleURL<span class="op">.</span><span class="at">href</span>)<span class="op">;</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">createExplorer</span>(html)<span class="op">;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="expression">
 
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="recent-news" class="level2 unlisted unnumbered kh-news" aria-label="Recent news">
+<section id="recent-news" class="level2 unlisted unnumbered kh-news" aria-label="Selected Updates">
 <h2 class="unlisted unnumbered anchored" data-anchor-id="recent-news">Recent news</h2>
 <!-- Newest first. Add a date, a newline, then a colon and the update. -->
 <dl>
