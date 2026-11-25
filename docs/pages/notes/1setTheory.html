@@ -249,6 +249,7 @@ window.Quarto = {
   <li><a href="#inclusionexclusion" id="toc-inclusionexclusion" class="nav-link" data-scroll-target="#inclusionexclusion">Inclusion–exclusion</a></li>
   <li><a href="#distributive-laws" id="toc-distributive-laws" class="nav-link" data-scroll-target="#distributive-laws">Distributive Laws</a></li>
   <li><a href="#de-morgans-laws" id="toc-de-morgans-laws" class="nav-link" data-scroll-target="#de-morgans-laws">De Morgan’s Laws</a></li>
+  <li><a href="#cartesian-products" id="toc-cartesian-products" class="nav-link" data-scroll-target="#cartesian-products">Cartesian products</a></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 </nav>
@@ -690,7 +691,7 @@ Theorem: Pigeonhole principle
 <p>“Some infinities are bigger than other infinities.” — <strong>John Green</strong>, <em>The Fault in Our Stars</em></p>
 </blockquote>
 </div>
-<p>The <strong>cardinality</strong> of a finite set <span class="math inline">\(A\)</span>, written <span class="math inline">\(|A|\)</span>, is simply the number of elements it contains. For example, <span class="math inline">\(|\{1,2,3\}|=3\)</span>. But <em>what does it mean to count the elements of an infinite set?</em> Clearly, we could never finish counting infinitely many elements, but could we at least arrange them in a sequence that eventually reaches every element? Or are there infinite sets for which <strong>every possible enumeration necessarily leaves some elements out</strong>?</p>
+<p>The <strong>cardinality</strong> of a finite set <span class="math inline">\(A\)</span>, written <span class="math inline">\(|A|\)</span>, is simply the number of elements it contains. For example, <span class="math inline">\(|\{1,2,3\}|=3\)</span>. But <em>what does it mean to count the elements of an infinite set?</em> Clearly, we could never finish counting infinitely many elements, but could we at least arrange them in a sequence that eventually reaches every element? Or are there infinite sets for which <em>every possible enumeration necessarily leaves some elements out</em>?</p>
 <p>To answer these questions, we compare the sizes of sets using <strong>bijections</strong> between their elements. Two sets have the same cardinality if there exists a bijection between them. This definition applies to both finite and infinite sets, allowing us to distinguish between different sizes of infinity.</p>
 <p>We will explore functions and their properties in greater detail in the calculus and later analysis sections, but for now, a <strong>bijection is simply an invertible function</strong>: every element of the target set is matched with exactly one element of the original set, so the correspondence can be uniquely reversed.</p>
 <p>For example, consider the natural numbers <span class="math inline">\(\mathbb N=\{1,2,3,\ldots\}\)</span> and the positive even integers <span class="math inline">\(E=\{2,4,6,\ldots\}\)</span>. Although <span class="math inline">\(E\)</span> is a proper subset of <span class="math inline">\(\mathbb N\)</span>, the function</p>
@@ -724,7 +725,7 @@ Remark: Different sizes of infinity
 =2^{\aleph_0}
 &gt;\aleph_0.
 \]</span></p>
-<p>This larger cardinality is called the <strong>cardinality of the continuum</strong>. Even the interval <span class="math inline">\([0,1]\)</span> contains strictly more elements than the entire set of natural numbers.</p>
+<p>This larger cardinality is called the <em>cardinality of the continuum</em>. Even the interval <span class="math inline">\([0,1]\)</span> contains strictly more elements than the entire set of natural numbers.</p>
 </div>
 </div>
 </div>
@@ -1022,8 +1023,8 @@ C\cup\left(\bigcap_{i\in I} A_i\right)
 &amp;= \bigcap_{i\in I}(C\cup A_i).
 \end{aligned}
 \]</span></p>
-<p><strong>Intersection distributes over union.</strong> The left-hand side contains elements that belong to <span class="math inline">\(C\)</span> <strong>and at least one</strong> of the sets <span class="math inline">\(A_i\)</span>. Equivalently, we could first find the elements shared by <span class="math inline">\(C\)</span> and each individual <span class="math inline">\(A_i\)</span>, then take their union. Either way, we obtain exactly the same elements.</p>
-<p><strong>Union distributes over intersection.</strong> The left-hand side contains elements that belong to <span class="math inline">\(C\)</span> <strong>or to every</strong> set <span class="math inline">\(A_i\)</span>. Equivalently, we could take the union of <span class="math inline">\(C\)</span> with each individual <span class="math inline">\(A_i\)</span>, then retain only the elements that appear in every resulting union.</p>
+<p><strong>Intersection distributes over union.</strong> The left-hand side contains elements that belong to <span class="math inline">\(C\)</span> <em>and at least one</em> of the sets <span class="math inline">\(A_i\)</span>. Equivalently, we could first find the elements shared by <span class="math inline">\(C\)</span> and each individual <span class="math inline">\(A_i\)</span>, then take their union. Either way, we obtain exactly the same elements.</p>
+<p><strong>Union distributes over intersection.</strong> The left-hand side contains elements that belong to <span class="math inline">\(C\)</span> <em>or to every</em> set <span class="math inline">\(A_i\)</span>. Equivalently, we could take the union of <span class="math inline">\(C\)</span> with each individual <span class="math inline">\(A_i\)</span>, then retain only the elements that appear in every resulting union.</p>
 <p>Recall that intersection corresponds to logical conjunction (<span class="math inline">\(\land\)</span>), while union corresponds to logical disjunction (<span class="math inline">\(\lor\)</span>). The distributive laws are therefore equivalent to the following logical statements:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1105,7 +1106,10 @@ Proof
 </div>
 </div>
 </div>
-<p>The key idea is that <strong>taking a complement reverses the condition connecting the sets</strong>: to be outside a union, we must be outside <em>every</em> set; to be outside an intersection, we need only be outside <em>one</em> set. ## Cartesian products</p>
+<p>The key idea is that <strong>taking a complement reverses the condition connecting the sets</strong>: to be outside a union, we must be outside <em>every</em> set; to be outside an intersection, we need only be outside <em>one</em> set.</p>
+</section>
+<section id="cartesian-products" class="level2">
+<h2 class="anchored" data-anchor-id="cartesian-products">Cartesian products</h2>
 <p>The Cartesian product of two sets <span class="math inline">\(S\)</span> and <span class="math inline">\(T\)</span> is the set of ordered pairs <span class="math display">\[
 S\times T=\{(s,t):s\in S,\ t\in T\}.
 \]</span> If the sets are finite, each of the <span class="math inline">\(|S|\)</span> choices for the first entry can be paired with any of the <span class="math inline">\(|T|\)</span> choices for the second. Thus <span class="math inline">\(|S\times T|=|S||T|\)</span>. For two die rolls, this gives <span class="math inline">\(6^2=36\)</span> ordered pairs.</p>
